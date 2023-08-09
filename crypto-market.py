@@ -119,8 +119,10 @@ config = configparser.ConfigParser()
 config.read('trade-scan config.ini')
 output_path = config.get('Paths', 'output_path')
 
-from datetime import date
-output_name = "crypto-market-" + date.today().strftime("%Y-%m-%d") + ".csv"
+import datetime
+current_datetime = datetime.datetime.now()
+formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+output_name = "crypto-market-" + formatted_datetime + ".csv"
 
 df_trim.to_csv(output_path + "\\" + output_name)
 

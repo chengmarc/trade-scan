@@ -130,7 +130,7 @@ config.read('trade-scan config.ini')
 output_path = config.get('Paths', 'output_path')
 
 from datetime import date
-output_name = "stock-market-ca" + date.today().strftime("%Y-%m-%d") + ".csv"
+output_name = "stock-market-ca-" + date.today().strftime("%Y-%m-%d") + ".csv"
 
 df_trim.to_csv(output_path + "\\" + output_name)
 
