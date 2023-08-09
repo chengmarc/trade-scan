@@ -1,0 +1,749 @@
+,Symbol,Name,Rank,Price,Change24h,MarketCap,Volume24h,Supply,Category
+0,BTC,Bitcoin,1,29558.98,-0.69%,574937000000.0,18547000000.0,19450000.0,"Cryptocurrencies, Layer 1"
+1,ETH,Ethereum,2,1853.91,-0.15%,222663000000.0,5910000000.0,120104000.0,"Smart contract platforms, Layer 1"
+2,USDT,Tether,3,1.00297500,-0.09%,83781000000.0,23114000000.0,83532000000.0,"Stablecoins, Asset-backed Stablecoins"
+3,BNB,BNB,4,243.71500000,-0.61%,37496000000.0,398496000.0,153853000.0,"Smart contract platforms, Centralized exchange, Layer 1"
+4,XRP,XRP,5,0.64046,-0.55%,33779000000.000004,1634000000.0,52741000000.0,"Cryptocurrencies, Enterprise solutions, Layer 1"
+5,USDC,USD Coin,6,1.00004233,-0.19%,26242000000.0,3149000000.0,26241000000.0,"Stablecoins, Asset-backed Stablecoins"
+6,ADA,Cardano,7,0.303339,0.65%,10626000000.0,249005000.0,35031000000.0,"Smart contract platforms, Layer 1"
+7,DOGE,Dogecoin,8,0.0749565,-0.69%,10531000000.0,333683000.0,140494000000.0,"Memes, Cryptocurrencies, Layer 1"
+8,SOL,Solana,9,24.3148,0.93%,9867000000.0,461688000.0,405784000.0,"Smart contract platforms, Layer 1"
+9,TRX,TRON,10,0.07736208,0.53%,6925000000.0,191400000.0,89519000000.0,"Smart contract platforms, Payments, Layer 1"
+10,MATIC,Polygon,11,0.689158,0.65%,6421000000.0,271120000.0,9317000000.0,Scaling
+11,DOT,Polkadot,12,5.032375,-0.43%,6257000000.0,195296000.0,1243000000.0,"Smart contract platforms, Layer 1"
+12,LTC,Litecoin,13,83.850648,-0.09%,6162000000.0,1085000000.0,73492000.0,"Cryptocurrencies, Layer 1"
+13,SHIB,Shiba Inu,14,0.00000969,2.65%,5711000000.0,366186000.0,N/A,"Memes, Cryptocurrencies"
+14,DAI,Dai,15,0.99979378,0.43%,5113000000.0,120520000.0,5114000000.0,"Stablecoins, Asset-backed Stablecoins, DeFi"
+15,WBTC,Wrapped Bitcoin,16,29548.6141,-0.88%,4793000000.0,188280000.0,162205.0,"Wrapped Tokens, Cryptocurrencies"
+16,BCH,Bitcoin Cash,17,238.24769,-0.80%,4640000000.0,580594000.0,19477000.0,"Cryptocurrencies, Layer 1"
+17,TON,Toncoin,18,1.2511,-1.42%,N/A,26667000.0,N/A,Smart contract platforms
+18,AVAX,Avalanche,19,12.58243545,-0.77%,4357000000.0,105234000.0,346260000.0,"Smart contract platforms, Layer 1"
+19,LINK,Chainlink,20,7.7401537,4.02%,4167000000.0,626307000.0,538339000.0,"Oracles, Data management & AI, Web3"
+20,XLM,Stellar,21,0.14103310,-1.35%,3860000000.0,131476000.0,27368000000.0,"Cryptocurrencies, Smart contract platforms, Layer 1"
+21,LEO,UNUS SED LEO,22,3.9789,0.76%,3691000000.0,1948000.0,927542000.0,"Centralized exchange, Payments"
+22,UNI,Uniswap,23,6.1969745,2.19%,4668000000.0,87705000.0,753331000.0,"Decentralized exchange, DeFi, DAO"
+23,BUSD,Binance USD,24,1.00029875,-0.05%,3394000000.0,1307000000.0,3393000000.0,"Stablecoins, Asset-backed Stablecoins"
+24,TUSD,TrueUSD,25,0.99958817,-0.08%,2994000000.0,2672000000.0,2996000000.0,"Stablecoins, Asset-backed Stablecoins"
+25,ATOM,Cosmos,26,8.5126462,-0.24%,2951000000.0,73535000.0,346609000.0,"Smart contract platforms, Interoperability, Layer 1"
+26,OKB,OKB,27,48.304,2.99%,2896000000.0,6690000.0,59945000.0,"Centralized exchange, Layer 1"
+27,XMR,Monero,28,157.50185249,-0.89%,2885000000.0,78770000.0,18316000.0,"Privacy, Cryptocurrencies, Layer 1"
+28,ETC,Ethereum Classic,29,18.024537,-0.09%,2567000000.0,129594000.0,142411000.0,"Smart contract platforms, Layer 1"
+29,HBAR,Hedera,30,0.06010106,-2.16%,1957000000.0,113030000.0,32560000000.000004,"Smart contract platforms, Enterprise solutions, Layer 1"
+30,FIL,Filecoin,31,4.1317298,-0.32%,1817000000.0,179342000.0,439836000.0,"Distributed computing & Storage, Web3"
+31,ICP,Internet Computer,32,4.081,-0.90%,1800000000.0,18683000.0,440950000.0,"Smart contract platforms, Distributed computing & Storage, NFTs & Collectibles, Lending & Borrowing, Interoperability, Payments, DeFi, DAO, Layer 1"
+32,APT,Aptos,33,7.31310302,9.11%,1608000000.0,625420000.0,219912000.0,"Smart contract platforms, Layer 1"
+33,LDO,Lido DAO,34,1.86519573,0.42%,1638000000.0,70425000.0,878245000.0,"Derivatives, DeFi, DAO"
+34,MNT,Mantle,35,0.46505860,-5.49%,1504000000.0,39659000.0,3234000000.0,N/A
+35,ARB,Arbitrum,36,1.17483235,1.47%,1498000000.0,212855000.0,1275000000.0,"Scaling, Web3, DAO"
+36,CRO,Cronos,37,0.05749267,-1.02%,1500000000.0,8042999.999999999,26096000000.0,"Smart contract platforms, Centralized exchange, Payments, Layer 1"
+37,VET,VeChain,38,0.01773943,-2.31%,1290000000.0,26942000.0,72715000000.0,"Smart contract platforms, Internet of things, Logistics, Layer 1"
+38,NEAR,NEAR Protocol,39,1.34545452,-1.10%,1267000000.0,41831000.0,941672000.0,"Smart contract platforms, Layer 1"
+39,QNT,Quant,40,102.237118,-0.09%,1486000000.0,12812000.0,14532000.0,Interoperability
+40,MKR,Maker,41,1205.32981,-1.03%,1085000000.0,70728000.0,900418.0,"Lending & Borrowing, DeFi, DAO"
+41,OP,Optimism,42,1.55822151,-7.61%,1115000000.0,174137000.0,715825000.0,Scaling
+42,GRT,The Graph,43,0.10819764,0.53%,986567000.0,60945000.0,9118000000.0,"Data management & AI, Enterprise solutions, Web3"
+43,AAVE,Aave,44,66.840245,0.48%,970564000.0,78298000.0,14521000.0,"Lending & Borrowing, DeFi, DAO"
+44,ALGO,Algorand,45,0.11283482,-0.62%,881143000.0,40294000.0,7809000000.0,"Smart contract platforms, Layer 1"
+45,XDC,XDC Network,46,0.062006,-6.73%,859100000.0,17561000.0,13855000000.0,"Smart contract platforms, Enterprise solutions, Layer 1"
+46,SAND,The Sandbox,47,0.40439156,-0.90%,831247000.0,71566000.0,2056000000.0,"Gaming, NFTs & Collectibles, Metaverse, Marketplace"
+47,AXS,Axie Infinity,48,5.9289595,-0.46%,774500000.0,34698000.0,130630000.0,"Gaming, NFTs & Collectibles, Metaverse"
+48,STX,Stacks,49,0.58271386,-1.89%,814611000.0,40555000.0,1398000000.0,"Smart contract platforms, NFTs & Collectibles, DeFi, Metaverse, Web3"
+49,EGLD,Elrond,50,31.057056,-1.23%,801724000.0,17421000.0,25815000.0,"Smart contract platforms, Layer 1"
+50,EOS,EOS,51,0.72669561,0.34%,798801000.0,102214000.0,1099000000.0,Smart contract platforms
+51,IMX,Immutable X,52,0.72223149,-1.49%,781366000.0,16360000.0,1082000000.0,"Developments tools, Gaming, NFTs & Collectibles, Scaling, Marketplace"
+52,XTZ,Tezos,53,0.78987740,-1.09%,748858000.0,14217000.0,948068000.0,"Smart contract platforms, Layer 1"
+53,USDD,USDD,54,0.99868927,-0.10%,740246000.0,22632000.0,741218000.0,"Stablecoins, Algorithmic Stablecoins"
+54,THETA,Theta Network,55,0.74007551,0.94%,740076000.0,12072000.0,1000000000.0,"Smart contract platforms, Enterprise solutions, Social, media & Content, Web3"
+55,MANA,Decentraland,56,0.36698404,-1.06%,675673000.0,45587000.0,1841000000.0,"Gaming, NFTs & Collectibles, Metaverse"
+56,SNX,Synthetix,57,2.5854309,0.43%,693592000.0,37283000.0,268269000.0,"Decentralized exchange, Derivatives, DeFi, DAO"
+57,BSV,Bitcoin SV,58,36.02632,-1.17%,694086000.0,518203000.0,19266000.0,"Cryptocurrencies, Scaling"
+58,APE,ApeCoin,59,1.82842833,-1.51%,673423000.0,50048000.0,368307000.0,NFTs & Collectibles
+59,FTM,Fantom,60,0.23516500,-0.81%,658641000.0,42655000.0,2801000000.0,"Smart contract platforms, Enterprise solutions, Layer 1"
+60,INJ,Injective,61,7.8613317,-3.22%,658443000.0,26079000.0,83757000.0,"Smart contract platforms, Data management & AI, Interoperability, DeFi, Web3, Layer 1"
+61,RNDR,Render Token,62,1.6618829,1.52%,614373000.0,26542000.0,369685000.0,"Gaming, Distributed computing & Storage, Data management & AI, Metaverse, Web3"
+62,NEO,Neo,63,8.58573211,0.35%,605628000.0,306635000.0,70539000.0,"Smart contract platforms, Enterprise solutions"
+63,FLOW,Flow,64,0.55449440,-1.23%,574567000.0,22598000.0,1036000000.0,"Smart contract platforms, NFTs & Collectibles, Sports, Layer 1"
+64,XEC,eCash,65,0.00002929,-2.46%,570160000.0,11180000.0,N/A,"Cryptocurrencies, Layer 1"
+65,KAVA,Kava,66,0.82676921,-0.98%,564881000.0,8622000.0,683239000.0,Smart contract platforms
+66,CFX,Conflux,67,0.17771020,-0.05%,562489000.0,18515000.0,3165000000.0,"Smart contract platforms, Interoperability, DeFi, Web3"
+67,KCS,KuCoin Token,68,5.60814112,-0.60%,540150000.0,548301.0,96315000.0,Centralized exchange
+68,CHZ,Chiliz,69,0.07577002,-0.93%,528773000.0,25237000.0,6979000000.0,"Loyalty & Rewards, Sports, Layer 1"
+69,GALA,Gala,70,0.02317080,-1.68%,582523000.0,55025000.0,25140000000.0,"Gaming, NFTs & Collectibles"
+70,CRV,Curve DAO Token,71,0.60707568,1.61%,528592000.0,65560000.0,870719000.0,"Decentralized exchange, DeFi, DAO"
+71,RPL,Rocket Pool,72,26.96177402,4.64%,528549000.0,10039000.0,19604000.0,"Derivatives, DeFi"
+72,USDP,Pax Dollar,73,0.9967,-0.50%,505161000.0,9116000.0,506834000.0,"Stablecoins, Asset-backed Stablecoins, Cryptocurrencies"
+73,KLAY,Klaytn,74,0.15611273,-0.29%,499079000.0,5941000.0,3197000000.0,"Smart contract platforms, Gaming, Metaverse"
+74,MIOTA,IOTA,75,0.17344195,-0.27%,482087000.0,5428000.0,2780000000.0,"Cryptocurrencies, Internet of things"
+75,ZEC,Zcash,76,29.348117,-0.89%,N/A,55654000.0,N/A,"Privacy, Cryptocurrencies, Layer 1"
+76,PAXG,PAX Gold,77,1925.126573,-0.23%,477851000.0,7316000.0,248218.0,Asset-backed Tokens
+77,PEPE,Pepe,78,0.0000012200,3.60%,515835000.00000006,169732000.0,N/A,Memes
+78,XAUT,Tether Gold,79,1915.89,-0.58%,471960000.0,1175000.0,246340.0,Asset-backed Tokens
+79,LUNC,Terra Classic,80,0.00007762,-0.94%,451307000.0,15328000.0,N/A,"Smart contract platforms, Payments, Layer 1"
+80,FXS,Frax Share,81,6.18412729,-0.09%,450035000.0,30302000.0,72773000.0,"Algorithmic Stablecoins, Seigniorage, Derivatives, DeFi"
+81,GMX,GMX,82,49.85016742,0.54%,445356000.0,12847000.0,8934000.0,"Decentralized exchange, Derivatives, DeFi"
+82,BTT,BitTorrent-New,83,0.0000004700,1.06%,444409000.0,12338000.0,N/A,"Distributed computing & Storage, Web3"
+83,COMP,Compound,84,55.548609,-0.79%,381345000.0,58539000.0,6865000.0,"Lending & Borrowing, DeFi, DAO"
+84,CSPR,Casper,85,0.038236,-1.64%,429486000.0,5229000.0,11232000000.0,"Smart contract platforms, Enterprise solutions, Layer 1"
+85,MINA,Mina,86,0.45243883,-0.73%,428998000.0,12066000.0,948190000.0,"Smart contract platforms, Layer 1"
+86,SUI,Sui,87,0.59200966,-0.74%,428119000.0,103852000.0,723162000.0,"Smart contract platforms, Developments tools, Scaling, Layer 1"
+87,HT,Huobi Token,88,2.5946,-0.65%,413314000.0,18150000.0,159298000.0,"Centralized exchange, Layer 1"
+88,GT,GateToken,89,4.0923,0.03%,393042000.0,857442.0,96044000.0,Centralized exchange
+89,TWT,Trust Wallet Token,90,0.91199112,-1.78%,379981000.0,5346000.0,416650000.0,Payments
+90,DASH,Dash,91,32.759320,-0.69%,373351000.0,54352000.0,11397000.0,"Privacy, Cryptocurrencies, DAO"
+91,BONE,Bone ShibaSwap,92,1.6100,-3.35%,370759000.0,9889000.0,230285000.0,"Memes, Decentralized exchange, NFTs & Collectibles, DeFi"
+92,NEXO,Nexo,93,0.65089204,0.13%,364648000.0,1849000.0,560228000.0,"Lending & Borrowing, Payments"
+93,GUSD,Gemini Dollar,94,1.000,0.60%,360222000.0,1221000.0,360222000.0,"Stablecoins, Asset-backed Stablecoins"
+94,AR,Arweave,95,5.2708600,-0.35%,345000000.0,3970000.0,65453999.99999999,"Distributed computing & Storage, Web3"
+95,RUNE,THORChain,96,1.00837787,0.32%,342273000.0,35419000.0,339430000.0,"Decentralized exchange, DeFi, Layer 1"
+96,DYDX,dYdX,97,2.12670694,1.77%,364011000.0,44339000.0,171162000.0,"Decentralized exchange, Derivatives, DeFi"
+97,WOO,WOO Network,98,0.18802285,1.76%,325426000.0,9829000.0,1731000000.0,"Centralized exchange, DeFi"
+98,CAKE,PancakeSwap,99,1.49246740,-0.60%,318352000.0,17275000.0,213306000.0,"Decentralized exchange, DeFi"
+99,NFT,APENFT,100,0.0000003200,-0.47%,317527000.0,19725000.0,N/A,"NFTs & Collectibles, Marketplace"
+100,ZIL,Zilliqa,101,0.01997862,-0.55%,317015000.0,13862000.0,15868000000.0,"Smart contract platforms, Layer 1"
+101,BAT,Basic Attention Token,102,0.21109858,-1.23%,314121000.0,32717000.0,1488000000.0,"Social, media & Content, Marketing, Web3"
+102,1INCH,1inch Network,103,0.30534032,-0.47%,313542000.0,16096000.0,1026999999.9999999,"Decentralized exchange, Payments, DeFi"
+103,FLR,FLARE,104,0.01484,0.75%,309446000.0,11202000.0,20852000000.0,"Developments tools, Interoperability, Layer 1"
+104,LRC,Loopring,105,0.21993687,-2.53%,273713000.0,17348000.0,1245000000.0,"Decentralized exchange, Scaling, DeFi"
+105,HNT,Helium,106,2.00987040,-2.98%,289290000.0,2043000.0000000002,143935000.0,"Internet of things, Enterprise solutions, Web3"
+106,GNO,Gnosis,107,111.83000000,0.30%,289323000.0,2007000.0000000002,2587000.0,"Prediction markets, DeFi"
+107,ENJ,Enjin Coin,108,0.28750956,-1.42%,287702000.0,13427000.0,1000999999.9999999,"Gaming, NFTs & Collectibles, Metaverse, Marketplace"
+108,MASK,Mask Network,109,3.48294536,0.45%,285993000.0,46460000.0,82113000.0,"Privacy, Social, media & Content, Web3"
+109,MX,MX TOKEN,110,2.7918,-2.12%,279180000.0,3743000.0,100000000.0,Centralized exchange
+110,QTUM,Qtum,111,2.64842837,1.76%,277438000.0,43273000.0,104756000.0,Smart contract platforms
+111,XEM,NEM,112,0.03011000,2.44%,270990000.0,14226000.0,9000000000.0,"Cryptocurrencies, Smart contract platforms, Enterprise solutions"
+112,ROSE,Oasis Network,113,0.04676782,-0.43%,267779000.0,9754000.0,5726000000.0,"Privacy, Smart contract platforms, Data management & AI, Layer 1"
+113,ENS,Ethereum Name Service,114,9.1624470,-1.77%,236338000.0,7118000.0,25794000.0,"Identity, Web3, DAO"
+114,BTG,Bitcoin Gold,115,15.00920,-2.65%,262870000.0,6805000.0,17514000.0,Cryptocurrencies
+115,CELO,Celo,116,0.50207907,-0.78%,255281000.0,10890000.0,508448000.0,"Smart contract platforms, Payments, Layer 1"
+116,CVX,Convex Finance,117,3.22129096,0.38%,255804000.0,6281000.0,79410000.0,DeFi
+117,AGIX,SingularityNET,118,0.20814605,-0.45%,N/A,19513000.0,N/A,"Data management & AI, Payments, Marketplace"
+118,XCH,Chia,119,30.993,-0.87%,251946000.0,8382000.0,8129000.0,Smart contract platforms
+119,TFUEL,Theta Fuel,120,0.04019034,0.02%,250737000.0,1947000.0,6239000000.0,"Social, media & Content"
+120,ANKR,Ankr,121,0.02416287,-1.64%,197170000.0,9962000.0,8160000000.0,"Distributed computing & Storage, Derivatives, Enterprise solutions, Web3"
+121,BLUR,Blur,122,0.28621677,-0.60%,N/A,18998000.0,N/A,NFTs & Collectibles
+122,RVN,Ravencoin,123,0.01802574,-0.67%,231485000.0,5404000.0,12842000000.0,"Cryptocurrencies, DeFi"
+123,ASTR,Astar,124,0.05126611,-2.41%,230486000.0,6670000.0,4496000000.0,"Smart contract platforms, Interoperability, Layer 1"
+124,WLD,Worldcoin,125,1.82968279,-5.93%,226084000.0,70144000.0,123564000.0,"Privacy, Identity"
+125,GMT,STEPN,126,0.20352155,-1.78%,222331000.0,17588000.0,1092000000.0,"NFTs & Collectibles, Move to earn"
+126,DCR,Decred,127,14.480132,-0.72%,222976000.0,1077000.0,15399000.0,"Privacy, Cryptocurrencies, DAO"
+127,OSMO,Osmosis,128,0.45575477,-0.48%,224501000.0,4860000.0,492591000.0,"Smart contract platforms, Decentralized exchange"
+128,GLM,Golem,129,0.22792619,2.46%,227897000.0,125723000.0,999870000.0,"Distributed computing & Storage, Payments, Web3"
+129,SFP,SafePal,130,0.44559614,3.62%,222798000.0,5310000.0,500000000.0,Payments
+130,HOT,Holo,131,0.0012902,-0.91%,N/A,7020000.0,N/A,"Developments tools, Distributed computing & Storage"
+131,BAL,Balancer,132,4.26577864,-1.03%,180913000.0,4227000.0,42410000.0,"Decentralized exchange, DeFi, DAO"
+132,WAVES,Waves,133,1.91861505,0.04%,215220000.0,41760000.0,112175000.0,"Smart contract platforms, Layer 1"
+133,T,Threshold,134,0.02370,-0.25%,211078000.0,6020000.0,8906000000.0,"Interoperability, DeFi, DAO"
+134,FLOKI,Floki Inu,135,0.0000222600,0.57%,N/A,15812000.0,N/A,"Memes, Gaming, Metaverse"
+135,OCEAN,Ocean Protocol,136,0.34322075,0.12%,148827000.0,16050999.999999998,433618000.0,"Distributed computing & Storage, Data management & AI"
+136,AUDIO,Audius,137,0.18773507,0.23%,207506000.0,23690000.0,1105000000.0,"Social, media & Content, Web3, DAO"
+137,YFI,yearn.finance,138,6316.531650,-2.24%,208512000.0,25101000.0,33011.0,"DeFi, DAO"
+138,ICX,ICON,139,0.21278641,-0.59%,205229000.0,2934000.0,964485000.0,"Smart contract platforms, Interoperability, Enterprise solutions"
+139,JST,JUST,140,0.02269459,-0.10%,202029000.0,55411000.0,8902000000.0,DeFi
+140,KSM,Kusama,141,22.73092340,0.75%,192533000.0,8518000.0,8470000.0,Smart contract platforms
+141,LUNA,Terra,142,0.56072417,-0.23%,192224000.0,30256000.0,342814000.0,Smart contract platforms
+142,SC,Siacoin,143,0.00347000,0.00%,190315000.0,5565000.0,54846000000.0,"Distributed computing & Storage, Web3"
+143,JASMY,JasmyCoin,144,0.00388,-1.02%,189460000.0,29887000.0,48830000000.0,Internet of things
+144,SXP,SXP,145,0.32834605,-0.29%,188078000.0,8574000.0,572804000.0,"Cryptocurrencies, Payments, DeFi"
+145,ZRX,0x,146,0.21508148,-0.14%,20059000.0,12308000.0,93261000.0,"Decentralized exchange, DeFi, DAO"
+146,ETHW,ETHPoW (IOU),147,1.6982,-1.75%,183098000.0,4371000.0,107819000.0,Smart contract platforms
+147,ANT,Aragon,148,4.40575586,1.03%,176507000.0,7212000.0,40063000.0,"Developments tools, DAO"
+148,ELF,aelf,149,0.28486692,-0.11%,131301999.99999999,8940000.0,460923000.0,Distributed computing & Storage
+149,SSV,ssv.network,150,17.4173601,0.20%,174174000.0,7480000.0,10000000.0,Developments tools
+150,HIVE,Hive,151,0.34367080,-1.16%,172093000.0,4837000.0,500749000.0,"Social, media & Content, Web3"
+151,MAGIC,MAGIC,152,0.75004175,-1.63%,166344000.0,40523000.0,221780000.0,"Gaming, NFTs & Collectibles, Metaverse, Marketplace"
+152,GLMR,Moonbeam,153,0.23708149,3.35%,165574000.0,4245000.0,698383000.0,"Interoperability, Payments, Layer 1"
+153,ILV,Illuvium,154,47.201883,-1.20%,266547000.00000003,6467000.0,5647000.0,"Gaming, NFTs & Collectibles, Metaverse, DAO"
+154,SUSHI,SushiSwap,155,0.71385636,-1.13%,137595000.0,18338000.0,192749000.0,"Decentralized exchange, DeFi, DAO"
+155,ONT,Ontology,156,0.18764599,0.71%,165903000.0,11346000.0,884128000.0,"Smart contract platforms, Identity"
+156,WAXP,WAX,157,0.04907451,-0.82%,163761000.0,1894000.0,3337000000.0,"Gaming, NFTs & Collectibles"
+157,FET,Fetch.ai,158,0.19709709,-1.43%,205391000.0,16684000.000000002,1042000000.0,"Data management & AI, Interoperability, Layer 1"
+158,IOTX,IoTeX,159,0.01684428,-6.45%,159100000.0,3187000.0,9445000000.0,"Smart contract platforms, Internet of things"
+159,BAND,Band Protocol,160,1.2020408,-2.40%,159424000.0,4976000.0,132627000.00000001,"Oracles, Data management & AI, Web3"
+160,IOST,IOST,161,0.00885905,-0.96%,165743000.0,4979000.0,18709000000.0,"Smart contract platforms, Internet of things, Layer 1"
+161,BICO,Biconomy,162,0.25167583,6.88%,157199000.0,10956000.0,624610000.0,"Interoperability, Web3, Layer 1"
+162,ONE,Harmony,163,0.01161727,-1.01%,156276000.0,6980000.0,13452000000.0,Smart contract platforms
+163,USTC,TerraClassicUSD,164,0.01531674,-0.05%,149957000.0,11091000.0,9790000000.0,"Stablecoins, Algorithmic Stablecoins, Seigniorage"
+164,BORA,BORA,165,0.14213,-0.49%,141242000.0,1171000.0,993750000.0,"Gaming, NFTs & Collectibles"
+165,TOMO,TomoChain,166,1.38814352,2.82%,141442000.0,12864000.0,101893000.0,"Smart contract platforms, Scaling, Enterprise solutions"
+166,AXL,Axelar,167,0.38912136,-0.47%,138316000.0,21142000.0,355457000.0,Interoperability
+167,MOB,MobileCoin,168,0.69620177,-3.29%,135959000.0,1798000.0,195286000.0,"Privacy, Payments"
+168,DGB,DigiByte,169,0.00798308,-0.77%,131098000.00000001,1517000.0,16422000000.0,"Cryptocurrencies, Smart contract platforms"
+169,LPT,Livepeer,170,4.6349565,-3.75%,132911000.0,32563000.000000004,28676000.0,"Distributed computing & Storage, Web3"
+170,SKL,SKALE Network,171,0.02814146,-0.17%,131478000.00000001,9522000.0,4672000000.0,Scaling
+171,CORE,Core DAO,172,0.86115,0.27%,130911000.0,20283000.0,152019000.0,"Scaling, Web3, DAO"
+172,STG,Stargate Finance,173,0.62674707,-0.23%,127852000.0,13861000.0,203993000.0,Interoperability
+173,KDA,Kadena,174,0.52589553,-0.40%,127432000.0,2136000.0,242314000.0,"Smart contract platforms, Layer 1"
+174,RBN,Ribbon Finance,175,0.21957,0.72%,166980000.0,118900.0,760485000.0,"Derivatives, DeFi"
+175,FLUX,Flux,176,0.39483115,-1.01%,124794000.0,8590000.0,316069000.0,"Smart contract platforms, Distributed computing & Storage, Interoperability, DAO"
+176,CKB,Nervos Network,177,0.0030014,0.78%,125358000.0,2085000.0,41767000000.0,"Smart contract platforms, Scaling"
+177,UMA,UMA,178,1.6640492,1.59%,122049000.0,6717000.0,73344000.0,"Oracles, Derivatives, DeFi, Web3, DAO"
+178,ZEN,Horizen,179,8.6184618,-1.52%,120609000.0,5847000.0,13994000.0,"Privacy, Smart contract platforms, Enterprise solutions, Web3"
+179,DAO,DAO Maker,180,0.82013,-0.29%,118052000.0,1102000.0,143943000.0,DeFi
+180,ACH,Alchemy Pay,181,0.01684631,-3.62%,111078000.0,8647000.0,6594000000.0,Payments
+181,CELR,Celer Network,182,0.01432850,-1.01%,80838000.0,3531000.0,5642000000.0,"Interoperability, Scaling"
+182,EDU,Open Campus,183,0.59200087,-0.49%,110938000.0,8960000.0,187396000.0,Education
+183,STORJ,Storj,184,0.28865847,-0.18%,41475000.0,13001000.0,143682000.0,"Distributed computing & Storage, Web3"
+184,KNC,Kyber Network Crystal v2,185,0.64410768,-1.12%,117222000.0,11271000.0,181992000.0,"Decentralized exchange, DeFi, DAO"
+185,CFG,Centrifuge,186,0.3037,-5.83%,109412000.0,241985.0,360263000.0,"Asset-backed Tokens, DeFi"
+186,CTSI,Cartesi,187,0.14724088,-0.12%,109256000.0,4107999.9999999995,742024000.0,"Smart contract platforms, Scaling, Web3, Layer 1"
+187,LSK,Lisk,188,0.82764422,-2.16%,106684000.0,1102000.0,128900000.0,"Developments tools, Enterprise solutions"
+188,RSR,Reserve Rights,189,0.00208374,0.73%,105437000.0,7979000.0,50600000000.0,Cryptocurrencies
+189,JOE,JOE,190,0.31075175,-1.66%,106847000.0,5098000.0,343835000.0,"Decentralized exchange, DeFi"
+190,AMP,Amp,191,0.00243256,-0.77%,102721000.0,12155000.0,42228000000.0,"Payments, DeFi"
+191,GAL,Galxe,192,1.21000079,-0.57%,102717000.0,6215000.0,84890000.0,"Data management & AI, Web3"
+192,STETH,Lido Staked ETH,193,1853.33281717,-0.16%,14812000000.0,17451000.0,7992000.0,"Derivatives, DeFi"
+193,KAS,Kaspa,194,0.046436,-0.15%,932152000.0,27385000.0,20074000000.0,"Cryptocurrencies, Layer 1"
+194,HEX,HEX,195,0.005110,-1.40%,886131000.0,910816.0,173411000000.0,Cryptocurrencies
+195,FRAX,Frax,196,0.98424,0.31%,799527000.0,17525000.0,812330000.0,"Stablecoins, Algorithmic Stablecoins, Seigniorage, DeFi"
+196,BGB,Bitget Token,197,0.45539,-1.79%,637546000.0,11872000.0,1400000000.0,Centralized exchange
+197,XRD,Radix,198,0.052472,-0.99%,536792000.00000006,1924000.0,10230000000.0,"Smart contract platforms, DeFi, Layer 1"
+198,FTT,FTX Token,199,1.18757502,-1.86%,N/A,11588000.0,N/A,"Centralized exchange, Derivatives"
+199,USDJ,USDJ,200,1.10277196,-0.22%,301009000.0,817640.0,272957000.0,"Stablecoins, Asset-backed Tokens"
+200,FDUSD,First Digital USD,201,0.9997,-0.04%,300695000.0,19309000.0,300785000.0,Stablecoins
+201,LUSD,Liquity USD,202,1.000000,0.00%,296989000.0,2539000.0,296989000.0,"Stablecoins, Asset-backed Stablecoins, DeFi"
+202,AZERO,Aleph Zero,203,0.9253,-0.79%,246851000.0,1344000.0,266779000.0,"Privacy, Smart contract platforms"
+203,DFI,DeFiChain,204,0.28507,-1.74%,209314000.0,3372000.0,734254000.0,"Decentralized exchange, DeFi"
+204,BDX,Beldex,205,0.036974,0.24%,206394000.0,4233000.0,5582000000.0,Privacy
+205,WEMIX,WEMIX,206,0.63932499,5.52%,199962000.0,3463000.0,312770000.0,"Gaming, Scaling, Marketplace"
+206,TOMI,tomiNet,207,3.03798,-0.54%,198592000.0,24153000.0,65370000.00000001,"Developments tools, Web3"
+207,FNSA,FINSCHIA,208,27.570,-2.88%,194531000.0,179566.0,7056000.0,Centralized exchange
+208,BABYDOGE,Baby Doge Coin,209,0.0000000000000,-1.63%,176555000.0,2063000.0000000002,N/A,Memes
+209,WBETH,Wrapped Beacon ETH,210,1872.49,-0.20%,174740000.0,521356.0,93320.0,Derivatives
+210,RON,Ronin,211,0.67872343,-0.41%,165402000.0,524538.0,243696000.0,"Smart contract platforms, Gaming, NFTs & Collectibles"
+211,XYM,Symbol,212,0.02734114,-0.95%,158658000.0,292450.0,5803000000.0,"Smart contract platforms, Enterprise solutions"
+212,GNS,Gains Network,213,5.02071809,-2.71%,151757000.0,7769000.0,30226000.0,"Decentralized exchange, DeFi"
+213,TRIBE,Tribe,214,0.2913,1.64%,131881000.0,112918.0,452734000.0,"Stablecoins, Algorithmic Stablecoins, DeFi, DAO"
+214,PENDLE,Pendle,215,0.69739487,-4.09%,67538000.0,10449000.0,96843000.0,"Social, media & Content, Web3"
+215,POLY,Polymath,216,0.1442,-0.62%,128669000.00000001,38518.0,892299000.0,"Asset management, Marketplace, Fundraising"
+216,EURS,STASIS EURO,217,1.05896,-1.43%,131346000.0,495406.0,124033000.0,"Stablecoins, Asset-backed Stablecoins"
+217,CHSB,SwissBorg,218,0.13120,-0.68%,125626000.0,17247000.0,957514000.0,Asset management
+218,LYXE,LUKSO,219,6.5509,0.80%,100685000.0,327761.0,15370000.0,"NFTs & Collectibles, Metaverse"
+219,ORDI,Ordinals,220,5.6310,0.06%,118251000.0,20677000.0,21000000.0,N/A
+220,ELON,Dogelon Mars,221,0.0000002,0.00%,109489000.0,12263000.0,N/A,"Memes, Cryptocurrencies"
+221,KEEP,Keep Network,222,0.11439395,0.15%,62882000.0,209543.0,549699000.0,"Privacy, Interoperability, DeFi"
+222,BITCOIN,HarryPotterObamaSonic10Inu (ERC-20),223,0.09849,-1.85%,98470000.0,14286000.0,999798000.0,Memes
+223,EVER,Everscale,224,0.056225,-6.67%,100933000.0,4228000.0,1795000000.0,Smart contract platforms
+224,MC,Merit Circle,225,0.24207469,-9.28%,101912000.0,13081000.0,420994000.0,"Gaming, NFTs & Collectibles, Metaverse, DAO"
+225,SNT,Status,226,0.02582254,0.98%,102221000.0,1974000.0,3959000000.0,"Privacy, Developments tools, Social, media & Content"
+226,PUNDIX,Pundi X (New),227,0.38400,-0.83%,99261000.0,1952000.0,258492000.00000003,Payments
+227,TRAC,OriginTrail,228,0.2452,-0.33%,93827000.0,1018000.0,382656000.0,"Data management & AI, Interoperability, Enterprise solutions, Web3, Layer 1"
+228,MLK,MiL.k,229,0.32306,0.60%,97055000.0,2017999.9999999998,300423000.0,Loyalty & Rewards
+229,ID,SPACE ID,230,0.26045126,-2.20%,92939000.0,19382000.0,356837000.0,Web3
+230,DKA,dKargo,231,0.03054,1.84%,93427000.0,2206000.0,3059000000.0,"Data management & AI, Logistics, Web3"
+231,VVS,VVS Finance,232,0.00000251000,-0.41%,92527000.0,316945.0,N/A,"Decentralized exchange, DeFi"
+232,POLYX,Polymesh,233,0.12761742,-1.95%,91611000.0,2207000.0,717860000.0,Smart contract platforms
+233,LQTY,Liquity,234,0.98473566,-1.48%,91452000.0,13353000.0,92870000.0,"Lending & Borrowing, DeFi"
+234,API3,API3,235,1.05658537,-2.52%,91632000.0,13233000.0,86724000.0,"Data management & AI, Web3"
+235,RLC,iExec RLC,236,1.23519587,0.60%,89342000.0,10668000.0,72330000.0,"Privacy, Distributed computing & Storage, NFTs & Collectibles, Marketplace, Web3"
+236,STPT,STP,237,0.04670981,1.88%,90699000.0,4118000.0000000005,1942000000.0,"Developments tools, DAO"
+237,NYM,NYM,238,0.1718,-1.72%,90407000.0,8837000.0,526235000.0,Privacy
+238,BRISE,Bitgert,239,0.00000023000,-0.45%,90268000.0,3143000.0,N/A,Smart contract platforms
+239,TEL,Telcoin,240,0.00130978,-3.24%,91791000.0,290436.0,70081000000.0,"Cryptocurrencies, Payments"
+240,XNO,Nano,241,0.66594968,0.87%,88737000.0,921892.0,133247999.99999999,"Cryptocurrencies, Payments"
+241,C98,Coin98,242,0.16303966,-3.15%,90215000.0,152294000.0,553333000.0,"Payments, DeFi"
+242,YGG,Yield Guild Games,243,0.32969591,-3.03%,60717000.0,132257000.0,184160000.0,"Gaming, NFTs & Collectibles, Metaverse, DAO"
+243,RDNT,Radiant Capital,244,0.29178878,-1.78%,86921000.0,14110000.0,297889000.0,"Lending & Borrowing, DeFi"
+244,CVC,Civic,245,0.0869,0.58%,69393000.0,5874000.0,798540000.0,"Identity, Enterprise solutions, Web3"
+245,MTL,Metal,246,1.29555077,-0.28%,83797000.0,7350000.0,64681000.0,"Cryptocurrencies, Payments"
+246,AKT,Akash Network,247,0.7608,1.79%,86626000.0,2927000.0,113861000.0,"Distributed computing & Storage, Data management & AI, Web3"
+247,MED,MediBloc,248,0.012308,-0.38%,85032000.0,2099000.0,6909000000.0,Health
+248,ONG,Ontology Gas,249,0.24180088,-0.82%,N/A,4163999.9999999995,N/A,"Smart contract platforms, Identity"
+249,PYR,Vulcan Forged PYR,250,3.1121330,-0.40%,84595000.0,2616000.0,27182000.0,"Gaming, NFTs & Collectibles, Marketplace"
+250,NMR,Numeraire,251,13.448789,-1.05%,84374000.0,2258000.0,6274000.0,"Data management & AI, Asset management, Analytics"
+251,MVL,MVL,252,0.003592750,0.71%,84400000.0,1529000.0,23492000000.0,"Loyalty & Rewards, Transport"
+252,ORBS,Orbs,253,0.025974,-0.66%,83738000.0,1198000.0,3224000000.0,"Distributed computing & Storage, Enterprise solutions"
+253,ALPHA,Stella,254,0.10253430,-0.01%,81719000.0,2597000.0,796989000.0,"DeFi, DAO, Fundraising"
+254,ASTRAFER,Astrafer,255,0.5211,0.66%,81509000.0,27281.0,156417000.0,Gaming
+255,OMG,OMG Network,256,0.57463708,-2.89%,80535000.0,25664000.0,140149000.0,"Cryptocurrencies, Scaling, Payments"
+256,POWR,Powerledger,257,0.15709787,0.72%,67493000.0,2376000.0,429625000.0,"Energy, Marketplace"
+257,STEEM,Steem,258,0.18361032,-0.58%,80956000.0,1594000.0,440911000.0,"Smart contract platforms, Payments, Social, media & Content, Web3"
+258,DEXE,DeXe,259,2.1916,-1.31%,79993000.0,1038000.0,36500000.0,"Asset management, DeFi"
+259,RAD,Radicle,260,1.6024075,-0.49%,79872000.0,4264000.0,49845000.0,"Data management & AI, Web3, DAO"
+260,IQ,Everipedia,261,0.005201,-2.55%,79784000.0,3086000.0,15340000000.0,"Data management & AI, Social, media & Content, DeFi, DAO"
+261,SYN,Synapse,262,0.569,-0.66%,N/A,5944000.0,N/A,Interoperability
+262,SYS,Syscoin,263,0.10697248,1.08%,79951000.0,1525000.0,747395000.0,"Smart contract platforms, Scaling, Enterprise solutions"
+263,DESO,Decentralized Social,264,8.84,-1.12%,78539000.0,2461000.0,8885000.0,"Smart contract platforms, Social, media & Content"
+264,REQ,Request,265,0.07780234,-0.21%,59763000.0,2339000.0,768135000.0,"Payments, DeFi"
+265,CHR,Chromia,266,0.11412681,-1.78%,65185000.0,3771000.0,571163000.0,"Developments tools, Scaling, Enterprise solutions"
+266,BNT,Bancor,267,0.53725142,-3.59%,81320000.0,179238000.0,151362000.0,"Decentralized exchange, DeFi"
+267,DENT,Dent,268,0.0007795,0.09%,74668000.0,1627000.0,95789000000.0,"Data management & AI, Marketplace"
+268,NKN,NKN,269,0.10050382,0.41%,65269000.00000001,2670000.0,649417000.0,"Distributed computing & Storage, Internet of things, Web3"
+269,PROM,Prom,270,4.1625276,-0.66%,75966000.0,1713000.0,18250000.0,"NFTs & Collectibles, Marketplace"
+270,HFT,Hashflow,271,0.36586454,0.30%,75627000.0,11574000.0,206709000.0,"Decentralized exchange, Interoperability, DeFi"
+271,LINA,Linear Finance,272,0.01357339,-3.00%,74813000.0,16064000.0,5512000000.0,"Decentralized exchange, Derivatives, DeFi, DAO"
+272,OXT,Orchid,273,0.07718466,15.99%,45727000.0,76986000.0,592430000.0,"Data management & AI, Web3"
+273,EWT,Energy Web Token,274,2.501,-0.16%,75185000.0,727492.0,30062000.0,"Enterprise solutions, Energy"
+274,RIF,RSK Infrastructure Framework,275,0.07627104,-2.64%,74239000.0,1207000.0,973360000.0,"Distributed computing & Storage, Payments, Web3"
+275,WNXM,Wrapped NXM,276,31.0583,-0.47%,73700000.0,2536000.0,2373000.0,"Wrapped Tokens, Insurance, DAO"
+276,ARDR,Ardor,277,0.07378383,-0.28%,73710000.0,1670000.0,998999000.0,"Smart contract platforms, Scaling, Enterprise solutions"
+277,ABBC,ABBC Coin,278,0.050717,-1.58%,72097000.0,11031000.0,1422000000.0,Payments
+278,MAV,Maverick Protocol,279,0.28557912,-6.12%,71395000.0,10213000.0,250000000.0,"Scaling, DeFi"
+279,XVG,Verge,280,0.00436783,4.65%,72160000.0,8824000.0,16521000000.0,"Privacy, Cryptocurrencies"
+280,VTHO,VeThor Token,281,0.0010719,-0.06%,70409000.0,721087.0,65686000000.00001,Smart contract platforms
+281,STRAX,Stratis,282,0.46319157,-1.28%,70413000.0,612305.0,152018000.0,"Smart contract platforms, Enterprise solutions, DAO"
+282,WILD,Wilder World,283,0.2825,0.00%,71514000.0,418383.0,253148000.0,"Gaming, NFTs & Collectibles, Metaverse"
+283,ERG,Ergo,284,1.1974,0.51%,70214000.0,243402.0,58638000.0,"Smart contract platforms, Analytics, Layer 1"
+284,METIS,MetisDAO,285,15.98,-2.02%,69546000.0,1467000.0,4352000.0,Scaling
+285,POND,Marlin,286,0.00856493,1.14%,69268000.0,2204000.0,8087000000.0,"Smart contract platforms, Distributed computing & Storage, Scaling, DeFi, Web3"
+286,GTC,Gitcoin,287,1.0727022,0.87%,67924000.0,12094000.0,63320000.0,"Web3, DAO"
+287,XVS,Venus,288,4.40050092,-0.70%,68010000.0,2264000.0,15455000.0,"Lending & Borrowing, DeFi"
+288,SCRT,Secret,289,0.32163721,-3.25%,67888000.0,1444000.0,211069000.0,"Privacy, Smart contract platforms, Layer 1"
+289,ARPA,ARPA Chain,290,0.05414368,0.90%,53176000.0,29583000.0,982132000.0,"Privacy, Distributed computing & Storage"
+290,SLP,Smooth Love Potion,291,0.00161,1.88%,67119000.0,6233000.0,41689000000.0,"Gaming, NFTs & Collectibles, Metaverse"
+291,SDEX,SmarDex,292,0.010461,0.13%,66666000.0,2221000.0,6373000000.0,"Decentralized exchange, DeFi"
+292,PEOPLE,ConstitutionDAO,293,0.01307296,1.11%,66150999.99999999,5652000.0,5060000000.0,Fundraising
+293,STMX,StormX,294,0.006505,-3.14%,71500000.0,27518000.0,10992000000.0,"Social, media & Content, Loyalty & Rewards"
+294,BNX,BinaryX,295,0.24149611,-0.59%,64537000.00000001,1276000.0,267237000.00000003,"Gaming, NFTs & Collectibles, Metaverse, Marketplace, Web3"
+295,WIN,WINkLink,296,0.00006680,-0.49%,64244000.0,17307000.0,961737000000.0,"Oracles, Data management & AI"
+296,COL,Clash of Lilliput,297,0.77192,-0.65%,63355000.0,55634.0,82074000.0,"Gaming, NFTs & Collectibles"
+297,ALI,Alethea Artificial Liquid Intelligence Token,298,0.017599,4.10%,63148000.0,240516.0,3588000000.0,"Data management & AI, Identity, NFTs & Collectibles, Interoperability, Enterprise solutions, Social, media & Content, Marketing, Metaverse, Education, Web3"
+298,ARKM,Arkham,299,0.41904693,-0.29%,62857000.0,29625000.0,150000000.0,"Analytics, Marketplace"
+299,MDX,Mdex,300,0.06614838,-2.12%,62857000.0,3516000.0,950247000.0,"Decentralized exchange, DeFi"
+300,XPLA,Xpla,301,0.26732,-2.04%,62536000.0,14207000.0,233937000.0,"Developments tools, Web3"
+301,FX,Function X,302,0.15057,-3.05%,61511000.0,876852.0,408520000.0,Interoperability
+302,UOS,Ultra,303,0.17918,-3.10%,48155000.0,910259.0,268754000.0,"Gaming, NFTs & Collectibles, Metaverse"
+303,BFC,Bifrost,304,0.04378,-3.23%,60707000.0,572218.0,1387000000.0,"Interoperability, Payments"
+304,QKC,QuarkChain,305,0.00945957,-0.55%,65016999.99999999,1261000.0,6873000000.0,Smart contract platforms
+305,DNX,Dynex,306,1.0095,-16.05%,59124000.0,5303000.0,58568000.0,Privacy
+306,XCAD,XCAD Network,307,1.405181,-1.16%,60452000.0,1852000.0,43021000.0,"NFTs & Collectibles, Social, media & Content, Marketplace"
+307,WMT,World Mobile Token,308,0.13772,-4.09%,59391000.0,400784.0,431242000.0,"Payments, Marketplace"
+308,REN,Ren,309,0.06007870,-0.44%,59964000.0,5817000.0,998084000.0,"Interoperability, DeFi"
+309,CQT,Covalent,310,0.0984,0.84%,59819000.0,344342.0,607920000.0,"Data management & AI, Enterprise solutions"
+310,MBOX,MOBOX,311,0.28502996,-1.35%,58993000.0,3428000.0,206970000.0,"Gaming, NFTs & Collectibles, DeFi, Metaverse"
+311,COTI,COTI,312,0.04774721,-2.85%,58216000.0,2517000.0,1219000000.0,"Developments tools, Enterprise solutions, Payments"
+312,RFR,Refereum,313,0.011648,-3.30%,57098000.0,17422000.0,4902000000.0,"Gaming, Social, media & Content"
+313,BETA,Beta Finance,314,0.08192247,-4.26%,57966000.0,2845000.0,707576000.0,Lending & Borrowing
+314,SN,SpaceN,315,1.444175,217.60%,57781000.0,53618.0,40010000.0,"NFTs & Collectibles, Asset management"
+315,LOOM,Loom Network,316,0.04641127,-0.41%,N/A,2550000.0,N/A,"Scaling, Enterprise solutions"
+316,PHA,Phala Network,317,0.09371452,-0.15%,55626000.0,3760000.0,593571000.0,"Privacy, Smart contract platforms, Distributed computing & Storage, Oracles, Interoperability, Scaling, Web3, Layer 1"
+317,LEASH,Doge Killer,318,521.5238,-3.50%,56061000.0,1024999.9999999999,107495.0,Memes
+318,XSGD,XSGD,319,0.74230785,0.10%,55004000.0,184072.0,74099000.0,"Stablecoins, Asset-backed Stablecoins"
+319,CORE,cVault.finance,320,5503.67,3.77%,N/A,8692.0,N/A,"DeFi, DAO"
+320,EUROC,Euro Coin,321,1.09915467,0.36%,54409000.0,1835000.0,49501000.0,"Stablecoins, Asset-backed Stablecoins"
+321,CCD,Concordium,322,0.007963,-0.59%,54440000.0,467855.0,6837000000.0,"Developments tools, Enterprise solutions, Layer 1"
+322,DERO,Dero,323,3.93710,-4.37%,54264000.0,149827.0,13783000.0,"Privacy, Smart contract platforms"
+323,FUN,FUNToken,324,0.0048824,-1.56%,N/A,896454.0,N/A,"Gaming, Payments, Marketplace"
+324,SOLO,Sologenic,325,0.13389,0.31%,53549000.0,495243.0,399948000.0,"Asset-backed Tokens, Asset management, Payments"
+325,RSS3,RSS3,326,0.12804,4.41%,53911000.0,13123000.0,421047000.0,"Social, media & Content, Web3"
+326,MOON,r/CryptoCurrency Moons,327,0.4770,N/A,50932000.0,1707000.0,106776000.0,N/A
+327,HIGH,Highstreet,328,1.28248601,3.09%,52170000.0,15726000.0,40679000.0,"Metaverse, Marketplace"
+328,MBL,MovieBloc,329,0.003201,-0.81%,52792000.0,2152000.0,16492000000.0,"Social, media & Content"
+329,OGN,Origin Protocol,330,0.09414220,-1.83%,47339000.0,8871000.0,502841000.0,"NFTs & Collectibles, DeFi"
+330,SUN,Sun (New),331,0.00544007,0.14%,52027000.0,21301000.0,9564000000.0,"Payments, DeFi"
+331,DODO,DODO,332,0.11767204,-9.16%,56531000.0,101229000.0,480415000.0,"Decentralized exchange, DeFi"
+332,CTK,Shentu,333,0.55455742,0.18%,51629000.0,2112000.0,93099000.0,"Smart contract platforms, Interoperability, Cybersecurity"
+333,SPELL,Spell Token,334,0.00047204,0.40%,56109000.0,9043000.0,118865000000.0,"Lending & Borrowing, DeFi"
+334,MNW,Morpheus.Network,335,1.0745,0.08%,50695000.0,168502.0,47180000.0,"Enterprise solutions, Payments, Logistics"
+335,GHST,Aavegotchi,336,0.9498,1.00%,48644000.0,2155000.0,51215000.0,"Gaming, NFTs & Collectibles, DAO"
+336,ARK,Ark,337,0.2796,-1.13%,48879000.0,2185000.0,174819000.0,"Developments tools, Interoperability"
+337,MBX,MARBLEX,338,0.8152,1.41%,48914000.0,789323.0,60003000.0,Gaming
+338,CRE,Carry,339,0.004956,-0.56%,43439000.0,37896000.0,8765000000.0,"Cryptocurrencies, Loyalty & Rewards"
+339,CTC,Creditcoin,340,0.19793600,-0.69%,48388000.0,20726000.0,244464000.0,Lending & Borrowing
+340,DUSK,Dusk Network,341,0.11322407,-7.00%,48390000.0,6118000.0,427381000.0,"Privacy, Smart contract platforms"
+341,DAG,Constellation,342,0.038070,0.05%,109730000.0,277848.0,2882000000.0,"Smart contract platforms, Interoperability"
+342,LOOKS,LooksRare,343,0.05338,-2.02%,29075000.0,1401000.0,544672000.0,"NFTs & Collectibles, Marketplace"
+343,VRA,Verasity,344,0.00466933,0.38%,48104000.0,6078000.0,10302000000.0,"Gaming, Data management & AI, NFTs & Collectibles, Social, media & Content"
+344,AURA,Aura Finance,345,1.2668,4.50%,47960000.0,162218.0,37859000.0,Wrapped Tokens
+345,DUST,DUST Protocol,346,2.4759,2.47%,47399000.0,1567000.0,19144000.0,NFTs & Collectibles
+346,HOOK,Hooked Protocol,347,0.94741819,-2.63%,47371000.0,6785000.0,50000000.0,"Gaming, Education"
+347,VEGA,Vega Protocol,348,0.8953,4.92%,47310000.0,349825.0,52843000.0,"Derivatives, DeFi"
+348,RAY,Raydium,349,0.21156310,-1.23%,47121000.0,1821000.0,222729000.0,"Decentralized exchange, DeFi"
+349,XYO,XYO,350,0.00347,-3.61%,48552000.0,454834.0,13992000000.0,"Oracles, Web3"
+350,ALICE,MyNeighborAlice,351,0.90725204,-0.85%,70555000.0,10999000.0,77767000.0,"Gaming, NFTs & Collectibles, Metaverse"
+351,ALEX,ALEX Lab,352,0.077047,-9.51%,46728000.0,300022.0,606490000.0,N/A
+352,CBK,Cobak Token,353,0.61132,-0.85%,46734000.0,1721000.0,76448000.0,"Payments, Social, media & Content"
+353,AERGO,Aergo,354,0.10624396,-1.44%,46516000.0,1327000.0,437820000.0,"Smart contract platforms, Enterprise solutions"
+354,SSX,SOMESING,355,0.016411,0.51%,46370000.0,699023.0,2826000000.0,"Social, media & Content"
+355,META,Metadium,356,0.02692,-1.64%,45424000.0,3180000.0,1687000000.0,Identity
+356,LOCUS,Locus Chain,357,0.02175,-6.77%,45263000.0,177033.0,2081000000.0,"Scaling, Payments"
+357,WRX,WazirX,358,0.1176,-3.05%,44906000.0,1008999.9999999999,381857000.0,Centralized exchange
+358,ATOR,ATOR Protocol,359,0.5759,-2.07%,42793000.0,763721.0,74307000.0,"Interoperability, Scaling"
+359,VGX,Voyager Token,360,0.1629,-1.21%,47473000.0,5046000.0,291425000.0,"Asset management, Payments"
+360,BTM,Bytom,361,0.024931,0.09%,44777000.0,501164.0,1796000000.0,"Smart contract platforms, Payments"
+361,TLM,Alien Worlds,363,0.01213204,4.86%,44192000.0,48307000.0,3643000000.0,"Gaming, NFTs & Collectibles, Metaverse, DAO"
+362,FORTH,Ampleforth Governance Token,364,2.9448409,-1.42%,70362000.0,7484000.0,23893000.0,"Cryptocurrencies, DAO"
+363,NXRA,AllianceBlock Nexera,365,0.062694,-2.35%,44425000.0,325541.0,708594000.0,Asset-backed Tokens
+364,OAS,Oasys,366,0.050924,-1.46%,44321000.0,1485000.0,870344000.0,"Gaming, Scaling"
+365,ACA,Acala Token,367,0.05652565,-1.53%,43603000.0,2309000.0,771392000.0,DeFi
+366,SWEAT,Sweat Economy,368,0.00652533,-0.98%,42900000.0,1103000.0,6574000000.0,"NFTs & Collectibles, Move to earn, Web3"
+367,COMBO,COMBO,369,0.61655,-2.62%,43807000.0,3151000.0,71052000.0,"Gaming, NFTs & Collectibles, Social, media & Content"
+368,AGLD,Adventure Gold,370,0.61814597,-1.18%,47819000.0,10534000.0,77359000.0,"Gaming, NFTs & Collectibles"
+369,STRK,Strike,371,11.30783664,-0.37%,43468000.0,1085000.0,3844000.0,"Lending & Borrowing, DeFi"
+370,DAR,Mines of Dalarnia,372,0.10764354,-0.32%,42945000.0,5403000.0,398954000.0,"Gaming, NFTs & Collectibles, Metaverse"
+371,CUSD,Celo Dollar,373,0.99720080,-0.08%,42775000.0,164987.0,42895000.0,"Stablecoins, Algorithmic Stablecoins, DeFi"
+372,BADGER,Badger DAO,374,2.1366546,-1.91%,42106000.0,3110000.0,19707000.0,"Decentralized exchange, DeFi, DAO"
+373,TKO,Toko Token,375,0.25900587,5.44%,41676000.0,13504000.0,160906000.0,"Smart contract platforms, Centralized exchange"
+374,MLN,Enzyme,376,18.053,1.52%,26238000.0,1328000.0,1453000.0,"Asset management, DeFi"
+375,ORC,Orbit Chain,377,0.06537,0.83%,41965000.0,167559.0,641962000.0,"Interoperability, Scaling"
+376,FCT2,FirmaChain,378,0.057759600,0.36%,41340000.0,3507000.0,715733000.0,Data management & AI
+377,TT,ThunderCore,379,0.003991,1.32%,41280000.0,3121000.0,10343000000.0,Smart contract platforms
+378,XPRT,Persistence,380,0.23382828,0.12%,41110000.0,377623.0,175812000.0,"Derivatives, DeFi"
+379,ARRR,Pirate Chain,381,0.20887,-0.40%,40983000.0,34637.0,196214000.0,"Privacy, Cryptocurrencies"
+380,BTRST,Braintrust,382,0.272,0.37%,N/A,259445.0,N/A,"Marketplace, Web3, Jobs"
+381,MTRG,Meter Governance,383,1.86234999,2.26%,40088000.0,137798.0,21526000.0,"Interoperability, DeFi"
+382,EURT,Tether EURt,384,1.0958,-0.14%,39873000.0,1426000.0,36387000.0,"Stablecoins, Asset-backed Stablecoins"
+383,LCX,LCX,385,0.0512,13.47%,39567000.0,1387000.0,772794000.0,"Centralized exchange, DeFi"
+384,MOVR,Moonriver,386,5.2634129,2.61%,39363000.0,4813000.0,7479000.0,"Smart contract platforms, Interoperability"
+385,WXT,Wirex Token,387,0.004011,0.75%,40110000.0,115214.0,10000000000.0,"Asset management, Payments"
+386,WAN,Wanchain,388,0.20014266,-0.99%,39391000.0,905055.0,196816000.0,"Interoperability, DeFi"
+387,MCB,MCDEX Token,389,10.302,0.34%,39191000.0,80732.0,3804000.0,"Decentralized exchange, Derivatives, DeFi"
+388,SUSD,sUSD,390,0.9960,0.02%,39271000.0,2666000.0,39429000.0,"Stablecoins, Algorithmic Stablecoins, DeFi"
+389,BEL,Bella Protocol,391,0.65125461,-0.84%,38733000.0,2588000.0,59475000.0,DeFi
+390,GODS,Gods Unchained,392,0.16429,0.68%,N/A,970674.0,N/A,"Gaming, NFTs & Collectibles"
+391,CEEK,CEEK VR,393,0.04747,-2.18%,39452000.0,4598000.0,831095000.0,"NFTs & Collectibles, Social, media & Content, Metaverse"
+392,RACA,RadioCaca,394,0.00011235,-2.47%,37836000.0,2487000.0,336765000000.0,"Gaming, NFTs & Collectibles, Metaverse, Marketplace"
+393,CEL,Celsius,395,0.15668327,3.66%,66336000.0,1048000.0,423375000.0,Lending & Borrowing
+394,TRU,TrueFi,396,0.03523924,-3.10%,37522000.0,5570000.0,1065000000.0,"Lending & Borrowing, DeFi"
+395,UQC,Uquid Coin,397,3.72048229,1.16%,37203000.0,214110.0,10000000.0,"Payments, DeFi, E-commerce"
+396,SUPER,SuperVerse,398,0.09085489,-0.17%,36950000.0,1611000.0,406695000.0,"Gaming, NFTs & Collectibles"
+397,SFUND,Seedify.fund,399,0.71584,-1.50%,36459000.0,2808000.0,50932000.0,Gaming
+398,TARA,Taraxa,400,0.0114382,19.06%,33713000.0,12478000.0,2947000000.0,N/A
+399,AKRO,Akropolis,401,0.0084205,16.10%,840389.0,31449000.0,99803000.0,"Lending & Borrowing, DeFi, DAO"
+400,ETN,Electroneum,402,0.0019945,-3.05%,35930000.0,799813.0,18015000000.0,"Cryptocurrencies, Payments"
+401,REEF,Reef,403,0.0015315,-1.09%,34951000.0,6493000.0,22821000000.0,"Smart contract platforms, DeFi"
+402,IDEX,IDEX,404,0.05202003,-0.79%,39455000.0,3359000.0,758449000.0,"Decentralized exchange, DeFi"
+403,SDAO,SingularityDAO,405,0.4121,-1.46%,34094000.0,980419.0,82733000.0,"Data management & AI, DeFi, DAO"
+404,UPP,Sentinel Protocol,406,0.070267,2.59%,22833000.0,34269000.0,324953000.0,"Data management & AI, Enterprise solutions, Loyalty & Rewards, Cybersecurity"
+405,PRO,Propy,407,0.3377,-1.17%,19593000.0,407516.0,58020000.0,"Payments, Real estate"
+406,PERP,Perpetual Protocol,408,0.51467837,-1.68%,37450000.0,4970000.0,72764000.0,"Decentralized exchange, Derivatives, DeFi"
+407,GMT,Gomining,409,0.12233,-1.06%,33576000.0,1742000.0,274473000.0,Asset-backed Tokens
+408,MOC,Moss Coin,410,0.087170,0.45%,33468000.000000004,888028.0,383935000.0,"NFTs & Collectibles, Metaverse"
+409,FEI,Fei USD,411,0.95489,-0.04%,33252000.000000004,69792.0,34822000.0,"Stablecoins, Algorithmic Stablecoins, DeFi"
+410,RARE,SuperRare,412,0.07239657,-1.64%,44661000.0,697602.0,616898000.0,"NFTs & Collectibles, Marketplace, DAO"
+411,NAKA,Nakamoto Games,413,0.47329,-4.60%,34248000.0,1378000.0,72361000.0,"Gaming, NFTs & Collectibles, Metaverse"
+412,UTK,Utrust,414,0.06678472,-0.82%,31368000.0,1969000.0,469688000.0,Payments
+413,ATA,Automata Network,415,0.08228708,-1.97%,33009000.0,2055000.0000000002,401140000.0,"Identity, Web3"
+414,FLM,Flamingo,416,0.06592587,-0.68%,33095999.999999996,1412000.0,502026000.0,"DeFi, DAO"
+415,FORT,Forta,417,0.1300,-1.52%,32487000.000000004,149297.0,249899000.0,"Data management & AI, Cybersecurity"
+416,EFI,Efinity Token,418,0.04984,-1.33%,32424999.999999996,619736.0,650585000.0,"NFTs & Collectibles, Metaverse"
+417,RLY,Rally,419,0.006493,-2.67%,32411000.0,287007.0,4992000000.0,"Social, media & Content, DeFi"
+418,ROUTE,Router Protocol,420,2.5935,-2.08%,32182000.000000004,1219000.0,12409000.0,Interoperability
+419,AUCTION,Bounce Finance Governance Token,421,4.9961184,-3.49%,32475000.0,5244000.0,6500000.0,"DeFi, Metaverse, Marketplace"
+420,AMPL,Ampleforth,422,1.092038,-2.38%,10388000.0,221970.0,9513000.0,"Stablecoins, Algorithmic Stablecoins, DeFi"
+421,CHNG,Chainge,423,0.08033,-1.56%,32119999.999999996,176703.0,399854000.0,"Asset management, DeFi"
+422,SAITAMA,Saitama,424,0.00071159,-3.37%,31589000.0,583750.0,44393000000.0,"Payments, DeFi"
+423,TPT,TokenPocket,425,0.0091056,-0.93%,31564000.0,94672.0,3466000000.0,Payments
+424,BSW,Biswap,426,0.08420263,-1.81%,31410000.0,3006000.0,373024000.0,"Decentralized exchange, NFTs & Collectibles, DeFi"
+425,KMD,Komodo,427,0.22902583,-1.18%,31137000.0,187548.0,135954000.0,"Interoperability, Enterprise solutions"
+426,LAT,PlatON,428,0.007600,-3.86%,30998000.0,852920.0,4078999999.9999995,"Distributed computing & Storage, Data management & AI"
+427,ZBC,Zebec Protocol,429,0.00952587,7.14%,31030000.0,9899000.0,3257000000.0,Payments
+428,IRIS,IRISnet,430,0.02037383,-2.23%,31348000.0,335115.0,1539000000.0,Interoperability
+429,VTS,Veritise,431,0.13697,-2.86%,30689000.0,299565.0,224055000.0,Identity
+430,AHT,AhaToken,432,0.007731600,-1.01%,30281000.0,2958000.0,3916000000.0,"Social, media & Content, Web3"
+431,AVA,Travala.com,433,0.57390537,-0.06%,30024000.0,775755.0,52315000.0,"Payments, Marketplace, Tourism, Hospitality"
+432,POLS,Polkastarter,434,0.30012022,-2.85%,29778000.0,1364000.0,99221000.0,DeFi
+433,HIFI,Hifi Finance (New),435,0.31536,-0.95%,29963000.0,1253000.0,95013000.0,"Lending & Borrowing, DeFi"
+434,BTS,BitShares,436,0.010014,1.57%,29992000.0,1056000.0,2995000000.0,"Smart contract platforms, Decentralized exchange, DeFi"
+435,CTXC,Cortex,437,0.13770808,-1.58%,29532000.0,2441000.0,214456000.0,"Smart contract platforms, Internet of things, Data management & AI"
+436,MDT,Measurable Data Token,438,0.04355223,-2.71%,26382000.0,4033000.0000000005,605762000.0,"Data management & AI, Marketplace"
+437,CWEB,Coinweb,439,0.017493,-1.36%,29650000.0,207374.0,1695000000.0,"Developments tools, Interoperability"
+438,FRA,Findora,440,0.0032496,14.75%,28765000.0,793535.0,8852000000.0,"Privacy, Smart contract platforms, Developments tools"
+439,MONA,MonaCoin,441,0.44249356,-1.88%,29085000.0,101380.0,65730000.00000001,"Memes, Cryptocurrencies, Payments"
+440,ERN,Ethernity,442,1.56,-0.64%,29192000.0,1465000.0,18713000.0,"Gaming, NFTs & Collectibles, Metaverse"
+441,TVK,Virtua,443,0.02505589,-1.00%,28910000.0,3817000.0,1154000000.0,"NFTs & Collectibles, Metaverse"
+442,GRS,Groestlcoin,444,0.34663947,-0.68%,28821000.0,744009.0,83144000.0,Cryptocurrencies
+443,ALU,Altura,445,0.040004,-2.71%,28793000.0,502138.0,719755000.0,"Gaming, NFTs & Collectibles, Metaverse, Marketplace"
+444,ADS,Adshares,446,0.733333200,-2.23%,28418000.0,438393.0,38752000.0,"Marketing, Metaverse"
+445,BAR,FC Barcelona Fan Token,447,2.74506337,0.46%,28685000.0,1546000.0,10450000.0,"Sports, Fan Tokens"
+446,YFII,DFI.Money,448,742.2253,-0.40%,29466000.0,8396000.0,39700.0,"DeFi, DAO"
+447,ASD,ASD,449,0.04327,-4.86%,28585000.0,4237000.0,660615000.0,Centralized exchange
+448,SBD,Steem Dollars,450,2.30432,0.11%,28462000.0,1510000.0,12352000.0,"Stablecoins, Social, media & Content"
+449,ELA,Elastos,451,1.405,3.23%,28587000.0,502500.0,20347000.0,"Smart contract platforms, Web3"
+450,0X0,0x0.ai: AI Smart Contract,452,0.03258,1.84%,28298000.0,802035.0,868563000.0,"Privacy, Data management & AI"
+451,KEY,SelfKey,453,0.005229,-1.82%,31354000.0,5216000.0,5996000000.0,"Data management & AI, Identity, Enterprise solutions"
+452,GEL,Gelato,454,0.2546,-0.39%,55921000.0,68691.0,219642000.0,"Smart contract platforms, Developments tools, DeFi"
+453,DIA,DIA,455,0.24852281,-1.54%,27461000.0,8474000.0,110496000.0,"Oracles, Data management & AI, Web3"
+454,BLOK,Bloktopia,456,0.0015578,-0.57%,27319000.0,305915.0,17537000000.0,"NFTs & Collectibles, Metaverse"
+455,NEST,NEST Protocol,457,0.00932,2.98%,48282000.0,4936000.0,5180000000.0,"Oracles, DeFi"
+456,AURORA,Aurora,458,0.08240000,17.82%,27197000.0,1475000.0,330062000.0,Interoperability
+457,DNT,district0x,459,0.0270,-2.17%,20291000.0,520102.0,751533000.0,"Payments, Social, media & Content, Web3"
+458,RVF,RocketX exchange,460,0.36041,12.16%,27021000.0,680358.0,74974000.0,Interoperability
+459,GAS,Gas,461,2.6393383,-0.98%,26732000.0,2564000.0,10128000.0,"Cryptocurrencies, Payments"
+460,H2O,H2O DAO,462,0.1182,-0.76%,26602000.0,179669.0,225062000.0,"Social, media & Content, DAO"
+461,LTO,LTO Network,463,0.06343846,-2.44%,26508000.0,1040000.0,417856000.0,"Identity, Enterprise solutions"
+462,LIT,Litentry,464,0.6668,-1.38%,N/A,3084000.0,N/A,"Data management & AI, Identity, DeFi, Web3"
+463,QUICK,QuickSwap,465,50.92,0.79%,26173000.0,235741.0,513996.99999999994,"Decentralized exchange, DeFi"
+464,AQT,Alpha Quark Token,466,0.98473,0.56%,26234000.0,864373.0,26641000.0,"NFTs & Collectibles, Marketplace"
+465,BAKE,BakeryToken,467,0.09017770,-4.75%,26131000.0,9471000.0,289771000.0,"Decentralized exchange, NFTs & Collectibles, DeFi, Marketplace"
+466,KIN,Kin,468,0.00001174,-7.34%,25913000.0,426482.0,N/A,"Social, media & Content, Web3"
+467,BIFI,Beefy Finance,469,327.70000000,0.35%,26216000.0,139808.0,80000.0,DeFi
+468,QTCON,Quiztok,470,0.0041181,4.80%,26074000.0,116262.0,6332000000.0,"Social, media & Content"
+469,TLOS,Telos,471,0.09566,-5.01%,25840000.0,1318000.0,270123000.0,"Smart contract platforms, NFTs & Collectibles"
+470,HELLO,HELLO Labs,472,0.040971,-0.13%,25833000.0,831459.0,630524000.0,"NFTs & Collectibles, Social, media & Content"
+471,XCN,Onyxcoin,473,0.00103,1.98%,25576000.0,2608000.0,24831000000.0,Enterprise solutions
+472,PHB,Phoenix Global (new),474,0.58215647,-0.72%,25367000.0,3144000.0,43574000.0,"Smart contract platforms, Oracles, Data management & AI, Enterprise solutions, Web3"
+473,QUICK,Quickswap[New],475,0.04787358,-2.96%,25373000.0,6969000.0,530000000.0,N/A
+474,CREAM,Cream Finance,476,13.612,-2.19%,10430000.0,535853.0,766259.0,"Decentralized exchange, Lending & Borrowing, DeFi, DAO"
+475,GOG,Guild of Guardians,477,0.0615,-16.21%,24394000.0,645626.0,396648000.0,Gaming
+476,MPL,Maple,478,5.71,-0.52%,44356000.0,1232000.0,7768000.0,"Lending & Borrowing, DeFi"
+477,QUACK,RichQUACK.com,479,0.0000000000000,3.49%,24688000.0,294712.0,N/A,"Memes, Loyalty & Rewards, DeFi, Metaverse"
+478,VLX,Velas,480,0.00997,3.32%,24777000.0,493972.0,2485000000.0,Smart contract platforms
+479,MULTI,Multichain,481,1.6973908,-0.20%,32829000.0,3928000.0,19341000.0,"Interoperability, Web3"
+480,QI,BENQI,482,0.00635919,-1.10%,24405000.0,805736.0,3838000000.0,"Lending & Borrowing, Derivatives, DeFi"
+481,DIONE,Dione Protocol,483,0.00257974,-2.99%,24536000.0,1443000.0,9511000000.0,DeFi
+482,WNCG,Wrapped NCG (Nine Chronicles Gold),484,0.08062,-0.25%,24624000.0,936390.0,305436000.0,"Wrapped Tokens, Gaming"
+483,TSUKA,Dejitaru Tsuka,485,0.022591,-1.58%,22591000.0,647812.0,1000000000.0,Memes
+484,NVIR,NvirWorld,486,0.022890,-0.30%,24092000.0,1004999.9999999999,1052999999.9999999,"NFTs & Collectibles, Marketplace"
+485,NPT,Neopin,487,0.4529,-1.44%,23978000.0,325153.0,52944000.0,"Gaming, DeFi"
+486,QRDO,Qredo,488,0.064600,2.73%,23972000.0,560539.0,371088000.0,"Asset management, Enterprise solutions"
+487,ALCX,Alchemix,489,12.564495,-1.56%,23877000.0,820197.0,1900000.0,"Lending & Borrowing, DeFi"
+488,KLV,Klever,490,0.002543,-1.78%,22584000.0,1193000.0,8881000000.0,Payments
+489,BOND,BarnBridge,491,2.9295754,0.86%,27216000.0,2313000.0,9290000.0,"Derivatives, DeFi, DAO"
+490,KP3R,Keep3rV1,492,54.11,0.76%,26492000.0,1198000.0,489601.0,"DeFi, Jobs"
+491,NTX,NuNet,493,0.04648,-0.56%,23430000.0,28296.0,504085000.0,Data management & AI
+492,SPS,Splintershards,494,0.02186,-4.00%,22805000.0,177934.0,1042999999.9999999,"Gaming, NFTs & Collectibles"
+493,ALPINE,Alpine F1 Team Fan Token,495,2.00213962,-0.04%,22744000.0,2548000.0,11360000.0,"Sports, Fan Tokens"
+494,BOBA,Boba Network,496,0.1322,-0.30%,45243000.0,819895.0,342229000.0,"Interoperability, Scaling, Layer 1"
+495,ALPACA,Alpaca Finance,497,0.15037005,-1.25%,22713000.0,2555000.0,151045000.0,"Lending & Borrowing, DeFi"
+496,DG,Decentral Games,498,0.031579,-3.71%,22551000.0,107456.0,714101000.0,"Gaming, NFTs & Collectibles, Metaverse"
+497,GF,GuildFi,499,0.05766956,-0.38%,22376000.0,877502.0,388011000.0,"Gaming, Marketplace"
+498,DATA,Streamr,500,0.02360185,-0.85%,18098000.0,917720.0,766816000.0,"Distributed computing & Storage, Internet of things, Data management & AI, Web3"
+499,MXC,MXC,501,0.00841,0.00%,22220000.0,1345000.0,2642000000.0,"Internet of things, Web3"
+500,WAIT,Hourglass,502,0.2277,2.94%,22305000.0,103565.0,97960000.0,N/A
+501,VEED,VIMworld,503,0.004004,-3.96%,22288000.0,101508.0,5566000000.0,"NFTs & Collectibles, Marketplace"
+502,ORN,Orion Protocol,504,0.64558190,-2.25%,22184000.0,2273000.0,34362000.0,"Decentralized exchange, DeFi"
+503,TROY,TROY,505,0.002522,-0.04%,21752000.0,1686000.0,8625000000.0,"Centralized exchange, Decentralized exchange, Asset management"
+504,ONIT,ONBUFF,506,0.02819,-1.19%,21708000.0,254041.0,770075000.0,"NFTs & Collectibles, Marketplace"
+505,CITY,Manchester City Fan Token,507,3.34553395,-0.24%,21578000.0,2933000.0,6450000.0,"Sports, Fan Tokens"
+506,REI,REI Network,508,0.02268,-0.61%,21546000.0,925907.0,950000000.0,Scaling
+507,CLV,CLV,509,0.0367,-0.55%,21410000.0,3313000.0,583388000.0,Interoperability
+508,FIRO,Firo,510,1.6732635,-0.81%,21213000.0,421802.0,12677000.0,"Privacy, Cryptocurrencies"
+509,STRM,StreamCoin,511,0.014263,0.53%,21289000.0,10039000.0,1493000000.0,"NFTs & Collectibles, Social, media & Content"
+510,SD,Stader,512,0.7514,-0.98%,21202000.0,788339.0,28217000.0,Derivatives
+511,BLZ,Bluzelle,513,0.05175825,-1.44%,21080000.0,1325000.0,407287000.0,"Smart contract platforms, Distributed computing & Storage"
+512,DEGO,Dego Finance,514,1.49077014,-1.92%,21107000.0,1095000.0,14159000.0,"NFTs & Collectibles, DeFi, DAO"
+513,YLD,YIELD App,515,0.094878,1.12%,21063000.0,335370.0,221998000.0,Asset management
+514,COS,Contentos,516,0.00501031,-1.65%,20775000.0,1292000.0,4147000000.0000005,"Social, media & Content"
+515,NULS,NULS,517,0.20072768,-0.85%,20765000.0,1505000.0,103450000.0,"Developments tools, Enterprise solutions"
+516,UNFI,Unifi Protocol DAO,518,3.7525703,4.45%,N/A,11334000.0,N/A,"Interoperability, DeFi"
+517,SRM,Serum,519,0.07736278,0.77%,20365000.0,10257000.0,263245000.0,"Decentralized exchange, DeFi"
+518,UFO,UFO Gaming,520,0.0000008000,-1.05%,20627000.0,496023.0,N/A,"Gaming, NFTs & Collectibles, Metaverse"
+519,KAI,KardiaChain,521,0.0042653,-2.14%,20294000.0,111089.0,4758000000.0,"Smart contract platforms, Interoperability, Enterprise solutions"
+520,ALEPH,Aleph.im,522,0.0827,-2.48%,20445000.0,134380.0,247220000.0,"Distributed computing & Storage, Identity"
+521,KISHU,Kishu Inu,523,0.0000000000000,-0.91%,20924000.0,194395.0,N/A,Memes
+522,PSP,ParaSwap,524,0.027290,-1.98%,20369000.0,113299.0,746391000.0,DeFi
+523,BEAI,BeNFT Solutions,525,15.4944,-4.84%,20914000.0,2102000.0,1350000.0,N/A
+524,VAI,VAIOT,526,0.076706,-3.26%,20099000.0,507826.0,262029999.99999997,Data management & AI
+525,LADYS,Milady Meme Coin,527,0.00000003000,6.96%,20313000.0,2380000.0,N/A,Memes
+526,BRICK,r/FortNiteBR Bricks,528,0.19130,N/A,21278000.0,2270000.0,111230000.0,N/A
+527,ADX,Ambire AdEx,529,0.14011089,-0.84%,19992000.0,1139000.0,142685000.0,"Data management & AI, Marketing, Web3"
+528,SNEK,Snek,530,0.0002840,3.05%,20117000.0,579604.0,70835000000.0,Memes
+529,DERC,DeRace,531,0.18238,0.55%,19577000.0,281266.0,107340000.0,"Gaming, NFTs & Collectibles"
+530,LON,Tokenlon Network Token,532,0.43761,0.07%,11112000.0,127877.0,25393000.0,"Decentralized exchange, DeFi"
+531,LAZIO,S.S. Lazio Fan Token,533,2.25528150,0.07%,19395000.0,2711000.0,8600000.0,Fan Tokens
+532,GRV,Grove Coin,534,0.20585,-2.82%,19573000.0,3067000.0,95083000.0,DeFi
+533,NEXA,Nexa,535,0.000008460,-7.10%,19057000.0,873546.0,N/A,"Cryptocurrencies, Smart contract platforms, Scaling, DeFi"
+534,TRB,Tellor,536,11.309405,-2.20%,28005000.0,1303000.0,2476000.0,"Oracles, Data management & AI, DeFi, Web3"
+535,POLIS,Star Atlas DAO,537,0.126,6.78%,19279000.0,264802.0,153006000.0,"Gaming, Metaverse, DAO"
+536,DOME,Everdome,538,0.000993,-1.19%,18866000.0,544786.0,18999000000.0,Metaverse
+537,LEVER,LeverFi,539,0.001227,0.00%,18972000.0,2495000.0,15462000000.0,"Asset management, DeFi"
+538,GAFI,GameFi.org,540,2.277,-5.86%,18992000.0,113387.0,8340999.999999999,"Gaming, Metaverse, Fundraising"
+539,GYEN,GYEN,541,0.006940,-0.29%,18974000.0,54906.0,2734000000.0,"Stablecoins, Asset-backed Stablecoins"
+540,OUSD,Origin Dollar,542,0.99845912,0.10%,18994000.0,3556000.0,19024000.0,"Stablecoins, Asset-backed Stablecoins, DeFi"
+541,BITCI,Bitcicoin,543,0.0024506,-1.65%,18891000.0,2027000.0000000002,7709000000.0,Enterprise solutions
+542,QOM,Shiba Predator,544,0.00000003000,-6.10%,19034000.0,186090.0,N/A,Memes
+543,MAP,MAP Protocol,545,0.00852,-1.84%,18788000.0,167276.0,2205000000.0,Interoperability
+544,CUDOS,CUDOS,546,0.003245,2.30%,18897000.0,328034.0,5823000000.0,"Distributed computing & Storage, Data management & AI, Scaling"
+545,VELO,Velo,547,0.002489,-0.28%,325839.0,6126000.0,130911000.0,"NFTs & Collectibles, Lending & Borrowing"
+546,BONK,Bonk,548,0.0000003500,-0.63%,18750000.0,2304000.0,N/A,Memes
+547,NOIA,Syntropy,549,0.026676,-3.40%,12785000.0,378750.0,479266000.0,"Internet of things, Scaling, Web3"
+548,KWENTA,Kwenta,550,126.80,14.28%,18291000.0,210917.0,144252.0,"Decentralized exchange, Derivatives"
+549,PSG,Paris Saint-Germain Fan Token,551,3.78283891,0.42%,18208000.0,1327000.0,4813000.0,"Sports, Fan Tokens"
+550,VOXEL,Voxies,552,0.15413596,0.87%,18074000.0,12295000.0,117261000.0,"Gaming, NFTs & Collectibles"
+551,THN,Throne,553,0.046104,1.98%,18015000.0,2595000.0,390752000.0,"Social, media & Content, Web3"
+552,AST,AirSwap,554,0.10291559,-1.37%,18279000.0,282235.0,177615000.0,"Decentralized exchange, DeFi"
+553,MNGO,Mango,555,0.01791167,0.80%,17912000.0,190389.0,1000000000.0,"Decentralized exchange, Derivatives, DeFi, DAO"
+554,LOKA,League of Kingdoms Arena,556,0.23875238,0.00%,17638000.0,5049000.0,73875000.0,"Gaming, NFTs & Collectibles, Metaverse"
+555,BWO,Battle World,557,0.06625,0.27%,17743000.0,99734.0,267815000.0,"Gaming, NFTs & Collectibles"
+556,CHESS,Tranchess,558,0.14361533,0.24%,17683000.0,1446000.0,123130000.0,"Asset management, Derivatives, DeFi"
+557,FSN,Fusion,559,0.2368,-2.19%,17585000.0,145136.0,74263000.0,"Payments, DeFi"
+558,BURGER,BurgerCities,560,0.4076,-3.02%,17466000.0,4749000.0,42850000.0,"Decentralized exchange, Gaming, DeFi"
+559,MARO,Maro,561,0.021159,-5.70%,17624000.0,550338.0,832950000.0,"Social, media & Content"
+560,DVF,rhino.fi,562,0.72512000,-1.22%,17510000.0,8913.0,24147000.0,DeFi
+561,YOOSHI,YooShi,563,0.00000005000,-0.41%,17317000.0,44318.0,N/A,"Memes, Gaming, NFTs & Collectibles"
+562,PORTO,FC Porto Fan Token,564,2.22352458,-0.85%,17343000.0,3123000.0,7800000.0,"Sports, Fan Tokens"
+563,IMGNAI,Image Generation AI,565,0.02274,26.19%,17665000.0,844881.0,776833000.0,Data management & AI
+564,KILT,KILT Protocol,566,0.347,-4.67%,17149000.0,39551.0,49420000.0,"Identity, Web3"
+565,WING,Wing Finance,567,4.8470282,-0.54%,17051000.0,1592000.0,3518000.0,"Lending & Borrowing, DeFi"
+566,XPR,Proton,568,0.0008577,-0.02%,16929000.0,490019.0,19737000000.0,"Decentralized exchange, Payments, DeFi"
+567,CAPS,Ternoa,569,0.014878,-0.66%,17060000.0,667426.0,1147000000.0,NFTs & Collectibles
+568,OPUL,Opulous,570,0.069778,-4.08%,17040000.0,411909.0,244198000.0,"Social, media & Content"
+569,FARM,Harvest Finance,571,24.622890,-1.48%,16501000.000000002,786952.0,670146.0,"Decentralized exchange, DeFi, DAO"
+570,PTS,Petals,572,0.0014095,17.62%,19909000.0,16459.0,14125000000.0,"Social, media & Content, Web3"
+571,HARD,Kava Lend,573,0.12465295,-0.10%,16802000.0,1310000.0,134792000.0,"Lending & Borrowing, DeFi"
+572,RMRK,RMRK,574,1.7504,-1.34%,16629000.000000002,40645.0,9500000.0,"NFTs & Collectibles, Metaverse"
+573,FIS,StaFi,575,0.27371728,-1.82%,16547000.0,1811000.0,60452000.0,"Derivatives, DeFi"
+574,WRLD,NFT Worlds,576,0.024054,-1.92%,17129000.0,158778.0,712091000.0,"Gaming, NFTs & Collectibles, Metaverse"
+575,ACM,AC Milan Fan Token,577,2.26540950,2.45%,16436000.0,3562000.0,7255000.0,"Sports, Fan Tokens"
+576,CENNZ,CENNZnet,578,0.013540,-5.74%,N/A,271260.0,N/A,"Enterprise solutions, Marketplace, Web3"
+577,OM,MANTRA,579,0.02187133,-0.79%,16335000.0,1651000.0,746851000.0,"Lending & Borrowing, DeFi, DAO"
+578,REV,Revain,580,0.00019121,-0.84%,16265000.0,135932.0,85061000000.0,"Social, media & Content"
+579,PNK,Kleros,581,0.02252,-3.80%,16015999.999999998,176006.0,711173000.0,"Oracles, Prediction markets, Payments"
+580,BBF,Bubblefong,582,0.11761173,-2.31%,15873000.0,601977.0,134965000.0,"Gaming, Marketplace"
+581,VXV,Vectorspace AI,583,0.32376,-1.23%,15836000.0,28339.0,48913000.0,Data management & AI
+582,REP,Augur,584,1.4291,-0.91%,11446000.0,1286000.0,8009000.0,"Oracles, Prediction markets"
+583,NCT,PolySwarm,585,0.00990,-0.60%,389571.0,208393.0,39351000.0,"Smart contract platforms, Cybersecurity, Web3"
+584,DF,dForce,586,0.03600,0.45%,17130000.0,443827.0,475846000.0,"Lending & Borrowing, DeFi"
+585,CEUR,Celo Euro,587,1.08843,0.40%,15465000.0,110489.0,14209000.0,"Stablecoins, Algorithmic Stablecoins"
+586,VIDT,VIDT DAO,588,0.02033767,0.31%,15660000.0,906553.0,770011000.0,"Smart contract platforms, Gaming, Internet of things, Data management & AI, NFTs & Collectibles, Interoperability, Enterprise solutions, Cybersecurity, Web3"
+587,HOPR,HOPR,589,0.0452,-1.31%,15421000.0,283230.0,341174000.0,"Privacy, DAO"
+588,GTO,Gifto,590,0.014953,-3.07%,14978000.0,6126000.0,1002000000.0,"Social, media & Content, Loyalty & Rewards"
+589,PRQ,PARSIQ,591,0.0822,-0.48%,15228000.0,675563.0,185257000.0,"Smart contract platforms, Data management & AI, DeFi, Analytics, Web3"
+590,ATLAS,Star Atlas,592,0.00153684,-0.66%,15066000.0,718397.0,9803000000.0,"Gaming, NFTs & Collectibles, Metaverse"
+591,CON,CONUN,593,0.005258,1.47%,15235000.0,28112.0,2897000000.0,"Distributed computing & Storage, Web3"
+592,AIDOGE,ArbDoge AI,594,0.00000000000000,N/A,15141000.0,3268000.0,N/A,Memes
+593,PIVX,PIVX,595,0.20135175,-0.05%,15218000.0,881100.0,75580000.0,"Privacy, Cryptocurrencies, DAO"
+594,RARI,Rarible,596,1.03,-0.96%,11913000.0,122230.0,11566000.0,"NFTs & Collectibles, Marketplace, DAO"
+595,FOR,ForTube,597,0.01891348,-0.77%,10664000.0,694547.0,563812000.0,"Lending & Borrowing, DeFi"
+596,COVAL,Circuits of Value,598,0.00840,0.48%,14993000.0,76887.0,1785000000.0,"Asset management, DeFi"
+597,HSF,Hillstone Finance,599,0.4964,3.69%,14898000.0,111329.0,30011000.0,"Payments, DeFi"
+598,SDN,Shiden Network,600,0.240,0.00%,14924000.0,77157.0,62182000.0,"Smart contract platforms, Developments tools, Interoperability"
+599,BIDR,BIDR,601,0.000065760,0.35%,14842000.0,8433000.0,225715000000.0,Stablecoins
+600,HERO,Metahero,602,0.002906,-1.02%,N/A,228797.0,N/A,"Internet of things, Metaverse, Marketplace"
+601,SANTOS,Santos FC Fan Token,603,3.23541126,0.03%,14721000.0,5817000.0,4550000.0,Fan Tokens
+602,PLAY,XCAD Network Play,604,0.076251,0.25%,14838000.0,1820000.0,194599000.0,N/A
+603,PLU,Pluton,605,8.01,0.63%,32841000.0,459004.0,4099999.9999999995,"Payments, Loyalty & Rewards"
+604,FIO,FIO Protocol,606,0.02127612,-3.56%,14738000.0,2267000.0,692683000.0,"Interoperability, Payments"
+605,RFOX,RFOX,607,0.011184,-2.78%,20058000.0,344701.0,1793000000.0,"NFTs & Collectibles, Metaverse"
+606,SLND,Solend,608,0.40666187,-2.92%,14463000.0,16694.0,35566000.0,"Lending & Borrowing, DeFi"
+607,OG,OG Fan Token,609,3.72222812,-0.48%,14489000.0,7618000.0,3893000.0,"Sports, Fan Tokens"
+608,HAI,Hacken Token,610,0.02225,2.96%,14375000.0,640673.0,646062000.0,"Smart contract platforms, Data management & AI, Enterprise solutions, Cybersecurity"
+609,DC,Dogechain,611,0.0006629,-1.94%,14504000.0,421583.0,21879000000.0,Memes
+610,EPX,Ellipsis,612,0.0002099,-0.33%,14244000.0,1349000.0,67861000000.00001,"Decentralized exchange, DeFi"
+611,UNCX,UniCrypt,613,305.60,-1.07%,14202000.0,13929.0,46471.0,DeFi
+612,VITE,VITE,614,0.01383430,-2.53%,14203000.0,691325.0,1026999999.9999999,"Smart contract platforms, Decentralized exchange, Scaling, Enterprise solutions"
+613,FNCY,FNCY,615,0.016197,-4.22%,14141000.0,216795.0,873049000.0,"Gaming, NFTs & Collectibles"
+614,BZZ,Swarm,616,0.28168,-0.31%,13935000.0,159711.0,49472000.0,"Developments tools, Distributed computing & Storage"
+615,BAX,BABB,617,0.00022183,-4.38%,7259000.0,153578.0,32723999999.999996,Payments
+616,APX,ApolloX,618,0.03085,-0.90%,13819000.0,379053.0,447931000.0,"Decentralized exchange, Derivatives, DeFi"
+617,BOSON,Boson Protocol,619,0.1204,-2.03%,13778000.0,209209.0,114436000.0,"NFTs & Collectibles, Payments, E-commerce, Marketplace"
+618,SAMO,Samoyedcoin,620,0.00376341,-1.09%,13763000.0,181768.0,3657000000.0,Memes
+619,AIOZ,AIOZ Network,621,0.0140,2.19%,13576000.0,156245.0,969679000.0,"Distributed computing & Storage, Web3"
+620,MSOL,Marinade Staked SOL,622,27.36554557,1.86%,13628000.0,4384000.0,498000.0,"Derivatives, DeFi"
+621,VOLT,Volt Inu V2,623,0.000000250000,-2.87%,13490000.0,6771000.0,N/A,"Memes, Cryptocurrencies, Gaming, NFTs & Collectibles, Payments, DAO"
+622,FRONT,Frontier,624,0.14869948,-0.97%,12990000.0,1581000.0,87355000.0,"Payments, DeFi"
+623,GZONE,GameZone,625,0.016010,2.31%,13450000.0,22068.0,840117000.0,Gaming
+624,WTC,Waltonchain,626,0.16039987,-0.42%,4677000.0,348821.0,29161000.0,"Internet of things, Logistics"
+625,TORN,Tornado Cash,627,3.2552,1.16%,4920000.0,573838.0,1511000.0,"Privacy, DAO"
+626,SNM,SONM (BEP-20),628,0.29271201,1.79%,12969000.0,6927000.0,44308000.0,"Distributed computing & Storage, Web3"
+627,FUND,Unification,629,0.3806,1.82%,13111000.0,98001.0,34447000.0,"Oracles, Interoperability, Enterprise solutions, Web3"
+628,DOCK,Dock,630,0.01475169,-3.14%,69053000.0,205804.0,4681000000.0,Data management & AI
+629,ASM,Assemble Protocol,631,0.00997,-7.43%,12367000.0,372711.0,1240000000.0,"Payments, Loyalty & Rewards, Marketplace"
+630,POOLX,Poolz Finance,632,2.7329,4.56%,12713000.0,961646.0,4652000.0,Interoperability
+631,CUBE,Somnium Space Cubes,633,1.013100,-1.74%,12664000.0,20601.0,12500000.0,"NFTs & Collectibles, Metaverse, Web3"
+632,QRL,Quantum Resistant Ledger,634,0.18484,-1.43%,12558000.0,50309.0,67937000.0,Distributed computing & Storage
+633,TAMA,Tamadoge,635,0.008941,-0.48%,12458000.0,863089.0,1393000000.0,Memes
+634,SWAP,TrustSwap,636,0.12094,-2.34%,12062000.0,849792.0,99738000.0,DeFi
+635,DREP,Drep [new],637,0.25070789,1.82%,12216000.0,5873000.0,48725000.0,"Smart contract platforms, Oracles, DeFi"
+636,OOKI,Ooki Protocol,638,0.002679,-2.86%,12212000.0,1226000.0,4559000000.0,"Decentralized exchange, Lending & Borrowing, DeFi"
+637,PRE,Presearch,639,0.031080,5.57%,12304000.0,92734.0,395866000.0,"Distributed computing & Storage, Data management & AI, Web3"
+638,ALPH,Alephium,640,0.27928,-12.73%,11849000.0,107403.0,42425000.0,"Developments tools, Scaling"
+639,TIME,Chrono.tech,641,16.81437975000,-0.45%,11940000.0,286925.0,710112.0,"Payments, Jobs"
+640,HTR,Hathor,642,0.04926,-1.06%,12137000.0,389866.0,246378000.0,"Smart contract platforms, Scaling, DeFi"
+641,TABOO,TABOO TOKEN,643,0.001149,4.84%,11240000.0,321934.0,9783000000.0,"Social, media & Content"
+642,SOUL,Phantasma,644,0.09717,-1.70%,11755000.0,143211.0,120977000.0,"Smart contract platforms, Gaming, NFTs & Collectibles, Layer 1"
+643,GMM,Gamium,645,0.00055928,-1.69%,11634000.0,212154.0,20801000000.0,"NFTs & Collectibles, Interoperability, DeFi, Metaverse, DAO"
+644,GXA,GALAXIA,646,0.0053251,2.54%,11518000.0,400102.0,2163000000.0,Payments
+645,AE,Æternity,647,0.03146,-1.60%,11667000.0,309789.0,370840000.0,Smart contract platforms
+646,OAX,OAX,648,0.15125315,-1.17%,8432000.0,755853.0,55745000.0,"Developments tools, DeFi, DAO"
+647,FUSE,Fuse Network,649,0.05262,0.11%,11570000.0,524860.0,219882000.0,"Payments, Layer 1"
+648,SOLVE,SOLVE,650,0.02066,-1.43%,11771000.0,239313.0,569741000.0,"Enterprise solutions, Health"
+649,SOFI,RAI Finance,651,0.034904,-2.21%,11391000.0,416733.0,326355000.0,"Interoperability, Payments"
+650,PKF,PolkaFoundry,652,0.0988,-0.60%,11332000.0,263208.0,114692000.0,Developments tools
+651,VR,Victoria VR,653,0.007939,-7.41%,11511000.0,527573.0,1450000000.0,"Gaming, Data management & AI, NFTs & Collectibles, Metaverse"
+652,CRU,Crust Network,654,0.7922613500,-2.32%,11201000.0,3719000.0,14139000.0,"Distributed computing & Storage, Web3"
+653,GFI,Goldfinch,655,0.3833,-1.72%,11168000.0,132283.0,29135000.0,"Lending & Borrowing, DeFi"
+654,SQUIDGROW,Squid Grow,656,0.000000010000,3.47%,11046000.0,923949.0,N/A,Memes
+655,AGLA,Angola,657,0.02356,-10.32%,11202000.0,26864.0,475450000.0,"NFTs & Collectibles, Social, media & Content"
+656,PIT,Pitbull,658,0.0000000000000,0.33%,11041000.0,199933.0,N/A,Memes
+657,SOV,Sovryn,659,0.35602,-1.41%,11170000.0,172228.0,31373000.0,"Decentralized exchange, DeFi"
+658,CULT,Cult DAO,660,0.000002520,-2.66%,10887000.0,524473.0,N/A,"DeFi, DAO"
+659,ATM,Atletico De Madrid Fan Token,661,2.81520208,1.82%,N/A,1565000.0,N/A,"Sports, Fan Tokens"
+660,IZI,Izumi Finance,662,0.013638,0.12%,10739000.0,291572.0,787400000.0,DeFi
+661,JUV,Juventus Fan Token,663,2.43400000,1.65%,10740000.0,1798000.0,4412000.0,"Sports, Fan Tokens"
+662,MLT,MILC Platform,664,0.08749,0.57%,10886000.0,189091.0,124423000.0,"Social, media & Content, Metaverse"
+663,STOS,Stratos,665,0.52430,5.77%,10566000.0,373231.0,20152000.0,"Distributed computing & Storage, Web3"
+664,NUM,Numbers Protocol,666,0.027702,-0.36%,10597000.0,358955.0,382548000.0,Web3
+665,BCD,Bitcoin Diamond,667,0.05607,0.39%,10457000.0,41949.0,186493000.0,Cryptocurrencies
+666,PIP,Pip,668,0.09416,3.52%,10495000.0,720944.0,111456000.0,Payments
+667,SAITO,Saito,669,0.009837,-0.90%,10480000.0,118449.0,1065000000.0,Gaming
+668,DMTR,Dimitra,670,0.0288703,-2.34%,10307000.0,120060.0,357026000.0,"Internet of things, Data management & AI"
+669,EGG,Nestree,671,0.003572,-3.56%,10341000.0,66387.0,2895000000.0,"NFTs & Collectibles, Social, media & Content, Marketplace"
+670,HVH,HAVAH,672,0.02256,3.92%,10286000.0,818703.0,455936000.0,"NFTs & Collectibles, Interoperability"
+671,NWC,Newscrypto,673,0.067362,-6.17%,10131000.0,66137.0,150401000.0,"Metaverse, Education"
+672,AMO,AMO Coin,674,0.000532,0.95%,10142000.0,359767.0,19065000000.0,Data management & AI
+673,GST,Green Satoshi Token (SOL),675,0.012598,2.36%,10060000.0,337447.0,798505000.0,Move to earn
+674,UBT,Unibright,676,0.06604033,-6.04%,9882000.0,15782.0,149643000.0,"Developments tools, Enterprise solutions"
+675,AURY,Aurory,677,0.5700,-1.67%,10082000.0,322354.0,17687000.0,"Gaming, NFTs & Collectibles, Metaverse"
+676,TOKE,Tokemak,678,0.6178,4.73%,10595000.0,339712.0,17150000.0,DeFi
+677,MDAO,MarsDAO,679,0.14217,0.21%,10037000.0,103667.0,70599000.0,DeFi
+678,AMB,AirDAO,680,0.00656029,-0.24%,N/A,687030.0,N/A,"Payments, DeFi"
+679,GFAL,Games for a living,681,0.01391916,-3.33%,9965000.0,519129.0,715949000.0,"Gaming, NFTs & Collectibles"
+680,DIMO,DIMO,682,0.07552,-1.95%,9969000.0,41806.0,132001000.0,"Internet of things, Data management & AI"
+681,VIB,Viberate,683,0.04937701,-2.49%,9019000.0,4139000.0000000005,182649000.0,"Social, media & Content"
+682,GAL,Galatasaray Fan Token,684,2.3650,-2.60%,9683000.0,1161000.0,4094000.0000000005,"Sports, Fan Tokens"
+683,SCLP,Scallop,685,0.15098,1.48%,9751000.0,1472000.0,64583000.0,"Payments, DeFi"
+684,FER,Ferro,686,0.01043,-0.57%,9726000.0,26038.0,932530000.0,"Lending & Borrowing, Loyalty & Rewards"
+685,NIM,Nimiq,687,0.0009255,1.07%,9670000.0,68641.0,10448000000.0,Payments
+686,PEEL,Meta Apes,688,0.06285,-2.01%,9642000.0,604183.0,153411000.0,"Gaming, NFTs & Collectibles"
+687,AGI,Delysium,689,0.052747,-0.18%,N/A,694014.0,N/A,"Gaming, Data management & AI, Metaverse"
+688,REVV,REVV,690,0.007968,-1.78%,9487000.0,745324.0,1191000000.0,"Gaming, NFTs & Collectibles"
+689,CRTS,Cratos,691,0.0001967,-0.95%,9697000.0,294604.0,49300000000.0,"Social, media & Content"
+690,FIDA,Bonfida,692,0.21035655,-0.97%,9409000.0,2757000.0,44730000.0,"Decentralized exchange, DeFi"
+691,CVP,PowerPool,693,0.31485,-0.29%,10083000.0,1365000.0,32024000.0,"Asset management, DeFi, DAO"
+692,DORA,Dora Factory,694,1.82576,11.40%,9472000.0,1064000.0,5188000.0,DAO
+693,APM,apM Coin,695,0.00665,-0.45%,8745000.0,1259000.0,1315000000.0,"Payments, Loyalty & Rewards"
+694,KATA,Katana Inu,696,0.00043731,8.61%,9414000.0,785494.0,21527000000.0,N/A
+695,PUSH,Ethereum Push Notification Service,697,0.22369,0.40%,9275000.0,270275.0,41463000.0,"Interoperability, DeFi, Web3, DAO"
+696,KAN,BitKan,698,0.000955,0.10%,5203000.0,334360.0,5448000000.0,"Social, media & Content, Analytics"
+697,VAL,Validity,699,1.87640766,0.26%,9181000.0,68503.0,4893000.0,Identity
+698,CHO,Choise.com,700,0.08228,4.67%,9016000.0,2069999.9999999998,109574000.0,"NFTs & Collectibles, DeFi, DAO"
+699,WOZX,Efforce,701,0.016866,-3.26%,8891000.0,82774.0,527135999.99999994,"NFTs & Collectibles, Energy, Loyalty & Rewards"
+700,HI,HI,702,0.003196,-4.31%,9264000.0,520421.00000000006,2899000000.0,Payments
+701,PNT,pNetwork,703,0.1240,4.73%,9227000.0,1489000.0,74408000.0,"NFTs & Collectibles, DeFi, DAO"
+702,OPTI,Optimus AI,704,0.093327,-6.03%,8869000.0,298801.0,95035000.0,Cryptocurrencies
+703,KRL,Kryll,705,0.2335,-1.39%,8523000.0,54079.0,36500000.0,Asset management
+704,COT,Cosplay Token,706,0.02273466,3.61%,436063000.0,314082.0,19181000000.0,"Social, media & Content"
+705,EXFI,Flare Finance,707,0.1864,-0.85%,9028000.0,79057.0,48432000.0,"Decentralized exchange, DeFi"
+706,CGO,Comtech Gold,708,61.96,-0.55%,8736000.0,700659.0,141000.0,Asset-backed Tokens
+707,MATH,MATH,709,0.0764,0.26%,8737000.0,449949.0,114356000.0,Payments
+708,TET,Tectum,710,12.219,13.61%,9237000.0,1208000.0,755953.0,N/A
+709,ACX,Across Protocol,711,0.06365,-4.91%,8788000.0,76140.0,138064000.0,N/A
+710,GBYTE,Obyte,712,10.20431605,-1.31%,8602000.0,3744.0,842963.0,Smart contract platforms
+711,GMMT,Giant Mammoth,713,2.8857,0.10%,8689000.0,4938000.0,3011000.0,N/A
+712,VINU,Vita Inu,714,0.000000010000,1.66%,8483000.0,993133.0,N/A,Memes
+713,BSCPAD,BSCPAD,715,0.10668,-0.95%,8450000.0,28795.0,79212000.0,"Developments tools, Fundraising"
+714,PROS,Prosper,716,0.2894,0.70%,8407000.0,667299.0,29050000.0,"Prediction markets, DAO"
+715,CRPT,Crypterium,717,0.0878,-1.68%,7450000.0,300480.0,84851000.0,Payments
+716,PERL,PERL.eco,718,0.016959,0.99%,N/A,1248000.0,N/A,"Asset-backed Tokens, Marketplace"
+717,INTER,Inter Milan Fan Token,719,2.36174375,-0.51%,8472000.0,1946000.0,3587000.0,"Sports, Fan Tokens"
+718,ABT,Arcblock,720,0.08474,0.64%,8339000.0,100451.0,98403000.0,"Developments tools, Data management & AI, Interoperability"
+719,NFTX,NFTX,721,13.660,0.77%,5737000.0,19063.0,419970.0,"NFTs & Collectibles, DeFi"
+720,LOVELY,Lovely Inu,722,0.000000120000,-6.56%,8408000.0,3184000.0,N/A,Memes
+721,DLC,Diamond Launch Coin,723,0.087381,1.26%,8406000.0,227234.0,96203000.0,"Loyalty & Rewards, Fundraising"
+722,ASR,AS Roma Fan Token,724,2.62364952,2.86%,7901000.0,2463000.0,3012000.0,"Sports, Fan Tokens"
+723,CATGIRL,Catgirl,725,0.0000000000000,-2.80%,8103999.999999999,1018000.0,N/A,"Memes, Cryptocurrencies"
+724,JEWEL,DeFi Kingdoms,726,0.1111,-10.91%,8005000.000000001,93650.0,72049000.0,"Gaming, NFTs & Collectibles"
+725,DEP,DEAPcoin,727,0.001110,0.18%,8026999.999999999,1442000.0,7231000000.0,"Gaming, NFTs & Collectibles, Metaverse"
+726,ZKS,ZKSpace,728,0.040692,-4.84%,8034000.000000001,194739.0,197440000.0,"Decentralized exchange, Scaling, DeFi"
+727,IMPT,IMPT,729,0.0060364,0.41%,7979000.0,1353000.0,1322000000.0,"NFTs & Collectibles, Marketplace"
+728,DPR,Deeper Network,730,0.004148,2.02%,7987000.0,237631.0,1925000000.0,"Distributed computing & Storage, Internet of things"
+729,HEGIC,Hegic,731,0.0112115,0.64%,12079000.0,60841.0,1077000000.0,"Decentralized exchange, Derivatives, DeFi"
+730,PDEX,Polkadex,732,0.9430,-3.95%,7883000.0,354231.0,8359999.999999999,"Decentralized exchange, DeFi"
+731,SUKU,Suku,733,0.0441,-0.23%,7868000.0,369606.0,178403000.0,"Enterprise solutions, DeFi, Web3"
+732,UFT,UniLend,734,0.2524,-0.51%,15692000.0,1242000.0,62173000.0,"Lending & Borrowing, DeFi"
+733,SPA,Sperax,735,0.00471911,0.21%,7829000.0,752195.0,1659000000.0,"Stablecoins, Algorithmic Stablecoins"
+734,CPOOL,Clearpool,736,0.02333,-2.26%,7644000.0,328750.0,327654000.0,"Lending & Borrowing, DeFi"
+735,SIDUS,SIDUS,737,0.0009419,0.26%,7646000.0,435881.0,8118000000.0,"Gaming, Data management & AI, NFTs & Collectibles, Metaverse"
+736,DAD,DAD,738,0.012710440,1.47%,7653000.0,401543.0,602083000.0,"Marketing, Web3, DAO"
+737,XTP,Tap,739,0.00616834,-1.29%,N/A,116343.0,N/A,"Lending & Borrowing, Payments"
+738,MEV,MEVerse,740,0.004291,-1.51%,7259000.0,60338.0,1692000000.0,"Interoperability, DeFi, Metaverse"
+739,RAI,Rai Reflex Index,741,2.7781,1.39%,7137000.0,59647.0,2569000.0,"Asset-backed Tokens, DeFi"
+740,HNS,Handshake,742,0.011537,-8.96%,6955000.0,52725.0,602824000.0,"Distributed computing & Storage, NFTs & Collectibles, Web3"
+741,TITAN,TitanSwap,743,0.022943,-0.71%,2125000.0,205824.0,92615000.0,"Decentralized exchange, DeFi"
+742,NGM,e-Money,744,0.00682,-1.30%,134765.0,26435.0,19760000.0,Payments
+743,TNB,Time New Bank,745,0.000026,13.04%,89353.0,N/A,3437000000.0,"Smart contract platforms, Derivatives, Jobs"
+744,BIT,BitDAO,N/A,0.4851,-3.73%,N/A,85617.0,N/A,DAO
+745,1ECO,1eco,N/A,0.15192986,-0.88%,N/A,N/A,N/A,"NFTs & Collectibles, Social, media & Content, Metaverse"
+746,PLTC,PlatonCoin,N/A,0.739452,-0.04%,N/A,N/A,N/A,"Cryptocurrencies, Payments"
+747,SIX,SIX,N/A,0.024484,0.89%,N/A,244070.0,N/A,"Smart contract platforms, Enterprise solutions, Payments"
