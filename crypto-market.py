@@ -18,7 +18,7 @@ from selenium.common.exceptions import TimeoutException
 url = "https://www.tradingview.com/markets/cryptocurrencies/prices-all/"
 
 options = Options()
-options.headless = True
+options.add_argument("-headless")
 
 driver = webdriver.Firefox(options=options)
 driver.get(url)
