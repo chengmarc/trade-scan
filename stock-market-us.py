@@ -11,9 +11,6 @@ init()
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 
 url = "https://www.tradingview.com/markets/stocks-usa/market-movers-all-stocks/"
 
@@ -29,17 +26,16 @@ print(Fore.GREEN + "Web driver initialized.")
 timeout_times = 0
 while True:
     try:
-        wait = WebDriverWait(driver, 2)     # Wait for up to 2 seconds for the button to be clickable
-        button = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'loadButton-SFwfC2e0')))
-        button.click()
+        driver.implicitly_wait(3)   # Wait for up to 5 seconds for the button to be clickable
+        driver.find_element(By.CLASS_NAME, "loadButton-SFwfC2e0").click()
         print(Fore.YELLOW + "Loading information...")
-    except TimeoutException:
+    except:
         timeout_times += 1
         if timeout_times > 5:   # After repeated timeout we conclude that everything has been loaded
             print(Fore.GREEN + "All information has been loaded.")
             break
         else: continue
-del wait, button, timeout_times
+del timeout_times
 
 # %% Import beautiful soup for scraping, and pandas for data processing
 import pandas as pd
