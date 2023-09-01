@@ -4,31 +4,54 @@
 @github: https://github.com/chengmarc
 
 """
-from colorama import init, Fore
-init()
+try:
+    # Import standard libraries
+    import os, time, configparser
+    from datetime import date
 
-# %% Import selenium webdriver, set path for webdriver, connect to the selected page
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
+    # Import core libraries
+    import pandas as pd
+    from bs4 import BeautifulSoup as bs
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.firefox.options import Options
+    from selenium.webdriver.firefox.service import Service
+    from colorama import init, Fore
+    init()
+    print(Fore.GREEN + "All libraries imported.")
 
-url = "https://www.tradingview.com/markets/stocks-hong-kong/market-movers-all-stocks/"
+except:
+    print("Dependencies missing, please use pip/conda to install all dependencies.")
+    print("Standard libraries:      os, time, datetime, configparser")
+    print("Core libraries:          pandas, bs4, selenium, colorama")
+    input('Press any key to quit.')
+    exit()
+    
+script_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(script_path)
 
+# %% Initialize web driver
 options = Options()
 options.add_argument("-headless")
+service = Service(script_path + "\geckodriver.exe")
 
-driver = webdriver.Firefox(options=options)
-driver.get(url)
+try:
+    driver = webdriver.Firefox(service=service, options=options)
+    driver.get("https://www.tradingview.com/markets/stocks-hong-kong/market-movers-all-stocks/")
+    print(Fore.GREEN + "Web driver initialized.")
 
-print(Fore.GREEN + "Web driver initialized.")
+except:
+    print(Fore.RED + "Firefox Browser missing, please install Firefox Browser.")
+    input('Press any key to quit.')
+    exit()
 
 # %% Click the "Load More" button until everything is loaded
 timeout_times = 0
 while True:
     try:
-        driver.implicitly_wait(3)   # Wait for up to 5 seconds for the button to be clickable
+        driver.implicitly_wait(3)   # Wait for up to 3 seconds for the button to be clickable
         driver.find_element(By.CLASS_NAME, "loadButton-SFwfC2e0").click()
-        print(Fore.YELLOW + "Loading information...")
+        print(Fore.WHITE + "Loading information...")
     except:
         timeout_times += 1
         if timeout_times > 5:   # After repeated timeout we conclude that everything has been loaded
@@ -37,10 +60,7 @@ while True:
         else: continue
 del timeout_times
 
-# %% Import beautiful soup for scraping, and pandas for data processing
-import pandas as pd
-from bs4 import BeautifulSoup as bs
-
+# %% Parse HTML
 html = driver.page_source
 soup = bs(html, "html.parser")
 driver.quit()
@@ -115,17 +135,9 @@ df_trim = str_to_float(df_trim, "Employees(FY)")
 print(Fore.WHITE + "Data cleaning completed.")
 
 # %% Export data to desired location
-import os
-script_path = os.path.realpath(__file__)
-script_dir = os.path.dirname(script_path)
-os.chdir(script_dir)
-
-import configparser
 config = configparser.ConfigParser()
 config.read('trade-scan config.ini')
 output_path = config.get('Paths', 'output_path')
-
-from datetime import date
 output_name = "stock-market-hk-" + date.today().strftime("%Y-%m-%d") + ".csv"
 
 df_trim.to_csv(output_path + "\\" + output_name)
@@ -134,5 +146,4 @@ print("")
 print(Fore.GREEN + "Data has been saved to desired location.")
 print(Fore.WHITE + "Quitting automatically after 5 seconds.")
 
-import time
 time.sleep(5)
