@@ -48,7 +48,7 @@ except:
 timeout_times = 0
 while True:
     try:
-        driver.implicitly_wait(3)   # Wait for up to 5 seconds for the button to be clickable
+        driver.implicitly_wait(3)   # Wait for up to 3 seconds for the button to be clickable
         driver.find_element(By.CLASS_NAME, "loadButton-SFwfC2e0").click()
         print(Fore.WHITE + "Loading information...")
     except:
