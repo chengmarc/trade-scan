@@ -5,15 +5,12 @@
 
 """
 import os, sys, time, datetime, configparser, getpass
-
 script_path = os.path.dirname(os.path.realpath(__file__))
-os.chdir(script_path)
 
 try:
     import pandas as pd
     from bs4 import BeautifulSoup as bs
     from colorama import init, Fore
-
     init()
     print(Fore.GREEN + "Core modules imported.")
 
@@ -92,7 +89,7 @@ def str_to_float(df, col_name: str) -> pd.DataFrame:
 # %% Function for output path and output time
 
 
-def get_and_check_config(selection: str) -> (str, bool):
+def get_and_check_config(selection: str, path:str) -> (str, bool):
     """
     This function checks "trade_scan config.ini" and returns the path if there is one.
     If the path is empty or is not valid, then it will return the default path.
@@ -101,18 +98,18 @@ def get_and_check_config(selection: str) -> (str, bool):
                     a string that represents the output path
     """
     config = configparser.ConfigParser()
-    config.read(r"trade_scan config.ini")
-    config_path = config.get(r"Paths", selection)
+    config.read(os.path.join(path, "trade_scan config.ini"))
+    config_path = config.get("Paths", selection)
     if os.path.isdir(config_path):
         return config_path, True
     elif selection == "output_path_us":
-        return os.path.join(script_path, "market-data"), False
+        return os.path.join(path, "market-data"), False
     elif selection == "output_path_ca":
-        return os.path.join(script_path, "market-data"), False
+        return os.path.join(path, "market-data"), False
     elif selection == "output_path_zh":
-        return os.path.join(script_path, "market-data"), False
+        return os.path.join(path, "market-data"), False
     elif selection == "output_path_hk":
-        return os.path.join(script_path, "market-data"), False
+        return os.path.join(path, "market-data"), False
 
 
 def get_date():

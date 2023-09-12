@@ -5,9 +5,7 @@
 
 """
 import os, sys, getpass, warnings
-
 script_path = os.path.dirname(os.path.realpath(__file__))
-os.chdir(script_path)
 
 try:
     from selenium import webdriver
@@ -33,7 +31,7 @@ def initialize_firefox():
     # mozilla/geckodriver 0.33.0
     options = FirefoxOptions()
     options.add_argument("-headless")
-    service = FirefoxService(executable_path=script_path + "\\geckodriver.exe")
+    service = FirefoxService(executable_path=os.path.join(script_path, "geckodriver.exe"))
     driver = webdriver.Firefox(service=service, options=options)
     return driver
 
@@ -43,7 +41,7 @@ def initialize_chrome():
     # ChromeDriver 116.0.5845.96 (r1160321)
     options = ChromeOptions()
     options.add_argument("--headless")
-    service = ChromeService(executable_path=script_path + "\\chromedriver.exe")
+    service = ChromeService(executable_path=os.path.join(script_path, "chromedriver.exe"))
     driver = webdriver.Chrome(service=service, options=options)
     return driver
 

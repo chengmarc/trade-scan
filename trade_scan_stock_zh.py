@@ -5,7 +5,6 @@
 
 """
 import os
-
 script_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(script_path)
 
@@ -24,20 +23,21 @@ timeout_times = 0
 while True:
     try:
         # Wait for up to 3 seconds for the button to be clickable
-        driver.implicitly_wait(3)  
+        driver.implicitly_wait(3)
         driver.find_element(wd.By.CLASS_NAME, "loadButton-SFwfC2e0").click()
         print(Fore.WHITE, "Loading information...")
     except:
         # After repeated timeout we conclude that everything has been loaded
         timeout_times += 1
-        if (timeout_times > 5):  
-            tsl.notice_load_complete()
+        if (timeout_times > 5):
             break
         else:
             continue
 
 html = driver.page_source
 driver.quit()
+
+tsl.notice_load_complete()
 
 # %% Extract and clean data
 soup = tsl.bs(html, "html.parser")
@@ -53,7 +53,7 @@ print(Fore.WHITE + "Data cleaning completed.")
 
 # %% Export data
 try:
-    output_path, valid = tsl.get_and_check_config("output_path_zh")
+    output_path, valid = tsl.get_and_check_config("output_path_zh", script_path)
     output_name = f"stock-market-zh-{tsl.get_date()}.csv"
     df.to_csv(os.path.join(output_path, output_name))
     if valid:
