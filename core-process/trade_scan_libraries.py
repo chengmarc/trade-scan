@@ -19,70 +19,102 @@ except ImportError as e:
     getpass.getpass("Press Enter to quit in a few seconds...")
     sys.exit()
 
-# %% Functions for extraction and cleaning
+import webdrivers.webdriver_initializer as webdriver
+driver = webdriver.driver
+
+# %% Functions for web interactions
 
 
-def extract_dataframe(soup) -> pd.DataFrame:
-    df_raw = soup.find_all("tr", class_="row-RdUXZpkv listRow")
-    df_clean = pd.DataFrame(columns=
-            ['Symbol', 'Company', 'Price', 'Change%1D', 'Change1D',
-             'Volume1D', 'Volume*Price1D', 'MarketCap', 'MarketCapPerformance%1Y',
-             'PriceEarningRatio', 'EarningPerShare(TTM)', 'Employees(FY)', 'Sector'])
+def click_load_more(driver) -> None:
+    timeout_times = 0
+    while True:
+        try:
+            # Wait for up to 3 seconds for the button to be clickable
+            driver.implicitly_wait(3)
+            driver.find_element(webdriver.By.CLASS_NAME, "loadButton-SFwfC2e0").click()
+            print(Fore.WHITE, "- Loading information...")
+        except:
+            # After repeated timeout we conclude that everything has been loaded
+            timeout_times += 1
+            if (timeout_times > 0): break
+            else: continue
 
-    for row in df_raw:
+
+def click_tab(driver, tab_name:str) -> None:
+    button = driver.find_element(webdriver.By.ID , tab_name)
+    button.click()
+
+
+# %% Functions for data extraction
+
+
+def get_data_headers(soup) -> list:
+    twarp = soup.find("div", class_="tableWrapSticky-SfGgNYTG")
+    thead = twarp.find_all("th", class_="cell-seAzPAHn")
+    headers = ['Symbol', 'Company']
+    for field in thead[1:]:
+        headers.append(field.get_text())
+    return headers
+    
+def extract_dataframe(soup, headers:list) -> pd.DataFrame:        
+    df = pd.DataFrame(columns=headers)
+    trow = soup.find_all("tr", class_="row-RdUXZpkv listRow")
+    for row in trow:
         row_content = []
-
-        cell_left = row.find("td", class_="cell-RLhfr_y4 left-RLhfr_y4 cell-fixed-ZtyEm8a1 onscroll-shadow")
-        symbol = cell_left.find("a", class_="apply-common-tooltip tickerNameBox-GrtoTeat tickerName-GrtoTeat")
-        name = cell_left.find("sup", class_="apply-common-tooltip tickerDescription-GrtoTeat")
+        tdata = row.find_all("td", class_="cell-RLhfr_y4")
+        
+        symbol = tdata[0].find("a", class_="apply-common-tooltip tickerNameBox-GrtoTeat tickerName-GrtoTeat")
+        name = tdata[0].find("sup", class_="apply-common-tooltip tickerDescription-GrtoTeat")
         row_content.append(symbol.get_text())
-        row_content.append(name.get_text())
-
-        cells_mid = row.find_all("td", class_="cell-RLhfr_y4 right-RLhfr_y4")
-        for cell_mid in cells_mid:
-            row_content.append(cell_mid.get_text())
-
-        cells_right = row.find_all("td", class_="cell-RLhfr_y4 left-RLhfr_y4")
-        cell_right = cells_right[1]
-        row_content.append(cell_right.get_text())
-
-        df_clean.loc[len(df_clean)] = row_content
-
-    return df_clean
-
-
-def trim_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    df = df.replace("—", "N/A")
-
-    # Remove USD currency symbol
-    df["Price"] = df["Price"].str[:-4]
-    df["Change1D"] = df["Change1D"].str[:-4]
-    df["Volume*Price1D"] = df["Volume*Price1D"].str[:-4]
-    df["MarketCap"] = df["MarketCap"].str[:-4]
-    df["EarningPerShare(TTM)"] = df["EarningPerShare(TTM)"].str[:-4]
-
-    # Replace "−" to "-"
-    df["Change%1D"] = df["Change%1D"].str.replace("−", "-")
-    df["Change1D"] = df["Change1D"].str.replace("−", "-")
-    df["MarketCapPerformance%1Y"] = df["MarketCapPerformance%1Y"].str.replace("−", "-")
-    df["EarningPerShare(TTM)"] = df["EarningPerShare(TTM)"].str.replace("−", "-")
-
+        row_content.append(name.get_text())        
+        
+        for field in tdata[1:]:
+            row_content.append(field.get_text())
+            
+        df.loc[len(df)] = row_content
     return df
 
 
-def str_to_float(df, col_name: str) -> pd.DataFrame:
-    for index, row in df.iterrows():
-        container = df.loc[index, col_name]
-        if len(container) != 0 and container[-1] == "B":
-            df.loc[index, col_name] = float(container[:-1]) * 1000000000
-        elif len(container) != 0 and container[-1] == "M":
-            df.loc[index, col_name] = float(container[:-1]) * 1000000
-        elif len(container) != 0 and container[-1] == "K":
-            df.loc[index, col_name] = float(container[:-1]) * 1000
-        elif len(container) != 0 and container[-1] in [n for n in range(10)]:
-            df.loc[index, col_name] = float(container[:-1])
-        else:
-            df.loc[index, col_name] = "N/A"
+# %%
+
+
+def mark_NA(df:pd.DataFrame) -> pd.DataFrame:
+    df_NA = df.replace("—", "N/A")
+    return df_NA
+
+
+def remove_duplicate(df:pd.DataFrame) -> pd.DataFrame:
+    df_transposed = df.T
+    df_transposed = df_transposed.drop_duplicates()
+    return df_transposed.T  
+    
+
+
+def remove_currency(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
+    for column in column_list:
+        df[column] = df[column].str[:-4]
+    return df
+
+
+def substitute_minus(df:pd.DataFrame, column_list:list) -> pd.DataFrame:    
+    for column in column_list:
+        df[column] = df[column].str.replace("−", "-")
+    return df
+
+
+def str_to_number(string:str) -> float:
+    if string[-1] == 'K': factor = 10**3
+    elif string[-1] == 'M': factor = 10**6
+    elif string[-1] == 'B': factor = 10**9
+    else: factor = 1
+    number = float(string[:-1])
+    return number*factor
+
+
+def transform_number(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
+    for column in column_list:
+        df[column] = df[column].str.replace("[KMB]","")
+        df[column] = df[column].apply(str_to_number)
     return df
 
 

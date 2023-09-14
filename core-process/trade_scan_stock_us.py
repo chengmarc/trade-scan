@@ -9,46 +9,49 @@ script_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(script_path)
 
 import trade_scan_libraries as tsl
-import webdrivers.webdriver_initializer as wd
 from colorama import init, Fore
 init()
 
 # %% Parse html content
-driver = wd.driver
+driver = tsl.driver
 driver.get("https://www.tradingview.com/markets/stocks-usa/market-movers-all-stocks/")
-print("")
-
-# Click the "Load More" button until everything is loaded
-timeout_times = 0
-while True:
-    try:
-        # Wait for up to 3 seconds for the button to be clickable
-        driver.implicitly_wait(3)
-        driver.find_element(wd.By.CLASS_NAME, "loadButton-SFwfC2e0").click()
-        print(Fore.WHITE, "Loading information...")
-    except:
-        # After repeated timeout we conclude that everything has been loaded
-        timeout_times += 1
-        if (timeout_times > 5):
-            break
-        else:
-            continue
-
-html = driver.page_source
-driver.quit()
-
+tsl.click_load_more(driver)
 tsl.notice_load_complete()
 
-# %% Extract and clean data
+# %%
+df_list = []
+tab_list = ["overview", "performance", "valuation", "dividends", "profitability", 
+            "incomeStatement", "balanceSheet", "cashFlow", "oscillators", "trendFollowing"]
+
+for tab_name in tab_list:
+    tsl.click_tab(driver, tab_name)
+    html = driver.page_source
+    soup = tsl.bs(html, "html.parser")
+    headers = tsl.get_data_headers(soup)
+    df = tsl.extract_dataframe(soup, headers)
+    df_list.append(df)
+    print(Fore.WHITE + f"Extracted dataframe for {tab_name}.")
+    
+df = tsl.pd.concat(df_list, axis=1)
+
+# %%
+
+df = tsl.remove_duplicate(df)
+
+df = tsl.remove_currency(df, ["Price"])
+df = tsl.substitute_sign(df, ["Volume 1D"])
+
+
+
+# %% Extract data
 soup = tsl.bs(html, "html.parser")
-df = tsl.extract_dataframe(soup)
+df = tsl.extract_overview(soup)
 print(Fore.WHITE + "Successfully extracted market data.")
 
-df = tsl.trim_dataframe(df)
+# %% Clean data
+df = tsl.trim_overview(df)
 df = tsl.str_to_float(df, "Volume1D")
-df = tsl.str_to_float(df, "Volume*Price1D")
 df = tsl.str_to_float(df, "MarketCap")
-df = tsl.str_to_float(df, "Employees(FY)")
 print(Fore.WHITE + "Data cleaning completed.")
 
 # %% Export data
