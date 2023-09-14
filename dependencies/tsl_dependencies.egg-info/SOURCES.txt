@@ -1,0 +1,6 @@
+setup.py
+tsl_dependencies.egg-info/PKG-INFO
+tsl_dependencies.egg-info/SOURCES.txt
+tsl_dependencies.egg-info/dependency_links.txt
+tsl_dependencies.egg-info/requires.txt
+tsl_dependencies.egg-info/top_level.txt
