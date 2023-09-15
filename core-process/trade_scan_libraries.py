@@ -22,10 +22,12 @@ except ImportError as e:
 import webdrivers.webdriver_initializer as webdriver
 driver = webdriver.driver
 
+
 # %% Functions for web interactions
 
 
 def click_load_more(driver) -> None:
+    print("")
     timeout_times = 0
     while True:
         try:
@@ -56,6 +58,7 @@ def get_data_headers(soup) -> list:
         headers.append(field.get_text())
     return headers
     
+
 def extract_dataframe(soup, headers:list) -> pd.DataFrame:        
     df = pd.DataFrame(columns=headers)
     trow = soup.find_all("tr", class_="row-RdUXZpkv listRow")
@@ -75,46 +78,84 @@ def extract_dataframe(soup, headers:list) -> pd.DataFrame:
     return df
 
 
-# %% Functions for data cleaning
-
-
-def mark_NA(df:pd.DataFrame) -> pd.DataFrame:
-    df_NA = df.replace("—", "N/A")
-    return df_NA
-
-
-def remove_duplicate(df:pd.DataFrame) -> pd.DataFrame:
+# %% Functions for dataframe operation
+  
+    
+def df_remove_duplicate(df:pd.DataFrame) -> pd.DataFrame:
     df_transposed = df.T
-    df_transposed = df_transposed.drop_duplicates()
-    return df_transposed.T  
+    df_transposed['index']=df_transposed.index
+    index = df_transposed.pop('index')
+    df_transposed.insert(0, 'index', index)
+    df_transposed = df_transposed.drop_duplicates(subset='index', keep='first')
+    df_transposed.pop('index')
+    df = df_transposed.T
+    print(Fore.WHITE + "Removed duplicated columns.")
+    return df
+    
+    
+def df_fill_empty_cells(df:pd.DataFrame) -> pd.DataFrame:
+    df = df.replace("—", "N/A")
+    df = df.replace("", "—")
+    print(Fore.WHITE + "Filled up empty cells.")
+    return df
+    
+    
+def df_substitute_minus(df:pd.DataFrame) -> pd.DataFrame:    
+    for column in df:
+        df[column] = df[column].replace("−", "-", regex=True)
+    print(Fore.WHITE + "Replaced U+2212 with U+002D.")
+    return df
     
 
+# %% 
+currency_list = [
+    "Price", "Market cap", "EPS diluted(TTM)", "EV", "Dividends per share(FY)", "Dividends per share(FQ)", 
+    "Revenue(TTM)", "Gross profit(TTM)", "Operating income(TTM)", "Net income(TTM)", "EBITDA(TTM)", 
+    "Assets(FQ)", "Current assets(FQ)", "Cash on hand(FQ)", "Liabilities(FQ)", "Debt(FQ)", "Net debt(FQ)", "Equity(FQ)", 
+    "Operating CF(TTM)", "Investing CF(TTM)", "Financing CF(TTM)", "Free cash flow(TTM)", "CAPEX(TTM)"]
 
-def remove_currency(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
+substitue_list = [
+    "Volume 1D", "Market cap", "EV", "Revenue(TTM)", "Gross profit(TTM)", "Operating income(TTM)", "Net income(TTM)", "EBITDA(TTM)", 
+    "Assets(FQ)", "Current assets(FQ)", "Cash on hand(FQ)", "Liabilities(FQ)", "Debt(FQ)", "Net debt(FQ)", "Equity(FQ)", 
+    "Operating CF(TTM)", "Investing CF(TTM)", "Financing CF(TTM)", "Free cash flow(TTM)", "CAPEX(TTM)"]
+
+# %% Functions for column operation
+
+
+def col_remove_currency(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
     for column in column_list:
-        df[column] = df[column].str[:-4]
+        df[column] = df[column].replace(" USD", "", regex=True)        
+    print(Fore.WHITE + "Removed currency symbol.")
     return df
+    
+    
+def cell_str_to_float(string:str) -> float:
+    if string != "N/A":
+        if string[-1] == 'K':              
+            number = float(string[:-1])
+            factor = 10**3
+        elif string[-1] == 'M': 
+            number = float(string[:-1])
+            factor = 10**6
+        elif string[-1] == 'B': 
+            number = float(string[:-1])
+            factor = 10**9            
+        elif string[-1] == 'T': 
+            number = float(string[:-1])
+            factor = 10**12
+        else: 
+            number = float(string)
+            factor = 1
+        return number*factor
+    else:
+        return "N/A"
 
 
-def substitute_minus(df:pd.DataFrame, column_list:list) -> pd.DataFrame:    
+def col_transform_number(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
     for column in column_list:
-        df[column] = df[column].str.replace("−", "-")
-    return df
-
-
-def str_to_number(string:str) -> float:
-    if string[-1] == 'K': factor = 10**3
-    elif string[-1] == 'M': factor = 10**6
-    elif string[-1] == 'B': factor = 10**9
-    else: factor = 1
-    number = float(string[:-1])
-    return number*factor
-
-
-def transform_number(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
-    for column in column_list:
-        df[column] = df[column].str.replace("[KMB]","")
-        df[column] = df[column].apply(str_to_number)
+        df[column] = df[column].apply(cell_str_to_float)
+    print(Fore.WHITE + "Transformed abbreviations to numbers.")
+    
     return df
 
 
@@ -130,7 +171,7 @@ def get_and_check_config(selection: str, path:str) -> (str, bool):
                     a string that represents the output path
     """
     config = configparser.ConfigParser()
-    config.read(os.path.join(path, "trade_scan config.ini"))
+    config.read(os.path.join(path, "config.ini"))
     config_path = config.get("Paths", selection)
     if os.path.isdir(config_path):
         return config_path, True
@@ -156,15 +197,6 @@ def get_date():
 
 
 # %% Function for user notice
-
-
-def notice_load_complete():
-    print(Fore.GREEN + "  _                 _ _                                         _      _        ")
-    print(Fore.GREEN + " | | ___   __ _  __| (_)_ __   __ _    ___ ___  _ __ ___  _ __ | | ___| |_ ___  ")
-    print(Fore.GREEN + " | |/ _ \ / _` |/ _` | | '_ \ / _` |  / __/ _ \| '_ ` _ \| '_ \| |/ _ \ __/ _ \ ")
-    print(Fore.GREEN + " | | (_) | (_| | (_| | | | | | (_| | | (_| (_) | | | | | | |_) | |  __/ ||  __/ ")
-    print(Fore.GREEN + " |_|\___/ \__,_|\__,_|_|_| |_|\__, |  \___\___/|_| |_| |_| .__/|_|\___|\__\___| ")
-    print(Fore.GREEN + "                              |___/                      |_|                    ")
 
 
 def notice_save_desired():

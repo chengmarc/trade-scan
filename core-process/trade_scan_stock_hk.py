@@ -4,56 +4,53 @@
 @github: https://github.com/chengmarc
 
 """
-import os
+import os, time
 script_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(script_path)
 
 import trade_scan_libraries as tsl
-import webdrivers.webdriver_initializer as wd
 from colorama import init, Fore
 init()
 
 # %% Parse html content
-driver = wd.driver
+driver = tsl.driver
 driver.get("https://www.tradingview.com/markets/stocks-hong-kong/market-movers-all-stocks/")
+tsl.click_load_more(driver)
 print("")
+print(Fore.GREEN + "All data loaded.")
 
-# Click the "Load More" button until everything is loaded
-timeout_times = 0
-while True:
-    try:
-        # Wait for up to 3 seconds for the button to be clickable
-        driver.implicitly_wait(3)
-        driver.find_element(wd.By.CLASS_NAME, "loadButton-SFwfC2e0").click()
-        print(Fore.WHITE, "Loading information...")
-    except:
-        # After repeated timeout we conclude that everything has been loaded
-        timeout_times += 1
-        if (timeout_times > 5):
-            break
-        else:
-            continue
+# %% Main Execution
+df_list = []
+tab_list = [
+    "overview", "performance", "valuation", "dividends", "profitability", 
+    "incomeStatement", "balanceSheet", "cashFlow", "oscillators", "trendFollowing"]
 
-html = driver.page_source
-driver.quit()
+for tab_name in tab_list:
+    tsl.click_tab(driver, tab_name)
+    html = driver.page_source
+    soup = tsl.bs(html, "html.parser")
+    headers = tsl.get_data_headers(soup)
+    df = tsl.extract_dataframe(soup, headers)
+    df_list.append(df)
+    print(Fore.WHITE, f"- Extracted dataframe for {tab_name}.")
+    time.sleep(3)
+    
+df = tsl.pd.concat(df_list, axis=1)
+print("")
+print(Fore.GREEN + "All data ready.")
 
-tsl.notice_load_complete()
+# %% Data cleaning
+df = df.map(lambda x: str(x))
+df = tsl.df_remove_duplicate(df)
+df = tsl.df_fill_empty_cells(df)
+df = tsl.df_substitute_minus(df)
 
-# %% Extract and clean data
-soup = tsl.bs(html, "html.parser")
-df = tsl.extract_dataframe(soup)
-print(Fore.WHITE + "Successfully extracted market data.")
-
-df = tsl.trim_dataframe(df)
-df = tsl.str_to_float(df, "Volume1D")
-df = tsl.str_to_float(df, "Volume*Price1D")
-df = tsl.str_to_float(df, "MarketCap")
-df = tsl.str_to_float(df, "Employees(FY)")
-print(Fore.WHITE + "Data cleaning completed.")
+df = tsl.col_remove_currency(df, tsl.currency_list)
+df = tsl.col_transform_number(df, tsl.substitue_list)
 
 # %% Export data
 try:
-    output_path, valid = tsl.get_and_check_config("output_path_hk", script_path)
+    output_path, valid = tsl.get_and_check_config("output_path_hk", os.path.dirname(script_path))
     output_name = f"stock-market-hk-{tsl.get_date()}.csv"
     df.to_csv(os.path.join(output_path, output_name))
     if valid:

@@ -31,8 +31,8 @@ def initialize_firefox():
     # mozilla/geckodriver 0.33.0
     options = FirefoxOptions()
     options.add_argument("-headless")
-    options.add_argument("--width=2560")
-    options.add_argument("--height=1440")
+    options.add_argument("--width=1920")
+    options.add_argument("--height=1080")
     service = FirefoxService(executable_path=os.path.join(script_path, "geckodriver.exe"))
     driver = webdriver.Firefox(service=service, options=options)
     return driver
@@ -43,7 +43,7 @@ def initialize_chrome():
     # ChromeDriver 116.0.5845.96 (r1160321)
     options = ChromeOptions()
     options.add_argument("--headless")
-    options.add_argument("--window-size=2560,1440")
+    options.add_argument("--window-size=1920,1080")
     service = ChromeService(executable_path=os.path.join(script_path, "chromedriver.exe"))
     driver = webdriver.Chrome(service=service, options=options)
     return driver
@@ -62,7 +62,6 @@ def error_browser():
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 try:
-    raise Exception
     driver = initialize_firefox()
     print(Fore.GREEN + "Mozilla driver initialized.")
 except:
