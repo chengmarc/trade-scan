@@ -35,24 +35,23 @@ for tab_name in tab_list:
 df = tsl.pd.concat(df_list, axis=1)
 
 # %%
-
 df = tsl.remove_duplicate(df)
 
-df = tsl.remove_currency(df, ["Price"])
-df = tsl.substitute_sign(df, ["Volume 1D"])
+# %%
+currency_list = ["Price", "Market cap", "EPS diluted(TTM)", "EV", "Dividends per share(FY)", "Dividends per share(FQ)", 
+                 "Revenue(TTM)", "Gross profit(TTM)", "Operating income(TTM)", "Net income(TTM)", "EBITDA(TTM)",
+                 "Assets(FQ)", "Current assets(FQ)", "Cash on hand(FQ)", "Liabilities(FQ)", "Debt(FQ)", "Net debt(FQ)", "Equity(FQ)", 
+                 "Operating CF(TTM)", "Investing CF(TTM)", "Financing CF(TTM)", "Free cash flow(TTM)", "CAPEX(TTM)"]
 
+df = tsl.remove_currency(df, currency_list)
 
+# %%
+substitue_list = ["Volume 1D", "Market cap", "EV", 
+                  "Revenue(TTM)", "Gross profit(TTM)", "Operating income(TTM)", "Net income(TTM)", "EBITDA(TTM)",  
+                  "Assets(FQ)", "Current assets(FQ)", "Cash on hand(FQ)", "Liabilities(FQ)", "Debt(FQ)", "Net debt(FQ)", "Equity(FQ)", 
+                  "Operating CF(TTM)", "Investing CF(TTM)", "Financing CF(TTM)", "Free cash flow(TTM)", "CAPEX(TTM)"]
 
-# %% Extract data
-soup = tsl.bs(html, "html.parser")
-df = tsl.extract_overview(soup)
-print(Fore.WHITE + "Successfully extracted market data.")
-
-# %% Clean data
-df = tsl.trim_overview(df)
-df = tsl.str_to_float(df, "Volume1D")
-df = tsl.str_to_float(df, "MarketCap")
-print(Fore.WHITE + "Data cleaning completed.")
+df = tsl.substitute_sign(df, substitue_list)
 
 # %% Export data
 try:

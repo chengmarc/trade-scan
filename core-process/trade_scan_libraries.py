@@ -75,7 +75,7 @@ def extract_dataframe(soup, headers:list) -> pd.DataFrame:
     return df
 
 
-# %%
+# %% Functions for data cleaning
 
 
 def mark_NA(df:pd.DataFrame) -> pd.DataFrame:
@@ -135,13 +135,13 @@ def get_and_check_config(selection: str, path:str) -> (str, bool):
     if os.path.isdir(config_path):
         return config_path, True
     elif selection == "output_path_us":
-        return os.path.join(path, "market-data"), False
+        return os.path.join(path, "market-data", "us-market"), False
     elif selection == "output_path_ca":
-        return os.path.join(path, "market-data"), False
+        return os.path.join(path, "market-data", "ca-market"), False
     elif selection == "output_path_zh":
-        return os.path.join(path, "market-data"), False
+        return os.path.join(path, "market-data", "zh-market"), False
     elif selection == "output_path_hk":
-        return os.path.join(path, "market-data"), False
+        return os.path.join(path, "market-data", "hk-market"), False
 
 
 def get_date():
