@@ -10,5 +10,5 @@ setup(
     name='tsl-dependencies',
     version='1.0',
     packages=find_packages(),
-    install_requires=['selenium', 'pandas', 'bs4', 'colorama']
+    install_requires=['selenium', 'pandas==2.1.0', 'bs4', 'colorama']
 )
