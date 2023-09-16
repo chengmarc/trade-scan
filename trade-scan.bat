@@ -15,4 +15,6 @@ echo Virtual environment setup completed.
 pause
 
 call core-process\trade_scan_main.py
+echo.
+echo Execution fully completed.
 pause
