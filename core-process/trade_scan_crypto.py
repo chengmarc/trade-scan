@@ -9,15 +9,13 @@ script_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(script_path)
 
 import trade_scan_libraries as tsl
-from colorama import init, Fore
-init()
 
 # %% Load data
 driver = tsl.driver
 driver.get("https://www.tradingview.com/markets/cryptocurrencies/prices-all/")
 tsl.click_load_more(driver)
 print("")
-print(Fore.GREEN + "All data loaded.")
+print(tsl.Fore.GREEN + "All data loaded.")
 print("")
 
 # %% Parse HTML
@@ -29,7 +27,7 @@ df_raw = soup.find_all("tr", class_="row-RdUXZpkv listRow")
 df_clean = tsl.pd.DataFrame(columns = ['Symbol', 'Name', 'Rank', 'Price', 'Change24h',
                                    'MarketCap', 'Volume24h', 'Supply', 'Category'])
 
-print(Fore.WHITE + "Successfully parsed html content.")
+print(tsl.Fore.WHITE + "Successfully parsed html content.")
 
 # %% Extract data
 for row in df_raw:
@@ -51,7 +49,7 @@ for row in df_raw:
     df_clean.loc[len(df_clean)] = row_content
     del cell_left, cell_mid, cells_mid, cell_right, row_content
 
-print(Fore.WHITE + "Successfully extracted market data.")
+print(tsl.Fore.WHITE + "Successfully extracted market data.")
 
 # %% Clean data
 df = df_clean.copy()
