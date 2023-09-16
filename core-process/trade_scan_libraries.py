@@ -55,7 +55,6 @@ The graph below is an overview of the call structure of the functions.
 ├───notice_start()                  # user notice
 ├───notice_save_desired()           # user notice
 ├───notice_save_default()           # user notice
-├───notice_exit()                   # user notice
 │
 └───error_save_failed()             # user notice
 """
@@ -225,8 +224,8 @@ def get_date():
 
 
 def notice_start(market:str):
-    print("")
     length = len(market) + 12 + 6*2
+    print("")
     print(Fore.WHITE + length*"#")
     print(Fore.WHITE + f"##### Execute for {market} #####")
     print(Fore.WHITE + length*"#")
@@ -245,14 +244,14 @@ def notice_data_extracted():
     
 
 def notice_save_desired(filename:str):
-    print("")
+    print("")    
     print(Fore.WHITE + "Successfully loaded output config.")
     print(Fore.WHITE + f"{filename} has been saved to the desired location.")
     print("")
 
 
 def notice_save_default(filename:str):
-    print("")
+    print("")    
     print(Fore.WHITE + "Output config not detected.")
     print(Fore.WHITE + f"{filename} has been saved to the default location.")
     print("")
@@ -264,12 +263,6 @@ def error_save_failed(filename:str):
     getpass.getpass("Press Enter to quit in a few seconds...")
     sys.exit()
 
-
-def notice_exit():
-    print(Fore.GREEN + "Extraction fully completed.")
-    getpass.getpass("Press Enter to quit in a few seconds...")
-    sys.exit()
-    
 
 # %% Pre-defined list
 tab_list = [

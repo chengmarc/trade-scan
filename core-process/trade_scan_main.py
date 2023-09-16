@@ -45,4 +45,4 @@ for market in [us_market_info, ca_marekt_info, zh_market_info, hk_market_info]:
     except:
         tsl.error_save_failed(market["output_name"])
         
-tsl.notice_exit()
+tsl.sys.exit()
