@@ -11,7 +11,7 @@
 (note: virtual environment will be created under "core-process" so it won't mess up with your existing environment)
 
 # For further use
-It is recommended to execute **trade-scan.bat** daily or weekly. This will takes around *10 minutes* and extract a daily snapshot of the stock market. This batch file executes **trade_scan_main.py** in "<ins>core-process</ins>".
+It is recommended to execute **trade-scan.bat** daily or weekly. This will takes around *15 minutes* and extract a daily snapshot of the stock market. This batch file executes **trade_scan_main.py** in "<ins>core-process</ins>".
 
 # Save location
 By default, data are saved under "<ins>market-data</ins>". \

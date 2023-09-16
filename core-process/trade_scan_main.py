@@ -44,5 +44,6 @@ for market in [us_market_info, ca_marekt_info, zh_market_info, hk_market_info]:
             tsl.notice_save_default(market["output_name"])
     except:
         tsl.error_save_failed(market["output_name"])
-        
+
+driver.quit()
 tsl.sys.exit()
