@@ -1,4 +1,4 @@
-4# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 @author: chengmarc
 @github: https://github.com/chengmarc
@@ -51,6 +51,7 @@ The graph below is an overview of the call structure of the functions.
 │
 ├───get_and_check_config()          # set output path
 ├───get_date()                      # get current date
+├───get_datetime()                  # get current datetime
 │
 ├───notice_start()                  # user notice
 ├───notice_save_desired()           # user notice
@@ -207,6 +208,8 @@ def get_and_check_config(selection: str, path:str) -> (str, bool):
         return os.path.join(path, "market-data", "zh-market"), False
     elif selection == "output_path_hk":
         return os.path.join(path, "market-data", "hk-market"), False
+    elif selection == "output_path_crypto":
+        return os.path.join(path, "crypto-data"), False        
 
 
 def get_date():
@@ -218,6 +221,12 @@ def get_date():
     current_datetime = datetime.datetime.now()
     formatted_date = current_datetime.strftime("%Y-%m-%d")
     return formatted_date
+
+
+def get_datetime():
+    current_datetime = datetime.datetime.now()
+    formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+    return formatted_datetime
 
 
 # %% Function for user notice
