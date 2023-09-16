@@ -34,25 +34,25 @@ print(Fore.WHITE + "Successfully parsed html content.")
 # %% Extract data
 for row in df_raw:
     row_content = []
-    
+
     cell_left = row.find('td', class_='cell-RLhfr_y4 left-RLhfr_y4 cell-fixed-ZtyEm8a1 onscroll-shadow')
     symbol = cell_left.find('a', class_='apply-common-tooltip tickerNameBox-GrtoTeat tickerName-GrtoTeat')
     name = cell_left.find('sup', class_='apply-common-tooltip tickerDescription-GrtoTeat')
     row_content.append(symbol.get_text())
     row_content.append(name.get_text())
-    
+
     cells_mid = row.find_all('td', class_='cell-RLhfr_y4 right-RLhfr_y4')
     for cell_mid in cells_mid:
         row_content.append(cell_mid.get_text())
-        
+
     cell_right = row.find('td', class_='cell-RLhfr_y4 left-RLhfr_y4')
     row_content.append(cell_right.get_text())
-    
+
     df_clean.loc[len(df_clean)] = row_content
     del cell_left, cell_mid, cells_mid, cell_right, row_content
-    
+
 print(Fore.WHITE + "Successfully extracted market data.")
-    
+
 # %% Clean data
 df = df_clean.copy()
 df = tsl.df_fill_empty_cells(df)

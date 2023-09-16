@@ -37,7 +37,7 @@ The graph below is an overview of the call structure of the functions.
 │   │
 │   ├───notice_data_loaded()        # user notice
 │   └───notice_data_extracted()     # user notice
-│ 
+│
 ├───clean_all()                     # core function for data cleaning
 │   │
 │   ├───df_remove_duplicate()       # remove duplicated columns
@@ -47,7 +47,7 @@ The graph below is an overview of the call structure of the functions.
 │   ├───col_remove_currency()       # remove currency symbol
 │   └───col_transform_number()      # transform abbreviations into float
 │       │ 
-│       └───cell_str_to_float()     # transform abbreviations into float 
+│       └───cell_str_to_float()     # transform abbreviations into float
 │
 ├───get_and_check_config()          # set output path
 ├───get_date()                      # get current date
@@ -94,30 +94,30 @@ def get_data_headers(soup) -> list:
     for field in thead[1:]:
         headers.append(field.get_text())
     return headers
-    
 
-def extract_dataframe(soup, headers:list) -> pd.DataFrame:        
+
+def extract_dataframe(soup, headers:list) -> pd.DataFrame:
     df = pd.DataFrame(columns=headers)
     trow = soup.find_all("tr", class_="row-RdUXZpkv listRow")
     for row in trow:
         row_content = []
         tdata = row.find_all("td", class_="cell-RLhfr_y4")
-        
+
         symbol = tdata[0].find("a", class_="apply-common-tooltip tickerNameBox-GrtoTeat tickerName-GrtoTeat")
         name = tdata[0].find("sup", class_="apply-common-tooltip tickerDescription-GrtoTeat")
         row_content.append(symbol.get_text())
         row_content.append(name.get_text())        
-        
+
         for field in tdata[1:]:
             row_content.append(field.get_text())
-            
+
         df.loc[len(df)] = row_content
     return df
 
 
 # %% Functions for dataframe cleaning 
 
- 
+
 def df_remove_duplicate(df:pd.DataFrame) -> pd.DataFrame:
     df_transposed = df.T
     df_transposed['index']=df_transposed.index
@@ -128,21 +128,21 @@ def df_remove_duplicate(df:pd.DataFrame) -> pd.DataFrame:
     df = df_transposed.T
     print(Fore.WHITE + "Removed duplicated columns.")
     return df
-    
-    
+
+
 def df_fill_empty_cells(df:pd.DataFrame) -> pd.DataFrame:
     df = df.replace("—", "N/A")
     df = df.replace("", "—")
     print(Fore.WHITE + "Filled up empty cells.")
     return df
-    
-    
-def df_substitute_minus(df:pd.DataFrame) -> pd.DataFrame:    
+
+
+def df_substitute_minus(df:pd.DataFrame) -> pd.DataFrame:
     for column in df:
         df[column] = df[column].replace("−", "-", regex=True)
     print(Fore.WHITE + "Replaced U+2212 with U+002D.")
     return df
-    
+
 
 
 # %% Functions for column cleaning
@@ -150,26 +150,26 @@ def df_substitute_minus(df:pd.DataFrame) -> pd.DataFrame:
 
 def col_remove_currency(df:pd.DataFrame, column_list:list, string:str) -> pd.DataFrame:
     for column in column_list:
-        df[column] = df[column].replace(string, "", regex=True)        
+        df[column] = df[column].replace(string, "", regex=True)
     print(Fore.WHITE + "Removed currency symbol.")
     return df
-    
-    
+
+
 def cell_str_to_float(string:str) -> float:
     if string != "N/A":
-        if string[-1] == 'K':              
+        if string[-1] == 'K':
             number = float(string[:-1])
             factor = 10**3
-        elif string[-1] == 'M': 
+        elif string[-1] == 'M':
             number = float(string[:-1])
             factor = 10**6
-        elif string[-1] == 'B': 
+        elif string[-1] == 'B':
             number = float(string[:-1])
-            factor = 10**9            
-        elif string[-1] == 'T': 
+            factor = 10**9
+        elif string[-1] == 'T':
             number = float(string[:-1])
             factor = 10**12
-        else: 
+        else:
             number = float(string)
             factor = 1
         return number*factor
@@ -180,7 +180,7 @@ def cell_str_to_float(string:str) -> float:
 def col_transform_number(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
     for column in column_list:
         df[column] = df[column].apply(cell_str_to_float)
-    print(Fore.WHITE + "Transformed abbreviations to numbers.")    
+    print(Fore.WHITE + "Transformed abbreviations to numbers.")
     return df
 
 
@@ -209,7 +209,7 @@ def get_and_check_config(selection: str, path:str) -> (str, bool):
     elif selection == "output_path_hk":
         return os.path.join(path, "market-data", "hk-market"), False
     elif selection == "output_path_crypto":
-        return os.path.join(path, "crypto-data"), False        
+        return os.path.join(path, "crypto-data"), False
 
 
 def get_date():
@@ -240,20 +240,20 @@ def notice_start(market:str):
     print(Fore.WHITE + length*"#")
 
 
-def notice_data_loaded():    
+def notice_data_loaded():
     print("")
     print(Fore.GREEN + "All data loaded.")
     print("")
 
 
-def notice_data_extracted():    
+def notice_data_extracted():
     print("")
     print(Fore.GREEN + "All data extracted.")
     print("")
-    
+
 
 def notice_save_desired(filename:str):
-    print("")    
+    print("")
     print(Fore.WHITE + "Successfully loaded output config.")
     print(Fore.WHITE + f"{filename} has been saved to the desired location.")
     print("")
@@ -307,8 +307,8 @@ def extract_all(driver, url:str) -> pd.DataFrame:
         df = extract_dataframe(soup, headers)
         df_list.append(df)
         time.sleep(3)
-        print(Fore.WHITE, f"- Extracted dataframe for {tab_name}.")    
-    
+        print(Fore.WHITE, f"- Extracted dataframe for {tab_name}.")
+
     df = pd.concat(df_list, axis=1)
     notice_data_extracted()
     return df
@@ -321,5 +321,5 @@ def clean_all(df:pd.DataFrame, currency:str) -> pd.DataFrame:
     df = df_substitute_minus(df)
 
     df = col_remove_currency(df, currency_list, currency)
-    df = col_transform_number(df, substitue_list)    
+    df = col_transform_number(df, substitue_list)
     return df
