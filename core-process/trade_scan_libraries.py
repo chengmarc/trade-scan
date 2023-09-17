@@ -6,6 +6,7 @@
 """
 import os, sys, time, datetime, configparser, getpass
 script_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(script_path)
 
 try:
     import pandas as pd
@@ -44,10 +45,12 @@ The graph below is an overview of the call structure of the functions.
 │   ├───df_fill_empty_cells()       # fill empty cells to "N/A"
 │   ├───df_substitute_minus()       # substitute "−" for "-"
 │   │
-│   ├───col_remove_currency()       # remove currency symbol
-│   └───col_transform_number()      # transform abbreviations into float
+│   ├───df_remove_currency()        # remove currency symbol
+│   └───df_transform_number()       # transform abbreviations into float
 │       │ 
 │       └───cell_str_to_float()     # transform abbreviations into float
+│           │ 
+│           └───get_abbrev_list()   # produce a list of possible suffixes
 │
 ├───get_and_check_config()          # set output path
 ├───get_date()                      # get current date
@@ -217,30 +220,41 @@ def df_substitute_minus(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# %% Functions for column cleaning
-
-
-def col_remove_currency(df: pd.DataFrame, column_list: list, string: str) -> pd.DataFrame:
+def df_remove_currency(df: pd.DataFrame, string: str) -> pd.DataFrame:
     """
-    The function takes a pandas dataframe, a list of column names, and a replace string
-    to replace the given string in the given columns.
+    The function takes a pandas dataframe and a replace string
+    to replace all the occurrence of the given string in the given dataframe.
     
     Return:         a pandas dataframe where the given string is replaced
     
     #Example
-    input:  the pandas dataframe shown below, ["Price"], " USD"
-            Name    Price       Price2   Rating
-            NVIDIA  400 USD     400 USD  Buy
-            Meta    150 USD     150 USD  Sell
+    input:  the pandas dataframe shown below, " USD"
+            Name    Price       Rating
+            NVIDIA  400 USD     Buy
+            Meta    150 USD     Sell
 
-    output: Name    Price       Price2   Rating
-            NVIDIA  400         400 USD  Buy
-            Meta    150         150 USD  Sell
+    output: Name    Price       Rating
+            NVIDIA  400         Buy
+            Meta    150         Sell
     """
-    for column in column_list:
+    for column in df:
         df[column] = df[column].replace(string, "", regex=True)
     print(Fore.WHITE + "Removed currency symbol.")
     return df
+
+
+def get_abbrev_list(abbrev: str) -> list:
+    """
+    The function produce a list of possible suffixes for number abbreviations.
+    (note: this function is for one time execution only)
+    """
+    abbrev_list = []
+    for character in abbrev:
+        abbrev_list.extend([f"{i}{character}" for i in range(10)])
+    return abbrev_list
+
+
+abbrev_list = get_abbrev_list(["K","M","B","T"])
 
 
 def cell_str_to_float(string: str) -> float:
@@ -254,7 +268,7 @@ def cell_str_to_float(string: str) -> float:
     input:  "768M"
     output: "768000000.00"
     """
-    if string != "N/A":
+    if string[-2:] in abbrev_list:
         if string[-1] == 'K':
             number = float(string[:-1])
             factor = 10**3
@@ -272,19 +286,17 @@ def cell_str_to_float(string: str) -> float:
             factor = 1
         return number*factor
     else:
-        return "N/A"
+        return string
 
 
-def col_transform_number(df: pd.DataFrame, column_list: list) -> pd.DataFrame:
+def df_transform_number(df: pd.DataFrame) -> pd.DataFrame:
     """
-    The function takes a pandas dataframe and a list of column names
-    to replace number abbreviations to float numbers in the given columns.
+    The function takes a pandas dataframe and replace all number abbreviations to float numbers.
     
     Return:         a pandas dataframe where number abbreviations are replaced
     
     #Example
-    input:  the pandas dataframe shown below, ["MarketCap"]
-            Name        MarketCap   Rating
+    input:  Name        MarketCap   Rating            
             Apple       400M        Buy
             Aerotyne    150K        Sell
 
@@ -292,7 +304,7 @@ def col_transform_number(df: pd.DataFrame, column_list: list) -> pd.DataFrame:
             Apple       400000000   Buy
             Aerotyne    150000      Sell
     """
-    for column in column_list:
+    for column in df:
         df[column] = df[column].apply(cell_str_to_float)
     print(Fore.WHITE + "Transformed abbreviations to numbers.")
     return df
@@ -392,22 +404,9 @@ def error_save_failed(filename: str) -> None:
     sys.exit()
 
 
-# %% Pre-defined list
-tab_list = [
-    "overview", "performance", "valuation", "dividends", "profitability", 
-    "incomeStatement", "balanceSheet", "cashFlow", "oscillators", "trendFollowing"]
-
-currency_list = [
-    "Price", "Market cap", "EPS diluted(TTM)", "EV", "Dividends per share(FY)", "Dividends per share(FQ)", 
-    "Revenue(TTM)", "Gross profit(TTM)", "Operating income(TTM)", "Net income(TTM)", "EBITDA(TTM)", 
-    "Assets(FQ)", "Current assets(FQ)", "Cash on hand(FQ)", "Liabilities(FQ)", "Debt(FQ)", "Net debt(FQ)", "Equity(FQ)", 
-    "Operating CF(TTM)", "Investing CF(TTM)", "Financing CF(TTM)", "Free cash flow(TTM)", "CAPEX(TTM)"]
-
-substitue_list = [
-    "Volume 1D", "Market cap", "EV", "Revenue(TTM)", "Gross profit(TTM)", "Operating income(TTM)", "Net income(TTM)", "EBITDA(TTM)", 
-    "Assets(FQ)", "Current assets(FQ)", "Cash on hand(FQ)", "Liabilities(FQ)", "Debt(FQ)", "Net debt(FQ)", "Equity(FQ)", 
-    "Operating CF(TTM)", "Investing CF(TTM)", "Financing CF(TTM)", "Free cash flow(TTM)", "CAPEX(TTM)"]
-
+# %% Pre-defined tab list
+tab_list = ["overview", "performance", "valuation", "dividends", "profitability", 
+            "incomeStatement", "balanceSheet", "cashFlow", "oscillators", "trendFollowing"]
 
 # %% Core functions
 
@@ -453,6 +452,6 @@ def clean_all(df:pd.DataFrame, currency:str) -> pd.DataFrame:
     df = df_fill_empty_cells(df)
     df = df_substitute_minus(df)
 
-    df = col_remove_currency(df, currency_list, currency)
-    df = col_transform_number(df, substitue_list)
+    df = df_remove_currency(df, currency)
+    df = df_transform_number(df)
     return df
