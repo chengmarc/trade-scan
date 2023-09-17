@@ -64,6 +64,11 @@ The graph below is an overview of the call structure of the functions.
 
 
 def click_load_more(driver) -> None:
+    """
+    The function takes a selenium webdriver and click the "load" button until everything is loaded.
+
+    Precondition:   selenium webdriver has opened a TradingView market page
+    """    
     print("")
     timeout_times = 0
     while True:
@@ -79,7 +84,13 @@ def click_load_more(driver) -> None:
             else: continue
 
 
-def click_tab(driver, tab_name:str) -> None:
+def click_tab(driver, tab_name: str) -> None:
+    """
+    The function takes a selenium webdriver and click the tab given.
+
+    Precondition:   selenium webdriver has opened a TradingView market page
+                    tab name is a valid id that represents a clickable object
+    """
     button = driver.find_element(webdriver.By.ID , tab_name)
     button.click()
 
@@ -88,6 +99,19 @@ def click_tab(driver, tab_name:str) -> None:
 
 
 def get_data_headers(soup) -> list:
+    """
+    The function takes a BeautifulSoup object and return a list of headers.
+
+    Precondition:   soup has been correctly parsed
+    Return:         a list of headers
+
+    #Example
+    input:  a BeautifulSoup object parsed from:
+            https://www.tradingview.com/markets/stocks-usa/market-movers-all-stocks/
+
+    output: ["Price", "Change % 1D", "Volume 1D", "Market cap", "P/E", "EPS diluted (TTM)", 
+             "EPS diluted growth % (TTM YoY)", "Dividend yield % (TTM)", "Sector", "Analyst Rating"]
+    """
     twarp = soup.find("div", class_="tableWrapSticky-SfGgNYTG")
     thead = twarp.find_all("th", class_="cell-seAzPAHn")
     headers = ['Symbol', 'Company']
@@ -96,7 +120,14 @@ def get_data_headers(soup) -> list:
     return headers
 
 
-def extract_dataframe(soup, headers:list) -> pd.DataFrame:
+def extract_dataframe(soup, headers: list) -> pd.DataFrame:
+    """
+    The function takes a BeautifulSoup object and a list of headers to return a pandas dataframe.
+
+    Precondition:   soup has been correctly parsed
+                    headers is a list that matches the sheet headers
+    Return:         a pandas dataframe containing the market data
+    """
     df = pd.DataFrame(columns=headers)
     trow = soup.find_all("tr", class_="row-RdUXZpkv listRow")
     for row in trow:
@@ -106,7 +137,7 @@ def extract_dataframe(soup, headers:list) -> pd.DataFrame:
         symbol = tdata[0].find("a", class_="apply-common-tooltip tickerNameBox-GrtoTeat tickerName-GrtoTeat")
         name = tdata[0].find("sup", class_="apply-common-tooltip tickerDescription-GrtoTeat")
         row_content.append(symbol.get_text())
-        row_content.append(name.get_text())        
+        row_content.append(name.get_text())
 
         for field in tdata[1:]:
             row_content.append(field.get_text())
@@ -118,7 +149,21 @@ def extract_dataframe(soup, headers:list) -> pd.DataFrame:
 # %% Functions for dataframe cleaning 
 
 
-def df_remove_duplicate(df:pd.DataFrame) -> pd.DataFrame:
+def df_remove_duplicate(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    The function takes a pandas dataframe and remove duplicate columns.
+    
+    Return:         a pandas dataframe with unique columns
+    
+    #Example
+    input:  Name    Price   Price   Rating
+            NVIDIA  400     400     Buy
+            Meta    150     200     Sell
+            
+    output: Name    Price   Rating
+            NVIDIA  400     Buy
+            Meta    150     Sell
+    """
     df_transposed = df.T
     df_transposed['index']=df_transposed.index
     index = df_transposed.pop('index')
@@ -130,32 +175,85 @@ def df_remove_duplicate(df:pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def df_fill_empty_cells(df:pd.DataFrame) -> pd.DataFrame:
+def df_fill_empty_cells(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    The function takes a pandas dataframe and fill in the empty cells.
+    
+    Return:         a pandas dataframe with no empty cells
+    
+    #Example
+    input:  Name    Price   Rating
+            NVIDIA          Buy
+            Meta    150     —
+
+    output: Name    Price   Rating
+            NVIDIA  N/A     Buy
+            Meta    150     N/A
+    """
     df = df.replace("—", "N/A")
-    df = df.replace("", "—")
+    df = df.replace("", "N/A")
     print(Fore.WHITE + "Filled up empty cells.")
     return df
 
 
-def df_substitute_minus(df:pd.DataFrame) -> pd.DataFrame:
+def df_substitute_minus(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    The function takes a pandas dataframe and fill in the empty cells.
+    
+    Return:         a pandas dataframe with no empty cells
+    
+    #Example
+    input:  Name    Change  Rating
+            NVIDIA  5%      Buy
+            Meta    —10%    Sell
+
+    output: Name    Change  Rating
+            NVIDIA  5%      Buy
+            Meta    -10%    Sell
+    """
     for column in df:
         df[column] = df[column].replace("−", "-", regex=True)
     print(Fore.WHITE + "Replaced U+2212 with U+002D.")
     return df
 
 
-
 # %% Functions for column cleaning
 
 
-def col_remove_currency(df:pd.DataFrame, column_list:list, string:str) -> pd.DataFrame:
+def col_remove_currency(df: pd.DataFrame, column_list: list, string: str) -> pd.DataFrame:
+    """
+    The function takes a pandas dataframe, a list of column names, and a replace string
+    to replace the given string in the given columns.
+    
+    Return:         a pandas dataframe where the given string is replaced
+    
+    #Example
+    input:  the pandas dataframe shown below, ["Price"], " USD"
+            Name    Price       Price2   Rating
+            NVIDIA  400 USD     400 USD  Buy
+            Meta    150 USD     150 USD  Sell
+
+    output: Name    Price       Price2   Rating
+            NVIDIA  400         400 USD  Buy
+            Meta    150         150 USD  Sell
+    """
     for column in column_list:
         df[column] = df[column].replace(string, "", regex=True)
     print(Fore.WHITE + "Removed currency symbol.")
     return df
 
 
-def cell_str_to_float(string:str) -> float:
+def cell_str_to_float(string: str) -> float:
+    """
+    The function takes a number abbreviation string and returns the number.
+
+    Precondition:   string contains an abbreviated number: "10K", "20M", "30B", "40T"
+    Return:         a float number such as 10000
+    
+    #Example
+    input:  "768M"
+    output: "768000000.00"
+    """
     if string != "N/A":
         if string[-1] == 'K':
             number = float(string[:-1])
@@ -177,7 +275,23 @@ def cell_str_to_float(string:str) -> float:
         return "N/A"
 
 
-def col_transform_number(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
+def col_transform_number(df: pd.DataFrame, column_list: list) -> pd.DataFrame:
+    """
+    The function takes a pandas dataframe and a list of column names
+    to replace number abbreviations to float numbers in the given columns.
+    
+    Return:         a pandas dataframe where number abbreviations are replaced
+    
+    #Example
+    input:  the pandas dataframe shown below, ["MarketCap"]
+            Name        MarketCap   Rating
+            Apple       400M        Buy
+            Aerotyne    150K        Sell
+
+    output: Name        MarketCap   Rating
+            Apple       400000000   Buy
+            Aerotyne    150000      Sell
+    """
     for column in column_list:
         df[column] = df[column].apply(cell_str_to_float)
     print(Fore.WHITE + "Transformed abbreviations to numbers.")
@@ -187,9 +301,9 @@ def col_transform_number(df:pd.DataFrame, column_list:list) -> pd.DataFrame:
 # %% Function for output path and output time
 
 
-def get_and_check_config(selection: str, path:str) -> (str, bool):
+def get_and_check_config(selection: str, path: str) -> (str, bool):
     """
-    This function checks "trade_scan config.ini" and returns the path if there is one.
+    This function checks "config.ini" and returns the path if there is one.
     If the path is empty or is not valid, then it will return the default path.
 
     Return:         a boolean that represents the validity
@@ -212,18 +326,23 @@ def get_and_check_config(selection: str, path:str) -> (str, bool):
         return os.path.join(path, "crypto-data"), False
 
 
-def get_date():
+def get_date() -> str:
     """
-    This function returns a string that represents the current time.
+    This function returns a string that represents the current date.
 
-    Return:         a string of the format: %Y-%m-%d_%H-%M-%S
+    Return:         a string of the format: %Y-%m-%d
     """
     current_datetime = datetime.datetime.now()
     formatted_date = current_datetime.strftime("%Y-%m-%d")
     return formatted_date
 
 
-def get_datetime():
+def get_datetime() -> str:
+    """
+    This function returns a string that represents the current datetime.
+
+    Return:         a string of the format: %Y-%m-%d_%H-%M-%S
+    """
     current_datetime = datetime.datetime.now()
     formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
     return formatted_datetime
@@ -232,7 +351,7 @@ def get_datetime():
 # %% Function for user notice
 
 
-def notice_start(market:str):
+def notice_start(market: str) -> None:
     length = len(market) + 12 + 6*2
     print("")
     print(Fore.WHITE + length*"#")
@@ -240,35 +359,35 @@ def notice_start(market:str):
     print(Fore.WHITE + length*"#")
 
 
-def notice_data_loaded():
+def notice_data_loaded() -> None:
     print("")
     print(Fore.GREEN + "All data loaded.")
     print("")
 
 
-def notice_data_extracted():
+def notice_data_extracted() -> None:
     print("")
     print(Fore.GREEN + "All data extracted.")
     print("")
 
 
-def notice_save_desired(filename:str):
+def notice_save_desired(filename: str) -> None:
     print("")
     print(Fore.WHITE + "Successfully loaded output config.")
     print(Fore.WHITE + f"{filename} has been saved to the desired location.")
     print("")
 
 
-def notice_save_default(filename:str):
+def notice_save_default(filename: str) -> None:
     print("")    
     print(Fore.WHITE + "Output config not detected.")
     print(Fore.WHITE + f"{filename} has been saved to the default location.")
     print("")
 
 
-def error_save_failed(filename:str):
+def error_save_failed(filename: str) -> None:
     print("")
-    print(Fore.RED + "Failed to save {filename}")
+    print(Fore.RED + f"Failed to save {filename}")
     getpass.getpass("Press Enter to quit in a few seconds...")
     sys.exit()
 
@@ -294,6 +413,13 @@ substitue_list = [
 
 
 def extract_all(driver, url:str) -> pd.DataFrame:
+    """
+    This function takes a selenium webdriver and a string of url,
+    to return a pandas dataframe containing all market data, including loaded data from every tab.
+
+    Precondition:   driver has been initialized and url is valid 
+    Return:         a pandas dataframe containing full market data
+    """
     driver.get(url)
     click_load_more(driver)
     notice_data_loaded()
@@ -315,6 +441,13 @@ def extract_all(driver, url:str) -> pd.DataFrame:
 
 
 def clean_all(df:pd.DataFrame, currency:str) -> pd.DataFrame:
+    """
+    This function takes a pandas dataframe and the corresponding currency symbol,
+    to return a pandas dataframe of formatted data.
+    
+    Precondition:   currency is a valid currency symbol: " USD", " CAD", etc.
+    Return:         a pandas dataframe containing formatted market data
+    """
     df = df.map(lambda x: str(x))
     df = df_remove_duplicate(df)
     df = df_fill_empty_cells(df)
