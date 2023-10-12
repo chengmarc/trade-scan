@@ -59,8 +59,8 @@ df = tsl.df_substitute_minus(df)
 currency_list = ["Price", "MarketCap", "Volume24h", "Change24h"]
 substitue_list = ["MarketCap", "Volume24h", "Supply"]
 
-df = tsl.col_remove_currency(df, currency_list, " USD")
-df = tsl.col_transform_number(df, substitue_list)
+df = tsl.df_remove_currency(df, " USD")
+df = tsl.df_transform_number(df)
 
 # %% Export data
 try:

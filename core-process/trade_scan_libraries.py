@@ -406,7 +406,7 @@ def error_save_failed(filename: str) -> None:
 
 # %% Pre-defined tab list
 tab_list = ["overview", "performance", "valuation", "dividends", "profitability", 
-            "incomeStatement", "balanceSheet", "cashFlow", "oscillators", "trendFollowing"]
+            "incomeStatement", "balanceSheet", "cashFlow", "technicals"]
 
 # %% Core functions
 
