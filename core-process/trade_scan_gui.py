@@ -11,20 +11,21 @@ os.chdir(script_path)
 from trade_scan_libraries import sys
 from trade_scan_libraries import tkinter as tk
 from trade_scan_libraries import threading as td
-from trade_scan_libraries import config_create, config_read, config_save
+from trade_scan_libraries import config_create, config_read_check, config_read_path, config_save
 from trade_scan_functions import us_market_info, ca_market_info, zh_market_info, hk_market_info
 from trade_scan_functions import main1, main2
 
 config_create()
 
-def execute():    
-    config_save(text1.get(), text2.get(), text3.get(), text4.get(), text5.get())
+def execute():
+    config_save(accept1.get(), accept2.get(), accept3.get(), accept4.get(), accept5.get(),
+                text1.get(), text2.get(), text3.get(), text4.get(), text5.get())
     if accept1.get() == "Accepted": main1(text1.get(), us_market_info)
     if accept2.get() == "Accepted": main1(text2.get(), ca_market_info)
     if accept3.get() == "Accepted": main1(text3.get(), zh_market_info)
     if accept4.get() == "Accepted": main1(text4.get(), hk_market_info)
     if accept5.get() == "Accepted": main2(text5.get())
-    
+
 def thread_execute():
     thread = td.Thread(target=execute) 
     thread.start()
@@ -33,7 +34,7 @@ def thread_execute():
 root = tk.Tk()
 root.title("TradeScan v1.1")
 root.geometry("480x400")
-#root.iconbitmap("gecko_scan_icon.ico")
+#root.iconbitmap("trade_scan_icon.ico")
 root.resizable(width=False, height=False)
 
 window = tk.Frame(root)
@@ -52,11 +53,11 @@ button1.grid(row=3, column=0, sticky="nswe", padx=20, pady=10)
 button2.grid(row=3, column=1, sticky="nswe", padx=20, pady=10)
 
 # %% Defining Functionality - Checkbox
-accept1 = tk.StringVar(value="Accepted")
-accept2 = tk.StringVar(value="Accepted")
-accept3 = tk.StringVar(value="Accepted")
-accept4 = tk.StringVar(value="Accepted")
-accept5 = tk.StringVar(value="Not Accepted")
+accept1 = tk.StringVar(value=config_read_check("check_us"))
+accept2 = tk.StringVar(value=config_read_check("check_ca"))
+accept3 = tk.StringVar(value=config_read_check("check_zh"))
+accept4 = tk.StringVar(value=config_read_check("check_hk"))
+accept5 = tk.StringVar(value=config_read_check("check_crypto"))
 
 check1 = tk.Checkbutton(frame1, text="USA Stock Market",
                         variable=accept1, onvalue="Accepted", offvalue="Not Accepted")
@@ -76,11 +77,11 @@ check4.grid(row=3, column=0, sticky="w")
 check5.grid(row=4, column=0, sticky="w")
 
 # %% Defining Functionality - Save Location
-path1 = tk.StringVar(value=config_read("output_path_us")[0])
-path2 = tk.StringVar(value=config_read("output_path_ca")[0])
-path3 = tk.StringVar(value=config_read("output_path_zh")[0])
-path4 = tk.StringVar(value=config_read("output_path_hk")[0])
-path5 = tk.StringVar(value=config_read("output_path_crypto")[0])
+path1 = tk.StringVar(value=config_read_path("output_path_us")[0])
+path2 = tk.StringVar(value=config_read_path("output_path_ca")[0])
+path3 = tk.StringVar(value=config_read_path("output_path_zh")[0])
+path4 = tk.StringVar(value=config_read_path("output_path_hk")[0])
+path5 = tk.StringVar(value=config_read_path("output_path_crypto")[0])
 
 label1 = tk.Label(frame2, text="Stock (USA)")
 label2 = tk.Label(frame2, text="Stock (Canada)")

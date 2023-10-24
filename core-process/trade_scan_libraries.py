@@ -38,6 +38,14 @@ The graph below is an overview of the call structure of the functions.
 │   ├───notice_data_loaded()        # user notice
 │   └───notice_data_extracted()     # user notice
 │
+├───extract_crypto()                # core function for extraction
+│   │
+│   ├───click_load_more()           # dynamic interaction (load more)
+│   │
+│   ├───extract_df_crypto()         # dataframe extraction
+│   │
+│   └────notice_data_loaded()       # user notice
+│
 ├───clean_all()                     # core function for data cleaning
 │   │
 │   ├───df_remove_duplicate()       # remove duplicated columns
@@ -51,13 +59,16 @@ The graph below is an overview of the call structure of the functions.
 │           │ 
 │           └───get_abbrev_list()   # produce a list of possible suffixes
 │
-├───get_and_check_config()          # set output path
+├───config_create()                 # detect config and create one if not exist
+├───config_read_check()             # read from section [Checks] in config
+├───config_read_path()              # read from section [Paths] in config
+├───config_save()                   # save to config
+│
 ├───get_date()                      # get current date
 ├───get_datetime()                  # get current datetime
 │
 ├───notice_start()                  # user notice
-├───notice_save_desired()           # user notice
-├───notice_save_default()           # user notice
+├───notice_save_success()           # user notice
 │
 └───error_save_failed()             # user notice
 """
@@ -147,7 +158,7 @@ def extract_dataframe(soup, headers: list) -> pd.DataFrame:
     return df
 
 
-def extract_df_crypto(soup) -> pd.DataFrame:    
+def extract_df_crypto(soup) -> pd.DataFrame:
     """
     The function takes a BeautifulSoup object to return a pandas dataframe.
 
@@ -155,7 +166,7 @@ def extract_df_crypto(soup) -> pd.DataFrame:
     Return:         a pandas dataframe containing the market data
     """
     df = pd.DataFrame(columns = ['Symbol', 'Name', 'Rank', 'Price', 'Change24h',
-                                 'MarketCap', 'Volume24h', 'Supply', 'Category'])    
+                                 'MarketCap', 'Volume24h', 'Supply', 'Category'])
     trow = soup.find_all("tr", class_="row-RdUXZpkv listRow")
     for row in trow:
         row_content = []
@@ -348,18 +359,37 @@ def config_create() -> None:
     """
     config_file = r"C:\Users\Public\config_trade_scan.ini"
     if not os.path.exists(config_file):
-        content = ("[Paths]\n"
+        content = ("[Checks]\n"
+                   "check_us=Accepted\n"
+                   "check_ca=Accepted\n"
+                   "check_zh=Accepted\n"
+                   "check_hk=Accepted\n"
+                   "check_crypto=Not Accepted\n"
+                   "[Paths]\n"
                    r"output_path_us=C:\Users\Public\Documents" + "\n"
                    r"output_path_ca=C:\Users\Public\Documents" + "\n"
-                   r"output_path_zh=C:\Users\Public\Documents" + "\n"                   
-                   r"output_path_hk=C:\Users\Public\Documents" + "\n"            
+                   r"output_path_zh=C:\Users\Public\Documents" + "\n"
+                   r"output_path_hk=C:\Users\Public\Documents" + "\n"
                    r"output_path_crypto=C:\Users\Public\Documents" + "\n")
         with open(config_file, "w") as f:
             f.write(content)
             f.close()
 
 
-def config_read(selection: str) -> (str, bool):
+def config_read_check(selection: str) -> str:
+    """
+    Given a selection, this function will return the corresponding path.
+
+    Return:         a string that represents either checked or not checked
+    """
+    config_file = r"C:\Users\Public\config_trade_scan.ini"
+    config = configparser.ConfigParser()
+    config.read(config_file)
+    config_check = config.get("Checks", selection)
+    return config_check
+
+
+def config_read_path(selection: str) -> (str, bool):
     """
     Given a selection, this function will return the corresponding path.
 
@@ -371,19 +401,26 @@ def config_read(selection: str) -> (str, bool):
     config = configparser.ConfigParser()
     config.read(config_file)
     config_path = config.get("Paths", selection)
-    
+
     if os.path.isdir(config_path):
         return config_path, True
     else:
         return config_path, False
 
 
-def config_save(path1, path2, path3, path4, path5) -> None:
+def config_save(check1, check2, check3, check4, check5,
+                path1, path2, path3, path4, path5) -> None:
     """
-    Given five strings, this function will save the strings to the config file.
+    Given ten strings, this function will save the strings to the config file.
     """
     config_file = r"C:\Users\Public\config_trade_scan.ini"
-    content = ("[Paths]\n"
+    content = ("[Checks]\n"
+               f"check_us={check1}\n"
+               f"check_ca={check2}\n"
+               f"check_zh={check3}\n"
+               f"check_hk={check4}\n"
+               f"check_crypto={check5}\n"
+               "[Paths]\n"
                f"output_path_us={path1}\n"
                f"output_path_ca={path2}\n"
                f"output_path_zh={path3}\n"

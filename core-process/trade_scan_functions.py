@@ -8,31 +8,31 @@ import trade_scan_libraries as tsl
 
 
 def main1(path, market):
-    
+
     tsl.notice_start(market["name"])
     driver = tsl.webdriver.start_webdriver()
-    
+
     df = tsl.extract_all(driver, market["url"])
     df = tsl.clean_all(df, market["currency"])
     tsl.webdriver.quit_webdriver(driver)
-    
+
     try:
         output_path = path
         output_name = market["output_name"]
         df.to_csv(tsl.os.path.join(output_path, output_name))
         tsl.notice_save_success(market["output_name"])
-    
+
     except:
         tsl.error_save_failed(market["output_name"])
-        
+
 
 def main2(path):
-    
+
     tsl.notice_start("Cryptocurrency")
-    driver = tsl.webdriver.start_webdriver()    
-    
+    driver = tsl.webdriver.start_webdriver()
+
     df = tsl.extract_crypto(driver)
-    df = tsl.clean_all(df, " USD")    
+    df = tsl.clean_all(df, " USD")
     tsl.webdriver.quit_webdriver(driver)
 
     try:
@@ -43,7 +43,7 @@ def main2(path):
 
     except:
         tsl.error_save_failed(output_name)
-        
+
 
 # %% Pre-defined information
 us_market_info = {"url": "https://www.tradingview.com/markets/stocks-usa/market-movers-all-stocks/",

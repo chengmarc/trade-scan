@@ -52,7 +52,7 @@ def initialize_chrome():
 def error_browser():
     print("")
     print(Fore.WHITE + "If you already have Chrome or Firefox installed, but still see this message,",
-                       "please check \"troubleshooting\" section on https://github.com/chengmarc/trade-scan.")  
+                       "please check \"troubleshooting\" section on https://github.com/chengmarc/trade-scan.")
     print("")
     getpass.getpass("Press Enter to quit in a few seconds...")
     sys.exit()
@@ -60,9 +60,9 @@ def error_browser():
 
 # %% Initialize webdriver (Note: selenium and webdrivers are deprecated, requests is used instead.)
 def start_webdriver():    
-    
+
     warnings.filterwarnings("ignore", category=DeprecationWarning)
-    
+
     try:
         driver = initialize_firefox()
         print(Fore.GREEN + "INFO: Mozilla driver initialized.")
@@ -77,7 +77,7 @@ def start_webdriver():
         except:
             print(Fore.RED + "INFO: Chrome not detected, aborting execution...")
             error_browser()
-    
+
     return driver
 
 def quit_webdriver(driver):
@@ -86,4 +86,4 @@ def quit_webdriver(driver):
     print("")
     print(Fore.GREEN + "INFO: Webdriver successfully closed.")
     print("")
-  
+
