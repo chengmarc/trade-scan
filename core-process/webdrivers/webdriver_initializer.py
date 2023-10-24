@@ -59,17 +59,31 @@ def error_browser():
 
 
 # %% Initialize webdriver (Note: selenium and webdrivers are deprecated, requests is used instead.)
-warnings.filterwarnings("ignore", category=DeprecationWarning)
-
-try:
-    driver = initialize_firefox()
-    print(Fore.GREEN + "Mozilla driver initialized.")
-except:
-    print(Fore.YELLOW + "Firefox not detected, attempt to proceed with Chrome...")
-
+def start_webdriver():    
+    
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    
     try:
-        driver = initialize_chrome()
-        print(Fore.GREEN + "Chrome driver initialized.")
+        driver = initialize_firefox()
+        print(Fore.GREEN + "INFO: Mozilla driver initialized.")
+        print("")
     except:
-        print(Fore.RED + "Chrome not detected, aborting execution...")
-        error_browser()
+        print(Fore.YELLOW + "INFO: Firefox not detected, attempt to proceed with Chrome...")
+
+        try:
+            driver = initialize_chrome()
+            print(Fore.GREEN + "INFO: Chrome driver initialized.")
+            print("")
+        except:
+            print(Fore.RED + "INFO: Chrome not detected, aborting execution...")
+            error_browser()
+    
+    return driver
+
+def quit_webdriver(driver):
+    
+    driver.quit()
+    print("")
+    print(Fore.GREEN + "INFO: Webdriver successfully closed.")
+    print("")
+  

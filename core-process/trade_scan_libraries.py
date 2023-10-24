@@ -4,11 +4,12 @@
 @github: https://github.com/chengmarc
 
 """
-import os, sys, time, datetime, configparser, getpass
+import os, sys, time, datetime, configparser, getpass, threading
 script_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(script_path)
 
 try:
+    import tkinter
     import pandas as pd
     from bs4 import BeautifulSoup as bs
     from colorama import init, Fore
@@ -21,8 +22,6 @@ except ImportError as e:
     sys.exit()
 
 import webdrivers.webdriver_initializer as webdriver
-driver = webdriver.driver
-
 
 # %% Function overview
 """
@@ -72,7 +71,6 @@ def click_load_more(driver) -> None:
 
     Precondition:   selenium webdriver has opened a TradingView market page
     """    
-    print("")
     timeout_times = 0
     while True:
         try:
@@ -144,6 +142,36 @@ def extract_dataframe(soup, headers: list) -> pd.DataFrame:
 
         for field in tdata[1:]:
             row_content.append(field.get_text())
+
+        df.loc[len(df)] = row_content
+    return df
+
+
+def extract_df_crypto(soup) -> pd.DataFrame:    
+    """
+    The function takes a BeautifulSoup object to return a pandas dataframe.
+
+    Precondition:   soup has been correctly parsed from crypto market url
+    Return:         a pandas dataframe containing the market data
+    """
+    df = pd.DataFrame(columns = ['Symbol', 'Name', 'Rank', 'Price', 'Change24h',
+                                 'MarketCap', 'Volume24h', 'Supply', 'Category'])    
+    trow = soup.find_all("tr", class_="row-RdUXZpkv listRow")
+    for row in trow:
+        row_content = []
+
+        cell_left = row.find('td', class_='cell-RLhfr_y4 left-RLhfr_y4 cell-fixed-ZtyEm8a1 onscroll-shadow')
+        symbol = cell_left.find('a', class_='apply-common-tooltip tickerNameBox-GrtoTeat tickerName-GrtoTeat')
+        name = cell_left.find('sup', class_='apply-common-tooltip tickerDescription-GrtoTeat')
+        row_content.append(symbol.get_text())
+        row_content.append(name.get_text())
+
+        cells_mid = row.find_all('td', class_='cell-RLhfr_y4 right-RLhfr_y4')
+        for cell_mid in cells_mid:
+            row_content.append(cell_mid.get_text())
+
+        cell_right = row.find('td', class_='cell-RLhfr_y4 left-RLhfr_y4')
+        row_content.append(cell_right.get_text())
 
         df.loc[len(df)] = row_content
     return df
@@ -313,29 +341,57 @@ def df_transform_number(df: pd.DataFrame) -> pd.DataFrame:
 # %% Function for output path and output time
 
 
-def get_and_check_config(selection: str, path: str) -> (str, bool):
+def config_create() -> None:
     """
-    This function checks "config.ini" and returns the path if there is one.
-    If the path is empty or is not valid, then it will return the default path.
+    This function detects if the config file exist.
+    If not, it will create the config file with default save locations.
+    """
+    config_file = r"C:\Users\Public\config_trade_scan.ini"
+    if not os.path.exists(config_file):
+        content = ("[Paths]\n"
+                   r"output_path_us=C:\Users\Public\Documents" + "\n"
+                   r"output_path_ca=C:\Users\Public\Documents" + "\n"
+                   r"output_path_zh=C:\Users\Public\Documents" + "\n"                   
+                   r"output_path_hk=C:\Users\Public\Documents" + "\n"            
+                   r"output_path_crypto=C:\Users\Public\Documents" + "\n")
+        with open(config_file, "w") as f:
+            f.write(content)
+            f.close()
 
-    Return:         a boolean that represents the validity
-                    a string that represents the output path
+
+def config_read(selection: str) -> (str, bool):
     """
+    Given a selection, this function will return the corresponding path.
+
+    Return:         a tuple of str and boolean
+                    the string represents the path
+                    the boolean represents the validity of the path
+    """
+    config_file = r"C:\Users\Public\config_trade_scan.ini"
     config = configparser.ConfigParser()
-    config.read(os.path.join(path, "config.ini"))
+    config.read(config_file)
     config_path = config.get("Paths", selection)
+    
     if os.path.isdir(config_path):
         return config_path, True
-    elif selection == "output_path_us":
-        return os.path.join(path, "market-data", "us-market"), False
-    elif selection == "output_path_ca":
-        return os.path.join(path, "market-data", "ca-market"), False
-    elif selection == "output_path_zh":
-        return os.path.join(path, "market-data", "zh-market"), False
-    elif selection == "output_path_hk":
-        return os.path.join(path, "market-data", "hk-market"), False
-    elif selection == "output_path_crypto":
-        return os.path.join(path, "crypto-data"), False
+    else:
+        return config_path, False
+
+
+def config_save(path1, path2, path3, path4, path5) -> None:
+    """
+    Given five strings, this function will save the strings to the config file.
+    """
+    config_file = r"C:\Users\Public\config_trade_scan.ini"
+    content = ("[Paths]\n"
+               f"output_path_us={path1}\n"
+               f"output_path_ca={path2}\n"
+               f"output_path_zh={path3}\n"
+               f"output_path_hk={path4}\n"
+               f"output_path_crypto={path5}\n")
+    with open(config_file, "w") as f:
+        f.write(content)
+        f.close()
 
 
 def get_date() -> str:
@@ -369,6 +425,7 @@ def notice_start(market: str) -> None:
     print(Fore.WHITE + length*"#")
     print(Fore.WHITE + f"##### Execute for {market} #####")
     print(Fore.WHITE + length*"#")
+    print("")
 
 
 def notice_data_loaded() -> None:
@@ -383,17 +440,9 @@ def notice_data_extracted() -> None:
     print("")
 
 
-def notice_save_desired(filename: str) -> None:
-    print("")
+def notice_save_success(filename: str) -> None:
     print(Fore.WHITE + "Successfully loaded output config.")
     print(Fore.WHITE + f"{filename} has been saved to the desired location.")
-    print("")
-
-
-def notice_save_default(filename: str) -> None:
-    print("")    
-    print(Fore.WHITE + "Output config not detected.")
-    print(Fore.WHITE + f"{filename} has been saved to the default location.")
     print("")
 
 
@@ -431,11 +480,27 @@ def extract_all(driver, url:str) -> pd.DataFrame:
         headers = get_data_headers(soup)
         df = extract_dataframe(soup, headers)
         df_list.append(df)
-        time.sleep(3)
         print(Fore.WHITE, f"- Extracted dataframe for {tab_name}.")
 
     df = pd.concat(df_list, axis=1)
     notice_data_extracted()
+    return df
+
+
+def extract_crypto(driver) -> pd.DataFrame():
+    """
+    This function takes a selenium webdriver to return a pandas dataframe containing crypto market data.
+
+    Precondition:   driver has been initialized
+    Return:         a pandas dataframe containing crypto market data
+    """
+    driver.get("https://www.tradingview.com/markets/cryptocurrencies/prices-all/")
+    click_load_more(driver)
+    notice_data_loaded()
+    
+    html = driver.page_source
+    soup = bs(html, "html.parser")
+    df = extract_df_crypto(soup)
     return df
 
 

@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='tsl-dependencies',
-    version='1.0',
+    version='1.1',
     packages=find_packages(),
-    install_requires=['selenium', 'pandas==2.1.0', 'bs4', 'colorama']
+    install_requires=['tk', 'selenium', 'pandas==2.1.0', 'bs4', 'colorama']
 )
