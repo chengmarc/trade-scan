@@ -1,4 +1,5 @@
 @echo off
+python --version
 echo Starting virtual environment setup.
 echo.
 python -m venv __venv__
