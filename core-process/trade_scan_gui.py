@@ -34,7 +34,7 @@ def thread_execute():
 root = tk.Tk()
 root.title("TradeScan v1.1")
 root.geometry("480x400")
-#root.iconbitmap("trade_scan_icon.ico")
+root.iconbitmap("trade_scan_icon.ico")
 root.resizable(width=False, height=False)
 
 window = tk.Frame(root)

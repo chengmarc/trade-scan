@@ -1,2 +1,2 @@
-pyinstaller --onefile --add-binary "webdrivers\geckodriver.exe;webdrivers\." --add-binary "webdrivers\chromedriver.exe;webdrivers\." --add-data "webdrivers\LICENSE.chromedriver;webdrivers\." --add-data "webdrivers\webdriver_initializer.py;webdrivers\." trade_scan_gui.py
+pyinstaller --onefile --add-binary "webdrivers\geckodriver.exe;webdrivers\." --add-binary "webdrivers\chromedriver.exe;webdrivers\." --add-data "webdrivers\LICENSE.chromedriver;webdrivers\." --add-data "webdrivers\webdriver_initializer.py;webdrivers\." --add-data "trade_scan_icon.ico;." --icon=trade_scan_icon.ico trade_scan_gui.py
 pause
