@@ -10,6 +10,7 @@ os.chdir(script_path)
 
 try:
     import tkinter
+    import requests
     import pandas as pd
     from bs4 import BeautifulSoup as bs
     from colorama import init, Fore

@@ -33,8 +33,7 @@ def initialize_firefox():
     options.add_argument("-headless")
     options.add_argument("--width=1920")
     options.add_argument("--height=1080")
-    service = FirefoxService(executable_path=os.path.join(script_path, "geckodriver.exe"))
-    driver = webdriver.Firefox(service=service, options=options)
+    driver = webdriver.Firefox(executable_path=os.path.join(script_path, "geckodriver.exe"), options=options)
     return driver
 
 
@@ -44,8 +43,7 @@ def initialize_chrome():
     options = ChromeOptions()
     options.add_argument("--headless")
     options.add_argument("--window-size=1920,1080")
-    service = ChromeService(executable_path=os.path.join(script_path, "chromedriver.exe"))
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(executable_path=os.path.join(script_path, "chromedriver.exe"), options=options)
     return driver
 
 
