@@ -14,21 +14,27 @@ from trade_scan_libraries import threading as td
 from trade_scan_libraries import config_create, config_read_check, config_read_path, config_save
 from trade_scan_functions import us_market_info, ca_market_info, zh_market_info, hk_market_info
 from trade_scan_functions import main1, main2
+from webdrivers.webdriver_initializer import start_webdriver, quit_webdriver
 
 config_create()
 
+
 def execute():
+    driver = start_webdriver()
     config_save(accept1.get(), accept2.get(), accept3.get(), accept4.get(), accept5.get(),
                 text1.get(), text2.get(), text3.get(), text4.get(), text5.get())
-    if accept1.get() == "Accepted": main1(text1.get(), us_market_info)
-    if accept2.get() == "Accepted": main1(text2.get(), ca_market_info)
-    if accept3.get() == "Accepted": main1(text3.get(), zh_market_info)
-    if accept4.get() == "Accepted": main1(text4.get(), hk_market_info)
-    if accept5.get() == "Accepted": main2(text5.get())
+    if accept1.get() == "Accepted": main1(driver, text1.get(), us_market_info)
+    if accept2.get() == "Accepted": main1(driver, text2.get(), ca_market_info)
+    if accept3.get() == "Accepted": main1(driver, text3.get(), zh_market_info)
+    if accept4.get() == "Accepted": main1(driver, text4.get(), hk_market_info)
+    if accept5.get() == "Accepted": main2(driver, text5.get())
+    quit_webdriver(driver)
+
 
 def thread_execute():
     thread = td.Thread(target=execute) 
     thread.start()
+
 
 # %% Initialize Window
 root = tk.Tk()
@@ -39,6 +45,7 @@ root.resizable(width=False, height=False)
 
 window = tk.Frame(root)
 window.pack(expand=True)
+
 
 # %% Creating Main Frames
 frame1 = tk.LabelFrame(window, text="Extraction Options")
@@ -51,6 +58,7 @@ frame2.grid(row=2, column=0, sticky="nswe", padx=20, pady=10, columnspan=2)
 frame2.columnconfigure(1, weight=1)
 button1.grid(row=3, column=0, sticky="nswe", padx=20, pady=10)
 button2.grid(row=3, column=1, sticky="nswe", padx=20, pady=10)
+
 
 # %% Defining Functionality - Checkbox
 accept1 = tk.StringVar(value=config_read_check("check_us"))
@@ -75,6 +83,7 @@ check2.grid(row=1, column=0, sticky="w")
 check3.grid(row=2, column=0, sticky="w")
 check4.grid(row=3, column=0, sticky="w")
 check5.grid(row=4, column=0, sticky="w")
+
 
 # %% Defining Functionality - Save Location
 path1 = tk.StringVar(value=config_read_path("output_path_us")[0])
@@ -105,5 +114,7 @@ text3.grid(row=2, column=1, sticky="e")
 text4.grid(row=3, column=1, sticky="e")
 text5.grid(row=4, column=1, sticky="e")
 
+
 # %% Launch User Interface
 window.mainloop()
+

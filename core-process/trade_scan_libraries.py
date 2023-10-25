@@ -10,7 +10,6 @@ os.chdir(script_path)
 
 try:
     import tkinter
-    import requests
     import pandas as pd
     from bs4 import BeautifulSoup as bs
     from colorama import init, Fore
@@ -22,7 +21,8 @@ except ImportError as e:
     getpass.getpass("Press Enter to quit in a few seconds...")
     sys.exit()
 
-import webdrivers.webdriver_initializer as webdriver
+from webdrivers.webdriver_initializer import By
+
 
 # %% Function overview
 """
@@ -34,18 +34,13 @@ The graph below is an overview of the call structure of the functions.
 │   ├───click_tab()                 # dynamic interaction (switch tab)
 │   │
 │   ├───get_data_headers()          # get headers for each tab
-│   ├───extract_dataframe()         # dataframe extraction
-│   │
-│   ├───notice_data_loaded()        # user notice
-│   └───notice_data_extracted()     # user notice
+│   └───extract_dataframe()         # dataframe extraction
 │
 ├───extract_crypto()                # core function for extraction
 │   │
 │   ├───click_load_more()           # dynamic interaction (load more)
 │   │
-│   ├───extract_df_crypto()         # dataframe extraction
-│   │
-│   └────notice_data_loaded()       # user notice
+│   └───extract_df_crypto()         # dataframe extraction
 │
 ├───clean_all()                     # core function for data cleaning
 │   │
@@ -66,13 +61,14 @@ The graph below is an overview of the call structure of the functions.
 ├───config_save()                   # save to config
 │
 ├───get_date()                      # get current date
-├───get_datetime()                  # get current datetime
-│
-├───notice_start()                  # user notice
-├───notice_save_success()           # user notice
-│
-└───error_save_failed()             # user notice
+└───get_datetime()                  # get current datetime
 """
+
+
+# %% Pre-defined tab list
+tab_list = ["overview", "performance", "valuation", "dividends", "profitability",
+            "incomeStatement", "balanceSheet", "cashFlow", "technicals"]
+
 
 # %% Functions for web interactions
 
@@ -82,18 +78,21 @@ def click_load_more(driver) -> None:
     The function takes a selenium webdriver and click the "load" button until everything is loaded.
 
     Precondition:   selenium webdriver has opened a TradingView market page
-    """    
+    """
     timeout_times = 0
     while True:
         try:
             # Wait for up to 3 seconds for the button to be clickable
             driver.implicitly_wait(3)
-            driver.find_element(webdriver.By.CLASS_NAME, "loadButton-SFwfC2e0").click()
-            print(Fore.WHITE, "- Loading information...")
+            driver.find_element(By.CLASS_NAME, "loadButton-SFwfC2e0").click()
+            info_loading()
+
         except:
             # After repeated timeout we conclude that everything has been loaded
             timeout_times += 1
-            if (timeout_times > 10): break
+            if (timeout_times > 10): 
+                info_data_loaded()
+                break
             else: continue
 
 
@@ -104,7 +103,7 @@ def click_tab(driver, tab_name: str) -> None:
     Precondition:   selenium webdriver has opened a TradingView market page
                     tab name is a valid id that represents a clickable object
     """
-    button = driver.find_element(webdriver.By.ID , tab_name)
+    button = driver.find_element(By.ID , tab_name)
     button.click()
 
 
@@ -195,9 +194,9 @@ def extract_df_crypto(soup) -> pd.DataFrame:
 def df_remove_duplicate(df: pd.DataFrame) -> pd.DataFrame:
     """
     The function takes a pandas dataframe and remove duplicate columns.
-    
+
     Return:         a pandas dataframe with unique columns
-    
+
     #Example
     input:  Name    Price   Price   Rating
             NVIDIA  400     400     Buy
@@ -214,16 +213,17 @@ def df_remove_duplicate(df: pd.DataFrame) -> pd.DataFrame:
     df_transposed = df_transposed.drop_duplicates(subset='index', keep='first')
     df_transposed.pop('index')
     df = df_transposed.T
-    print(Fore.WHITE + "Removed duplicated columns.")
+    
+    info_remove_duplicate()
     return df
 
 
 def df_fill_empty_cells(df: pd.DataFrame) -> pd.DataFrame:
     """
     The function takes a pandas dataframe and fill in the empty cells.
-    
+
     Return:         a pandas dataframe with no empty cells
-    
+
     #Example
     input:  Name    Price   Rating
             NVIDIA          Buy
@@ -235,7 +235,8 @@ def df_fill_empty_cells(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.replace("—", "N/A")
     df = df.replace("", "N/A")
-    print(Fore.WHITE + "Filled up empty cells.")
+    
+    info_fill_empty_cells()
     return df
 
 
@@ -256,7 +257,8 @@ def df_substitute_minus(df: pd.DataFrame) -> pd.DataFrame:
     """
     for column in df:
         df[column] = df[column].replace("−", "-", regex=True)
-    print(Fore.WHITE + "Replaced U+2212 with U+002D.")
+
+    info_substitute_minus()
     return df
 
 
@@ -264,9 +266,9 @@ def df_remove_currency(df: pd.DataFrame, string: str) -> pd.DataFrame:
     """
     The function takes a pandas dataframe and a replace string
     to replace all the occurrence of the given string in the given dataframe.
-    
+
     Return:         a pandas dataframe where the given string is replaced
-    
+
     #Example
     input:  the pandas dataframe shown below, " USD"
             Name    Price       Rating
@@ -279,7 +281,8 @@ def df_remove_currency(df: pd.DataFrame, string: str) -> pd.DataFrame:
     """
     for column in df:
         df[column] = df[column].replace(string, "", regex=True)
-    print(Fore.WHITE + "Removed currency symbol.")
+
+    info_remove_currency()
     return df
 
 
@@ -294,21 +297,18 @@ def get_abbrev_list(abbrev: str) -> list:
     return abbrev_list
 
 
-abbrev_list = get_abbrev_list(["K","M","B","T"])
-
-
 def cell_str_to_float(string: str) -> float:
     """
     The function takes a number abbreviation string and returns the number.
 
     Precondition:   string contains an abbreviated number: "10K", "20M", "30B", "40T"
     Return:         a float number such as 10000
-    
+
     #Example
     input:  "768M"
     output: "768000000.00"
     """
-    if string[-2:] in abbrev_list:
+    if string[-2:] in get_abbrev_list(["K","M","B","T"]):
         if string[-1] == 'K':
             number = float(string[:-1])
             factor = 10**3
@@ -332,11 +332,11 @@ def cell_str_to_float(string: str) -> float:
 def df_transform_number(df: pd.DataFrame) -> pd.DataFrame:
     """
     The function takes a pandas dataframe and replace all number abbreviations to float numbers.
-    
+
     Return:         a pandas dataframe where number abbreviations are replaced
-    
+
     #Example
-    input:  Name        MarketCap   Rating            
+    input:  Name        MarketCap   Rating
             Apple       400M        Buy
             Aerotyne    150K        Sell
 
@@ -346,7 +346,72 @@ def df_transform_number(df: pd.DataFrame) -> pd.DataFrame:
     """
     for column in df:
         df[column] = df[column].apply(cell_str_to_float)
-    print(Fore.WHITE + "Transformed abbreviations to numbers.")
+
+    info_transform_number()
+    return df
+
+
+# %% Core functions
+
+
+def extract_all(driver, url:str) -> pd.DataFrame:
+    """
+    This function takes a selenium webdriver and a string of url,
+    to return a pandas dataframe containing all market data, including loaded data from every tab.
+
+    Precondition:   driver has been initialized and url is valid 
+    Return:         a pandas dataframe containing full market data
+    """
+    driver.get(url)
+    click_load_more(driver)
+
+    df_list = []
+    for tab_name in tab_list:
+        click_tab(driver, tab_name)
+        html = driver.page_source
+        soup = bs(html, "html.parser")
+        headers = get_data_headers(soup)
+        df = extract_dataframe(soup, headers)
+        df_list.append(df)
+        info_extracting(tab_name)
+    df = pd.concat(df_list, axis=1)
+
+    return df
+
+
+def extract_crypto(driver) -> pd.DataFrame():
+    """
+    This function takes a selenium webdriver to return a pandas dataframe containing crypto market data.
+
+    Precondition:   driver has been initialized
+    Return:         a pandas dataframe containing crypto market data
+    """
+    driver.get("https://www.tradingview.com/markets/cryptocurrencies/prices-all/")
+    click_load_more(driver)
+    
+    html = driver.page_source
+    soup = bs(html, "html.parser")
+    df = extract_df_crypto(soup)
+
+    return df
+
+
+def clean_all(df:pd.DataFrame, currency:str) -> pd.DataFrame:
+    """
+    This function takes a pandas dataframe and the corresponding currency symbol,
+    to return a pandas dataframe of formatted data.
+
+    Precondition:   currency is a valid currency symbol: " USD", " CAD", etc.
+    Return:         a pandas dataframe containing formatted market data
+    """
+    df = df.map(lambda x: str(x))
+    df = df_remove_duplicate(df)
+    df = df_fill_empty_cells(df)
+    df = df_substitute_minus(df)
+
+    df = df_remove_currency(df, currency)
+    df = df_transform_number(df)
+
     return df
 
 
@@ -466,21 +531,52 @@ def notice_start(market: str) -> None:
     print("")
 
 
-def notice_data_loaded() -> None:
-    print("")
-    print(Fore.GREEN + "All data loaded.")
-    print("")
-
-
-def notice_data_extracted() -> None:
-    print("")
-    print(Fore.GREEN + "All data extracted.")
-    print("")
-
-
 def notice_save_success(filename: str) -> None:
     print(Fore.WHITE + "Successfully loaded output config.")
     print(Fore.WHITE + f"{filename} has been saved to the desired location.")
+    print("")
+
+
+def info_loading() -> None:
+    print(Fore.WHITE + "INFO: Loading information...")
+
+
+def info_data_loaded() -> None:
+    print(Fore.GREEN + "INFO: All data loaded.")
+    print("")
+
+
+def info_extracting(tab_name):
+    print(Fore.WHITE + f"INFO: Extracted dataframe for {tab_name}.")
+
+
+def info_data_extracted() -> None:
+    print(Fore.GREEN + "INFO: All data extracted.")
+    print("")
+
+
+def info_remove_duplicate():
+    print(Fore.WHITE + "INFO: Removed duplicated columns.")
+
+
+def info_fill_empty_cells():
+    print(Fore.WHITE + "INFO: Filled up empty cells.")
+
+
+def info_substitute_minus():
+    print(Fore.WHITE + "INFO: Replaced U+2212 with U+002D.")
+
+
+def info_remove_currency():
+    print(Fore.WHITE + "INFO: Removed currency symbol.")
+
+
+def info_transform_number():
+    print(Fore.WHITE + "INFO: Transformed abbreviations to numbers.")
+
+
+def info_data_cleaned() -> None:
+    print(Fore.GREEN + "INFO: Data Cleaning complete.")
     print("")
 
 
@@ -490,71 +586,3 @@ def error_save_failed(filename: str) -> None:
     getpass.getpass("Press Enter to quit in a few seconds...")
     sys.exit()
 
-
-# %% Pre-defined tab list
-tab_list = ["overview", "performance", "valuation", "dividends", "profitability", 
-            "incomeStatement", "balanceSheet", "cashFlow", "technicals"]
-
-# %% Core functions
-
-
-def extract_all(driver, url:str) -> pd.DataFrame:
-    """
-    This function takes a selenium webdriver and a string of url,
-    to return a pandas dataframe containing all market data, including loaded data from every tab.
-
-    Precondition:   driver has been initialized and url is valid 
-    Return:         a pandas dataframe containing full market data
-    """
-    driver.get(url)
-    click_load_more(driver)
-    notice_data_loaded()
-
-    df_list = []
-    for tab_name in tab_list:
-        click_tab(driver, tab_name)
-        html = driver.page_source
-        soup = bs(html, "html.parser")
-        headers = get_data_headers(soup)
-        df = extract_dataframe(soup, headers)
-        df_list.append(df)
-        print(Fore.WHITE, f"- Extracted dataframe for {tab_name}.")
-
-    df = pd.concat(df_list, axis=1)
-    notice_data_extracted()
-    return df
-
-
-def extract_crypto(driver) -> pd.DataFrame():
-    """
-    This function takes a selenium webdriver to return a pandas dataframe containing crypto market data.
-
-    Precondition:   driver has been initialized
-    Return:         a pandas dataframe containing crypto market data
-    """
-    driver.get("https://www.tradingview.com/markets/cryptocurrencies/prices-all/")
-    click_load_more(driver)
-    notice_data_loaded()
-    
-    html = driver.page_source
-    soup = bs(html, "html.parser")
-    df = extract_df_crypto(soup)
-    return df
-
-
-def clean_all(df:pd.DataFrame, currency:str) -> pd.DataFrame:
-    """
-    This function takes a pandas dataframe and the corresponding currency symbol,
-    to return a pandas dataframe of formatted data.
-    
-    Precondition:   currency is a valid currency symbol: " USD", " CAD", etc.
-    Return:         a pandas dataframe containing formatted market data
-    """
-    df = df.map(lambda x: str(x))
-    df = df_remove_duplicate(df)
-    df = df_fill_empty_cells(df)
-    df = df_substitute_minus(df)
-
-    df = df_remove_currency(df, currency)
-    df = df_transform_number(df)
-    return df
