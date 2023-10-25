@@ -37,7 +37,7 @@ def initialize_firefox():
 
 def initialize_chrome():
     # Current webdriver version:
-    # ChromeDriver 116.0.5845.96 (r1160321)
+    # ChromeDriver 118.0.5993.70
     options = ChromeOptions()
     options.add_argument("--headless")
     options.add_argument("--window-size=1920,1080")
