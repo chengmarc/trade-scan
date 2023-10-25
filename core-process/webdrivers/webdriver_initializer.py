@@ -72,7 +72,7 @@ def initialize_chrome() -> Chrome:
 
 def error_browser():
     print(Fore.WHITE +
-          "GeckoScan currently support:\n" +
+          "TradeScan currently support:\n" +
           "\n" +
           " - Mozilla Firefox (Latest) 32-bit\n" +
           " - Mozilla Firefox (Latest) 64-bit\n" +
