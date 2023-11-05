@@ -84,7 +84,7 @@ def click_load_more(driver) -> None:
         try:
             # Wait for up to 3 seconds for the button to be clickable
             driver.implicitly_wait(3)
-            driver.find_element(By.CLASS_NAME, "loadButton-SFwfC2e0").click()
+            driver.find_element(By.CLASS_NAME, "button-SFwfC2e0").click()
             info_loading()
 
         except:
