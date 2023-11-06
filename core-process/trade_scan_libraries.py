@@ -12,13 +12,11 @@ try:
     import tkinter
     import pandas as pd
     from bs4 import BeautifulSoup as bs
-    from colorama import init, Fore
-    init()
-    print(Fore.GREEN + "Core modules imported.")
+    print("SYSTEM: Core modules imported.")
 
 except ImportError as e:
-    print(f"The module '{e.name}' is not found, please install it using either pip or conda.")
-    getpass.getpass("Press Enter to quit in a few seconds...")
+    print(f"SYSTEM: The module '{e.name}' is not found, please install it using either pip or conda.")
+    getpass.getpass("SYSTEM: Press Enter to quit in a few seconds...")
     sys.exit()
 
 from webdrivers.webdriver_initializer import By
@@ -525,64 +523,64 @@ def get_datetime() -> str:
 def notice_start(market: str) -> None:
     length = len(market) + 12 + 6*2
     print("")
-    print(Fore.WHITE + length*"#")
-    print(Fore.WHITE + f"##### Execute for {market} #####")
-    print(Fore.WHITE + length*"#")
+    print(length*"#")
+    print(f"##### Execute for {market} #####")
+    print(length*"#")
     print("")
 
 
 def notice_save_success(filename: str) -> None:
-    print(Fore.WHITE + "Successfully loaded output config.")
-    print(Fore.WHITE + f"{filename} has been saved to the desired location.")
+    print("SYSTEM: Successfully loaded output config.")
+    print(f"SYSTEM: {filename} has been saved to the desired location.")
     print("")
 
 
 def info_loading() -> None:
-    print(Fore.WHITE + "INFO: Loading information...")
+    print("INFO: Loading information...")
 
 
 def info_data_loaded() -> None:
-    print(Fore.GREEN + "INFO: All data loaded.")
+    print("INFO: All data loaded.")
     print("")
 
 
 def info_extracting(tab_name):
-    print(Fore.WHITE + f"INFO: Extracted dataframe for {tab_name}.")
+    print(f"INFO: Extracted dataframe for {tab_name}.")
 
 
 def info_data_extracted() -> None:
-    print(Fore.GREEN + "INFO: All data extracted.")
+    print("INFO: All data extracted.")
     print("")
 
 
 def info_remove_duplicate():
-    print(Fore.WHITE + "INFO: Removed duplicated columns.")
+    print("INFO: Removed duplicated columns.")
 
 
 def info_fill_empty_cells():
-    print(Fore.WHITE + "INFO: Filled up empty cells.")
+    print("INFO: Filled up empty cells.")
 
 
 def info_substitute_minus():
-    print(Fore.WHITE + "INFO: Replaced U+2212 with U+002D.")
+    print("INFO: Replaced U+2212 with U+002D.")
 
 
 def info_remove_currency():
-    print(Fore.WHITE + "INFO: Removed currency symbol.")
+    print("INFO: Removed currency symbol.")
 
 
 def info_transform_number():
-    print(Fore.WHITE + "INFO: Transformed abbreviations to numbers.")
+    print("INFO: Transformed abbreviations to numbers.")
 
 
 def info_data_cleaned() -> None:
-    print(Fore.GREEN + "INFO: Data Cleaning complete.")
+    print("INFO: Data Cleaning complete.")
     print("")
 
 
 def error_save_failed(filename: str) -> None:
     print("")
-    print(Fore.RED + f"Failed to save {filename}")
-    getpass.getpass("Press Enter to quit in a few seconds...")
+    print(f"SYSTEM: Failed to save {filename}")
+    getpass.getpass("SYSTEM: Press Enter to quit in a few seconds...")
     sys.exit()
 
