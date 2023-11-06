@@ -2,7 +2,7 @@
 **trade-scan** is a web crawler that extract data from the famous analysis platform TradingView (a site that hosts up-to-date data on stock markets). **trade-scan** will help you download all the data into **.csv** format and store it locally, so that you can perform quantitative analysis using your favourite data science tools.
 
 # Pre-requisite
-Make sure you have the latest version of **Mozilla Firefox** or **Google Chrome**. 
+Make sure you have the latest version of **Mozilla Firefox** or version 119 of **Google Chrome**. 
 
 Below is a list of currently supported versions: 
 - Mozilla Firefox (Latest) 32-bit
