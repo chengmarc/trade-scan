@@ -12,13 +12,11 @@ try:
     from selenium.webdriver import Firefox, Chrome
     from selenium.webdriver.firefox.options import Options as FirefoxOptions
     from selenium.webdriver.chrome.options import Options as ChromeOptions
-    from colorama import init, Fore
-    init()
-    print(Fore.GREEN + "Webdriver initializer imported.")
+    print("DRIVER: Webdriver initializer imported.")
 
 except ImportError as e:
-    print(f"The module '{e.name}' is not found, please install it using either pip or conda.")
-    getpass.getpass("Press Enter to quit in a few seconds...")
+    print(f"DRIVER: The module '{e.name}' is not found, please install it using either pip or conda.")
+    getpass.getpass("DRIVER: Press Enter to quit in a few seconds...")
     sys.exit()
 
 
@@ -59,7 +57,7 @@ def initialize_firefox(bit: int) -> Firefox:
 
 def initialize_chrome() -> Chrome:
     # Current webdriver version:
-    # ChromeDriver 118.0.5993.70
+    # ChromeDriver 119.0.6045.105 (r1204232)
 
     options = ChromeOptions()
     options.add_argument("--headless")
@@ -71,8 +69,7 @@ def initialize_chrome() -> Chrome:
 
 
 def error_browser():
-    print(Fore.WHITE +
-          "TradeScan currently support:\n" +
+    print("TradeScan currently support:\n" +
           "\n" +
           " - Mozilla Firefox (Latest) 32-bit\n" +
           " - Mozilla Firefox (Latest) 64-bit\n" +
@@ -96,21 +93,21 @@ def start_webdriver():
 
     try:
         driver = initialize_firefox(64)
-        print(Fore.GREEN + "Webdriver: Mozilla Firefox (64-bit) initialized.")
+        print("DRIVER: Mozilla Firefox (64-bit) initialized.")
     except:
-        print(Fore.YELLOW + "Webdriver: Mozilla Firefox (64-bit) not detected, attempt to proceed with Mozilla Firefox (32-bit)...")
+        print("DRIVER: Mozilla Firefox (64-bit) not detected, attempt to proceed with Mozilla Firefox (32-bit)...")
 
         try:
             driver = initialize_firefox(32)
-            print(Fore.GREEN + "Webdriver: Mozilla Firefox (32-bit) initialized.")
+            print("DRIVER: Mozilla Firefox (32-bit) initialized.")
         except:
-            print(Fore.YELLOW + "Webdriver: Mozilla Firefox (32-bit) not detected, attempt to proceed with Google Chrome (64-bit)...")
+            print("DRIVER: Mozilla Firefox (32-bit) not detected, attempt to proceed with Google Chrome (64-bit)...")
 
             try:
                 driver = initialize_chrome()
-                print(Fore.GREEN + "Webdriver: Google Chrome (64-bit) initialized.")
+                print("DRIVER: Google Chrome (64-bit) initialized.")
             except:
-                print(Fore.RED + "Webdriver: Google Chrome (64-bit) not detected, aborting execution...")
+                print("DRIVER: Google Chrome (64-bit) not detected, aborting execution...")
                 error_browser()
 
     print("")
@@ -120,6 +117,6 @@ def quit_webdriver(driver):
     
     driver.quit()
     print("")
-    print(Fore.GREEN + "INFO: Webdriver successfully closed.")
+    print("DRIVER: Webdriver successfully closed.")
     print("")
 
