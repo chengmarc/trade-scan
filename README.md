@@ -7,7 +7,7 @@ Make sure you have the latest version of **Mozilla Firefox** or **Google Chrome*
 Below is a list of currently supported versions: 
 - Mozilla Firefox (Latest) 32-bit
 - Mozilla Firefox (Latest) 64-bit
-- Google Chrome (Version 118) 64-bit
+- Google Chrome (Version 119) 64-bit
 
 # First time use
 
