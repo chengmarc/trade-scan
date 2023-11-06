@@ -34,11 +34,11 @@ def execute():
 def thread():
     thread = td.Thread(target=execute) 
     thread.start()
-    
+
 
 def exit():
     root.destroy()
-    sys.exit()   
+    sys.exit()
 
 
 # %% Initialize Window

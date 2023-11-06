@@ -4,14 +4,16 @@
 @github: https://github.com/chengmarc
 
 """
-import os, sys, getpass, warnings
+import os, sys, getpass, warnings, subprocess
 script_path = os.path.dirname(os.path.realpath(__file__))
 
 try:
     from selenium.webdriver.common.by import By
     from selenium.webdriver import Firefox, Chrome
     from selenium.webdriver.firefox.options import Options as FirefoxOptions
+    from selenium.webdriver.firefox.service import Service as FirefoxService
     from selenium.webdriver.chrome.options import Options as ChromeOptions
+    from selenium.webdriver.chrome.service import Service as ChromeService
     print("DRIVER: Webdriver initializer imported.")
 
 except ImportError as e:
@@ -46,12 +48,15 @@ def initialize_firefox(bit: int) -> Firefox:
     options.add_argument("--width=1920")
     options.add_argument("--height=1080")
 
+    service = FirefoxService()
+    service.creation_flags = subprocess.CREATE_NO_WINDOW
+
     if bit == 32:
         binary = os.path.join(script_path, "geckodriver32.exe")
-        driver = Firefox(executable_path=binary, options=options)
+        driver = Firefox(executable_path=binary, service=service, options=options)
     if bit == 64:
         binary = os.path.join(script_path, "geckodriver64.exe")
-        driver = Firefox(executable_path=binary, options=options)
+        driver = Firefox(executable_path=binary, service=service, options=options)
     return driver
 
 
@@ -63,8 +68,11 @@ def initialize_chrome() -> Chrome:
     options.add_argument("--headless")
     options.add_argument("--window-size=1920,1080")
 
+    service = ChromeService()
+    service.creation_flags = subprocess.CREATE_NO_WINDOW
+    
     binary = os.path.join(script_path, "chromedriver.exe")
-    driver = Chrome(executable_path=binary, options=options)
+    driver = Chrome(executable_path=binary, service=service, options=options)
     return driver
 
 
@@ -89,7 +97,6 @@ def error_browser():
 
 def start_webdriver():
     warnings.filterwarnings("ignore", category=DeprecationWarning)
-    print("")
 
     try:
         driver = initialize_firefox(64)
@@ -116,7 +123,6 @@ def start_webdriver():
 def quit_webdriver(driver):
     
     driver.quit()
-    print("")
     print("DRIVER: Webdriver successfully closed.")
     print("")
 
