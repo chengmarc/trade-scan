@@ -77,6 +77,11 @@ def click_load_more(driver) -> None:
 
     Precondition:   selenium webdriver has opened a TradingView market page
     """
+    try: 
+        driver.find_element(By.CLASS_NAME, "tv-dialog__close").click()
+    except: 
+        pass
+
     timeout_times = 0
     while True:
         try:
