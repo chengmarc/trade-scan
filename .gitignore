@@ -1,6 +1,6 @@
+*.log
 __venv__
 core-process/__pycache__
 core-process/webdrivers/__pycache__
 core-process/distribution
 core-process/TradeScan.spec
-*.log

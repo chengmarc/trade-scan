@@ -43,7 +43,7 @@ def exit():
 
 # %% Initialize Window
 root = tk.Tk()
-root.title("TradeScan v1.21")
+root.title("TradeScan v1.2")
 root.iconbitmap("trade_scan_icon.ico")
 root.resizable(width=False, height=False)
 
